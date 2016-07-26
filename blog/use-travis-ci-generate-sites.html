@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>利用Travis CI生成网页，支持Tags/Categorys</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover6.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">利用Travis CI生成网页，支持Tags/Categorys</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-01-24">24 Jan 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Jekyll'>Jekyll</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。</p>
+
+<p>　　想要将Tags/Categorys生成分页功能，有几个思路。由于jekyll在运行时，将所有博客生成静态页面，利用query param来分页显示博客，虽然可行，但不可取（因为虽然可以利用javascript动态隐藏一些标题，但实际上还是将所有标题放在同一个页面了）。利用自定义插件生成额外的静态页面，以支持Tags/Categorys的真正分页效果，是比较好的方案，而且Jekyll也支持<a href="http://jekyllrb.com/docs/plugins/">使用自定义插件</a>，但很可惜，GitHub Pages却不支持。</p>
+
+<p>　　<a href="https://pages.github.com/">GitHub Pages</a>是由<a href="https://github.com/jekyll/jekyll">Jekyll</a>提供技术支持的，但考虑到安全因素，所有的Jekyll自定义插件都被禁用了(禁用所有存放在_plugins目录下的插件，但pages是支持部分使用gem加载的插件的)。Jekyll官方提供的解决方案是先在本地生成静态页面，然后将生成好的页面Commit到GitHub上。但是这样做的体验并不好，所以Jekyll的<a href="https://github.com/jekyll/jekyll/issues">GitHub Issues</a>下有很多discussion关于要求Jekyll提供官方支持Tags、Category的插件，以支持更好体验的博客系统。但是2年过去了，官方仍然没有提供相关插件。于是，有的网友就利用一些『奇技淫巧』来实现自动生成分页的功能。</p>
+
+<p>　　<a href="https://travis-ci.org/">Travis CI</a>，是一个在线的、分布式的持续集成服务，用来构建及测试在GitHub托管的代码。Travis CI会在你每次提交代码的时候，自动运行一些脚本。利用这个特性，我们可以在Travis CI上，利用脚本将托管在GitHub的博客生成静态页面，然后再提交到另一个代码仓库中（也就是USERNAME.github.io）上，这样就可以自动完成布署了。</p>
+
+<h2>步骤</h2>
+
+<h3>.travis.yml文件</h3>
+
+<p>　　在根目录添加.travis.yml。.travis.yml用于配置项目，告诉Travis CI项目语言是什么，需要的环境，执行的脚本等等。在这个文件中，还可以添加一些其它的环境变量。利用Travis CI生成网页之后，我们需要将生成好的文件提交到你的GitHub下的USERNAME.github.io仓库，这样就可以完成动态生成了。提交代码需要权限，这里使用了<a href="https://github.com/settings/tokens">GitHub Token</a>。明文放置GitHub Token是不安全的，所以需要将它加密一下。</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># 进入你项目所在目录</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="no">YOUR_BLOG_DIR</span>
+
+<span class="c1"># 生成Travis CI密文，其中USERNAME是你的GitHub的用户名，GIT_EMAIL是你的GitHub所用的邮箱，YOUR_TOKEN是在上面生成的用户凭证</span>
+<span class="err">$</span> <span class="n">travis</span> <span class="n">encrypt</span> <span class="err">‘</span><span class="no">GIT_NAME</span><span class="o">=</span><span class="s2">&quot;USERNAME&quot;</span> <span class="no">GIT_EMAIL</span><span class="o">=</span><span class="s2">&quot;YOUR_EMAIL&quot;</span> <span class="no">GH_TOKEN</span><span class="o">=</span><span class="no">YOUR_TOKEN</span><span class="err">’</span>
+</code></pre></div>
+<p>　　以上具体.travis.yml配置可以参考<a href="https://github.com/Poi-Son/jasper/blob/master/.travis.yml">源代码</a>。</p>
+
+<h3>Rakefile</h3>
+
+<p>　　在.travis中，执行Rake脚本下的的site:deploy，所以在Rakefile，需要实现相关的生成网站逻辑。</p>
+
+<p>　　具体思路大概是这样的。首先，Travis CI会clone一份代码仓库出来，同时根据.travis.yml文件为我们将环境搭建好。接着我们利用在.travis.yml中配置的Token，clone一份YOURUSERNAME.github.io的代码到项目生成的路径。然后执行<code>jekyll build</code>命令，生成静态html文件到YOURUSERNAME.github.io中，然后<code>git commit</code>到你的代码仓库，完成整个过程。</p>
+
+<p>　　以上代码可以参考<a href="https://github.com/Poi-Son/jasper/blob/master/Rakefile">源代码</a></p>
+
+<h2>总结</h2>
+
+<p>　　利用Travis CI，现在仅需要将你的代码提交到GitHub上，然后稍等几份钟之后，你就可以看到USERNAME.github.io的代码已经更新了，自然你的博客也就更新了。</p>
+
+<p>　　GitHub上的<a href="https://github.com/Poi-Son/jasper">jasper</a>项目是通过改造原作者<a href="https://github.com/biomadeira">Fábio Madeira</a>的<a href="https://github.com/biomadeira/jasper">jasper</a>项目而来，感谢作者。</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/use-travis-ci-generate-sites'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/use-travis-ci-generate-sites'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/pspromise">
+        <section class="post">
+            <h2>PSPromise Promise的简易实现</h2>
+            <p>　　[PSPromise](https://github.com/Poi-Son/PSPromise)是Promise的简易实现。遵循CommonJS的Promise/A接口标准，同时实现了一些扩展接口，使PSPromise更实用。
+
+　　近期看到一个很有意思的框架[PromiseKit](h...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover6.jpg)" href="/blog/use-jekyll-build-your-blog">
+        <section class="post">
+            <h2>使用jekyll布署个人博客</h2>
+            <p>　　这篇blog主要用于记录怎么在Mac下使用pages.github.com和jekyll布署个人博客。
+
+步骤
+
+　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
+
+关闭Rootless
+
+　　Mac 10.11之后，苹果为系统加入了一个叫做Rootless的权限工具，用于...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

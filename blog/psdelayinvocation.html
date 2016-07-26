@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>PSDelayInvocation 间隔延时调用</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">PSDelayInvocation 间隔延时调用</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-01-15">15 Jan 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Objective-C'>Objective-C</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　刚刚遇到一个问题，大概是这样的：UISlider滑动时，将UISlider当前值发送给蓝牙。很简单的需求，但是有一个问题，就是不能过于频繁地向蓝牙设备发送消息，否则蓝牙设备由于处理不过来而断开连接。最后测试结果是，最小间隔不能低于0.4秒，否则可能断开连接。</p>
+
+<p>　　刚开始，我觉得很简单。不能频繁调用嘛，用<a href="https://github.com/Poi-Son/PSExtensions/blob/master/PSExtensions/PSExtensions/Foudation/Extensions/NSObject_Kit.h">PSLockFunc</a>将它锁起来就可以了，0.4秒之后再解锁。完成任务！</p>
+
+<p>　　发给客户之后，不久客户向我反馈，说蓝牙现在很稳定不会断开了，但是有一个问题就是快速滑动UISlider之后，要再点击一次控件才能更新蓝牙设备的状态。我想了一会，发现<code>PSLockFunc</code>是将频繁调用的操作丢弃了，所以快速滑动之后，最后一次操作被丢弃了，需要再点击一次，发送多一次命令给蓝牙设备才能更新。</p>
+
+<p>　　知道问题出现在哪之后，就应该去解决这个问题。第一反应是使用个变量去记录最后一次操作的值，然后在停止调用之后再去向蓝牙设备发送这个值。但是这个操作是很频繁操作的，这个<code>最后一次操作</code>也在频繁变更，也无法确认在<mark>适当的时机</mark>将最后一次操作发送给蓝牙，所以这个可行性应该不高。</p>
+
+<p>　　后面在搜资料的时候，发现iOS提供了一个静态方法<code>[+ cancelPreviousPerformRequestsWithTarget:]</code>，用于取消<code>[- performSelector:withObject:afterDelay:]</code>系列的操作。配合这个方法，我将这类需求封装成PSDelayInvocation，用于解决类似的问题。</p>
+
+<h3>解决思路</h3>
+
+<hr>
+
+<p>　　将所有操作封装成NSInvocation，放到一个栈中，然后每隔一段间隔去执行栈顶的操作，同时延迟X秒之后去取栈顶的操作执行（解决需要再点一次才会发送最新的状态给蓝牙设备）。Talk is cheap, show you the code.</p>
+
+<p>　　最终代码。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//ViewController.m</span>
+<span class="k">@implementation</span> <span class="nc">ViewController</span><span class="p">{</span>
+    <span class="n">PSDelayInvocation</span> <span class="o">*</span><span class="n">_delayInvocation</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="n">PSDelayInvocation</span> <span class="o">*</span><span class="p">)</span><span class="nf">delay</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">_delayInvocation</span> <span class="o">?:</span> <span class="p">({</span>
+        <span class="n">_delayInvocation</span> <span class="o">=</span> <span class="p">[</span><span class="n">PSDelayInvocation</span> <span class="n">new</span><span class="p">];</span><span class="c1">//初始化</span>
+        <span class="n">_delayInvocation</span><span class="p">.</span><span class="n">delay</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">;</span><span class="c1">//间隔0.4秒发送最新状态</span>
+        <span class="n">_delayInvocation</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span><span class="nf">sliderValueChanged:</span><span class="p">(</span><span class="bp">UISlider</span> <span class="o">*</span><span class="p">)</span><span class="nv">sender</span><span class="p">{</span>
+    <span class="c1">//将需要处理的业务交给PSDelayInvocation去调用</span>
+    <span class="p">[[</span><span class="nb">self</span><span class="p">.</span><span class="n">delay</span> <span class="nl">prepareWithTarget</span><span class="p">:</span><span class="nb">self</span><span class="p">]</span> <span class="nl">sendValueToBluetooth</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="n">sender</span><span class="p">.</span><span class="n">value</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendValueToBluetooth:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nv">value</span><span class="p">{</span>
+    <span class="c1">//发送给蓝牙设备的代码</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre></div>
+<h3>实现细节</h3>
+
+<hr>
+
+<p>　　将所有操作封装成NSInvocation。<code>[PSDelayInvocation -prepareWithTarget:]</code>返回一个NSProxy对象，用于将操作封装成对象。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//PSDelayInvocation.m</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">prepareWithTarget:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">target</span><span class="p">{</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">proxy</span><span class="p">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">proxy</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>　　保存操作到栈中，同时去调用<code>[- exeInvocation]</code>方法。exeInvocation会判断执行间隔有没有满足间隔，如果满足则取出栈中最上一个操作，调用并清空栈；如果没有满足间隔，则延迟调用自身<code>[- exeInvocation]</code>。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//PSDelayInvocation.m</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">exeInvocation</span><span class="p">{</span>
+    <span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="n">lastExeTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">NSTimeInterval</span> <span class="n">now</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDate</span> <span class="n">date</span><span class="p">]</span> <span class="n">timeIntervalSince1970</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">lastExeTime</span> <span class="o">&lt;</span> <span class="nb">self</span><span class="p">.</span><span class="n">delay</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="k">class</span> <span class="nl">cancelPreviousPerformRequestsWithTarget</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+        <span class="p">[</span><span class="nb">self</span> <span class="nl">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">exeInvocation</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">afterDelay</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">delay</span><span class="p">];</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">lastExeTime</span> <span class="o">=</span> <span class="n">now</span><span class="p">;</span>
+
+    <span class="bp">NSInvocation</span> <span class="o">*</span><span class="n">invocation</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">stack</span> <span class="n">lastObject</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">stack</span> <span class="n">removeAllObjects</span><span class="p">];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">invocation</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">invocation</span> <span class="n">invoke</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>　　完成这一步之后，用户的需求完美满足了。</p>
+
+<p>　　以上代码已集成到<a href="https://github.com/Poi-Son/PSExtensions">PSExtension</a>中，PSDelayInvocation的<a href="https://github.com/Poi-Son/PSExtensions/blob/master/PSExtensions/PSExtensions/Foudation/Extensions/NSObject_Kit.h">源代码地址</a>。</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/psdelayinvocation'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/psdelayinvocation'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover6.jpg)" href="/blog/use-jekyll-build-your-blog">
+        <section class="post">
+            <h2>使用jekyll布署个人博客</h2>
+            <p>　　这篇blog主要用于记录怎么在Mac下使用[pages.github.com](http://pages.github.com)和[jekyll](https://jekyllrb.com)布署个人博客。
+##步骤
+　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
+###关...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/others">
+        <section class="post">
+            <h2>其它工具</h2>
+            <p>　　PSExtensions还将日常很多常用的函数封装起来了，比如将NSDateFormatter缓存起来，防止多次创建引起的性能损耗、字符串转UIColor等等工具。了解这些工具之后，在将来的开发中，就更得心应手了。
+
+　　由于时间关系，这个Post在将来不定时更新新的工具的使用说明。
+
+1...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

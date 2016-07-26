@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>发布库到Maven Central Repository</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">发布库到Maven Central Repository</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-06-30">30 Jun 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　现在Maven几乎成了Java事实上的包管理工具了，Gradle作为后起之秀，也是建立在Maven现有的大量仓库资源之上。使用Maven Central Repository可以很方便地解决第三方库依赖问题。那么，如何将自己开发的包也发布到Maven Central Repository上去呢？</p>
+
+<p>　　<a href="http://central.sonatype.org">Sonatype</a>提供开源项目仓库托管(Open Source Software Repository Hosting，简称OSSRH)服务。但是发布到Sonatype的过程还是比较麻烦的，还是写个博客记录一下。</p>
+
+<h2>申请空间</h2>
+
+<p>　　在Sonatype发布项目，首先得在中央库里申请空间。这个空间可以理解为<em>Group ID</em>，即你的项目都是放在这个目录之下。</p>
+
+<h3>注册JIRA</h3>
+
+<p>　　在<a href="https://issues.sonatype.org/secure/Signup!default.jspa">这里</a>注册一个Sonatype的JIRA帐号。这个没什么好说的，跳过。</p>
+
+<h3>申请空间</h3>
+
+<p>　　在<a href="https://issues.sonatype.org/secure/CreateIssue.jspa?issuetype=21&amp;pid=10134">这里</a>填写一个表单。</p>
+
+<p><img src="../assets/blog/publish-library-to-maven-central-repository/create-new-project-ticket-sample.png" alt=""></p>
+
+<p><strong>特别注意这几项</strong></p>
+
+<ul>
+<li>Group Id：填写你的域名，如果没有域名可以用GitHub的域名(com.github.username)。</li>
+<li>Project URL：GitHub的项目地址</li>
+<li>SCM url：GitHub项目的<em>git clone</em>地址</li>
+</ul>
+
+<p>　　填写完了之后提交。一般来说2个工作日内，这个Issue的状态会变成<code>RESOLVED</code>状态。同时，有一个邮件会发送到你的注册邮箱，邮件正文会附上Sonatype Nexus的上传等地址。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Configuration has been prepared, now you can:
+* Deploy snapshot artifacts into repository https://oss.sonatype.org/content/repositories/snapshots
+* Deploy release artifacts into the staging repository https://oss.sonatype.org/service/local/staging/deploy/maven2
+* Promote staged artifacts into repository &#39;Releases&#39;
+* Download snapshot and release artifacts from group https://oss.sonatype.org/content/groups/public
+* Download snapshot, release and staged artifacts from staging group https://oss.sonatype.org/content/groups/staging
+
+please comment on this ticket when you promoted your first release, thanks
+</code></pre></div>
+<blockquote>
+<p>由于是第一次提交，所以在完成后面的步骤后，需要回来回复一下JIRA的Issue。</p>
+</blockquote>
+
+<h2>上传库</h2>
+
+<p>　　这里以安卓库为例子。</p>
+
+<h3>GnuPG</h3>
+
+<p>　　安装GnuPG。在<a href="https://www.gnupg.org/download/">下载页面</a>最下方，按你自己的系统选择对应的安装包。我选择了OS X。安装完之后，使用命令行生成密码。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gpg --gen-key
+</code></pre></div>
+<p>　　根据提示填写姓名、邮箱、备注等。生成完了之后，可以用以下命令查看key内容。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gpg --list-keys
+/Users/PoiSon/.gnupg/pubring.gpg
+--------------------------------
+pub   2048R/E2F25563 2016-06-29
+uid       <span class="o">[</span>ultimate<span class="o">]</span> poison <span class="o">(</span>yerl<span class="o">)</span> &lt;git@yerl.cn&gt;
+sub   2048R/5D8F2176 2016-06-29
+</code></pre></div>
+<p>　　<code>E2F25563</code>是key id，需要将它上报给服务器。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gpg --keyserver hkp://pool.sks-keyservers.net --send-keys E2F25563
+</code></pre></div>
+<p>　　如果还不是很清楚，可以查看<a href="http://central.sonatype.org/pages/working-with-pgp-signatures.html">官方指导</a>。</p>
+
+<h3>生成库</h3>
+
+<p>　　Android Studio使用Gradle作为项目编译、库依赖工作，那么这里就以Gradle为例子，看如何生成jar包并上传到Sonatype的服务器上。</p>
+
+<p>　　将以下的内容复制到Android Studio项目下的根目录下的<em>upload.gradle</em>文件里。</p>
+
+<p><code>upload.gradle</code></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;maven&#39;</span>
+<span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;signing&#39;</span>
+
+<span class="n">afterEvaluate</span> <span class="p">{</span> <span class="n">project</span> <span class="o">-&gt;</span>
+    <span class="n">uploadArchives</span> <span class="p">{</span>
+        <span class="n">repositories</span> <span class="p">{</span>
+            <span class="n">mavenDeployer</span> <span class="p">{</span>
+                <span class="n">beforeDeployment</span> <span class="p">{</span> <span class="no">MavenDeployment</span> <span class="n">deployment</span> <span class="o">-&gt;</span> <span class="n">signing</span><span class="o">.</span><span class="n">signPom</span><span class="p">(</span><span class="n">deployment</span><span class="p">)</span> <span class="p">}</span>
+
+                <span class="n">repository</span><span class="p">(</span><span class="ss">url</span><span class="p">:</span> <span class="no">RELEASE_REPOSITORY_URL</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">authentication</span><span class="p">(</span><span class="ss">userName</span><span class="p">:</span> <span class="no">NEXUS_USERNAME</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="no">NEXUS_PASSWORD</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">snapshotRepository</span><span class="p">(</span><span class="ss">url</span><span class="p">:</span> <span class="no">SNAPSHOT_REPOSITORY_URL</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">authentication</span><span class="p">(</span><span class="ss">userName</span><span class="p">:</span> <span class="no">NEXUS_USERNAME</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="no">NEXUS_PASSWORD</span><span class="p">)</span>
+                <span class="p">}</span>
+
+                <span class="n">pom</span><span class="o">.</span><span class="n">project</span> <span class="p">{</span>
+                    <span class="n">groupId</span> <span class="no">POM_GROUP_ID</span>
+                    <span class="n">artifactId</span> <span class="no">POM_ARTIFACT_ID</span>
+                    <span class="n">version</span> <span class="no">POM_VERSION</span>
+                    <span class="n">packaging</span> <span class="no">POM_PACKAGING</span>
+
+                    <span class="nb">name</span> <span class="no">SONATYPE_NAME</span>
+                    <span class="n">description</span> <span class="no">SONATYPE_DESCRIPTION</span>
+                    <span class="n">url</span> <span class="no">SONATYPE_URL</span>
+
+                    <span class="n">licenses</span> <span class="p">{</span>
+                        <span class="n">license</span> <span class="p">{</span>
+                            <span class="nb">name</span> <span class="no">SONATYPE_LICENCE_NAME</span>
+                            <span class="n">url</span> <span class="no">SONATYPE_LICENCE_URL</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+
+                    <span class="n">developers</span> <span class="p">{</span>
+                        <span class="n">developer</span> <span class="p">{</span>
+                            <span class="nb">name</span> <span class="no">SONATYPE_DEVELOPER_NAME</span>
+                            <span class="n">email</span> <span class="no">SONATYPE_DEVELOPER_EMAIL</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+
+                    <span class="n">scm</span> <span class="p">{</span>
+                        <span class="n">connection</span> <span class="no">SONATYPE_SCM_CONNECTION</span>
+                        <span class="n">developerConnection</span> <span class="no">SONATYPE_SCM_DEVELOPER_CONNECTION</span>
+                        <span class="n">url</span> <span class="no">SONATYPE_SCM_URL</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">task</span> <span class="n">installArchives</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Upload</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">description</span> <span class="s2">&quot;Installs the artifacts to the local Maven repository.&quot;</span>
+        <span class="n">configuration</span> <span class="o">=</span> <span class="n">configurations</span><span class="o">[</span><span class="s1">&#39;archives&#39;</span><span class="o">]</span>
+        <span class="n">repositories</span> <span class="p">{</span>
+            <span class="n">mavenDeployer</span> <span class="p">{</span>
+                <span class="n">pom</span><span class="o">.</span><span class="n">groupId</span> <span class="o">=</span> <span class="no">POM_GROUP_ID</span>
+                <span class="n">pom</span><span class="o">.</span><span class="n">artifactId</span> <span class="o">=</span> <span class="no">POM_ARTIFACT_ID</span>
+                <span class="n">pom</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="no">POM_VERSION</span>
+
+                <span class="n">repository</span> <span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;file://${System.properties[&#39;user.home&#39;]}/.m2/repository&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">signing</span> <span class="p">{</span>
+        <span class="n">sign</span> <span class="n">configurations</span><span class="o">.</span><span class="n">archives</span>
+    <span class="p">}</span>
+
+    <span class="n">task</span> <span class="n">androidJavadocs</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Javadoc</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="n">android</span><span class="o">.</span><span class="n">sourceSets</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">srcDirs</span>
+        <span class="n">classpath</span> <span class="o">+=</span> <span class="n">project</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">android</span><span class="o">.</span><span class="n">getBootClasspath</span><span class="p">()</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">pathSeparator</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="n">task</span> <span class="n">androidJavadocsJar</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Jar</span><span class="p">,</span> <span class="ss">dependsOn</span><span class="p">:</span> <span class="n">androidJavadocs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">classifier</span> <span class="o">=</span> <span class="s1">&#39;javadoc&#39;</span>
+        <span class="n">from</span> <span class="n">androidJavadocs</span><span class="o">.</span><span class="n">destinationDir</span>
+    <span class="p">}</span>
+
+    <span class="n">task</span> <span class="n">androidSourcesJar</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Jar</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">classifier</span> <span class="o">=</span> <span class="s1">&#39;sources&#39;</span>
+        <span class="n">from</span> <span class="n">android</span><span class="o">.</span><span class="n">sourceSets</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">srcDirs</span>
+    <span class="p">}</span>
+
+    <span class="n">artifacts</span> <span class="p">{</span>
+        <span class="n">archives</span> <span class="n">androidSourcesJar</span>
+        <span class="n">archives</span> <span class="n">androidJavadocsJar</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>　　这段Gradle脚本用于生成Sonatype Nexus要求的所有文件，包括</p>
+
+<ul>
+<li><code>xxxx-xxxx.jar</code> 库的打包文件。Android的库文件后缀名为aar。</li>
+<li><code>xxxx-xxxx.jar.asc</code> PGP签名</li>
+<li><code>xxxx-xxxx-javadoc.jar</code> 项目生成的document</li>
+<li><code>xxxx-xxxx-javadoc.jar.asc</code> PGP签名</li>
+<li><code>xxxx-xxxx-sources.jar</code> 项目的源代码</li>
+<li><code>xxxx-xxxx-sources.jar.asc</code> PGP签名</li>
+</ul>
+
+<p>　　同时，这段脚本还可以将生成的文件、pom等上传到Sonatype Nexus服务器上。</p>
+
+<p>　　修改<em>gradle.properties</em>，按需修改以下属性设置。</p>
+
+<p><code>gradle.properties</code></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># POM属性设置</span>
+<span class="no">POM_VERSION</span><span class="o">=</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span>
+<span class="no">POM_GROUP_ID</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">yerl</span>
+<span class="no">POM_ARTIFACT_ID</span><span class="o">=</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span>
+<span class="no">POM_PACKAGING</span><span class="o">=</span><span class="n">aar</span>
+
+<span class="c1"># sonatype.org要求的相关属性</span>
+<span class="c1">#-&gt; Project Name, Description and URL</span>
+<span class="no">SONATYPE_NAME</span><span class="o">=</span><span class="no">Android</span> <span class="no">Promise</span> <span class="no">Core</span>
+<span class="no">SONATYPE_DESCRIPTION</span><span class="o">=</span><span class="n">A</span> <span class="n">promise</span> <span class="n">implementation</span> <span class="k">for</span> <span class="no">Android</span>
+<span class="no">SONATYPE_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="no">Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span>
+
+<span class="c1">#-&gt; License Information</span>
+<span class="no">SONATYPE_LICENCE_NAME</span><span class="o">=</span><span class="no">The</span> <span class="no">Apache</span> <span class="no">Software</span> <span class="no">License</span><span class="p">,</span> <span class="no">Version</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
+<span class="no">SONATYPE_LICENCE_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="no">LICENSE</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1">#-&gt; Developer Information</span>
+<span class="no">SONATYPE_DEVELOPER_NAME</span><span class="o">=</span><span class="n">yerl</span>
+<span class="no">SONATYPE_DEVELOPER_EMAIL</span><span class="o">=</span><span class="n">git</span><span class="vi">@yerl</span><span class="o">.</span><span class="n">cn</span>
+
+<span class="c1">#-&gt; SCM Information</span>
+<span class="no">SONATYPE_SCM_CONNECTION</span><span class="o">=</span><span class="ss">scm</span><span class="p">:</span><span class="ss">git</span><span class="p">:</span><span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span><span class="o">.</span><span class="n">git</span>
+<span class="no">SONATYPE_SCM_DEVELOPER_CONNECTION</span><span class="o">=</span><span class="ss">scm</span><span class="p">:</span><span class="ss">git</span><span class="p">:</span><span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span><span class="o">.</span><span class="n">git</span>
+<span class="no">SONATYPE_SCM_URL</span><span class="o">=</span><span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span><span class="o">.</span><span class="n">git</span>
+
+
+<span class="c1"># 如果想上传到私服,则将这个改成私服的地址</span>
+<span class="no">RELEASE_REPOSITORY_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//oss</span><span class="o">.</span><span class="n">sonatype</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">service</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">staging</span><span class="o">/</span><span class="n">deploy</span><span class="o">/</span><span class="n">maven2</span>
+<span class="no">SNAPSHOT_REPOSITORY_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//oss</span><span class="o">.</span><span class="n">sonatype</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">snapshots</span>
+</code></pre></div>
+<p>　　另外，由于上传时需要帐号密码、密钥相关信息，如果将这些信息放在项目下的<code>gradle.properties</code>里，并上传到GitHub上的话，会造成信息泄露。因此，可以将这些信息放在<em>~/.gradle/gradle.properties</em>文件里。</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># NEXUS用户名和密码</span>
+<span class="no">NEXUS_USERNAME</span><span class="o">=</span><span class="n">your</span> <span class="n">nexus</span> <span class="n">username</span>
+<span class="no">NEXUS_PASSWORD</span><span class="o">=</span><span class="n">your</span> <span class="n">nexus</span> <span class="n">password</span>
+
+<span class="c1"># 密钥配置</span>
+<span class="n">signing</span><span class="o">.</span><span class="n">keyId</span><span class="o">=</span><span class="n">your</span> <span class="n">pgp</span> <span class="n">key</span> <span class="nb">id</span>
+<span class="n">signing</span><span class="o">.</span><span class="n">password</span><span class="o">=</span><span class="n">your</span> <span class="n">gpg</span> <span class="n">password</span>
+<span class="n">signing</span><span class="o">.</span><span class="n">secretKeyRingFile</span><span class="o">=</span><span class="n">your</span> <span class="n">gpg</span> <span class="n">secring</span> <span class="n">file</span>
+</code></pre></div>
+<blockquote>
+<p>signing.secretKeyRingFile的目录一般是这样的：<em>~/.gnupg/secring.gpg</em></p>
+</blockquote>
+
+<p>　　修改一下库项目的<em>build.gradle</em>文件。</p>
+
+<p><code>build.gradle</code></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;com.android.library&#39;</span>
+<span class="n">apply</span> <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;../upload.gradle&#39;</span>
+
+<span class="n">android</span> <span class="p">{</span>
+    <span class="n">compileSdkVersion</span> <span class="mi">24</span>
+    <span class="n">buildToolsVersion</span> <span class="s2">&quot;24.0.0&quot;</span>
+
+    <span class="n">defaultConfig</span> <span class="p">{</span>
+        <span class="n">minSdkVersion</span> <span class="mi">14</span>
+        <span class="n">targetSdkVersion</span> <span class="mi">24</span>
+    <span class="p">}</span>
+
+    <span class="n">lintOptions</span> <span class="p">{</span>
+        <span class="n">xmlReport</span> <span class="kp">false</span>
+        <span class="n">warningsAsErrors</span> <span class="kp">true</span>
+        <span class="n">quiet</span> <span class="kp">false</span>
+        <span class="n">showAll</span> <span class="kp">true</span>
+        <span class="n">disable</span> <span class="s1">&#39;OldTargetApi&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">compileOptions</span> <span class="p">{</span>
+        <span class="n">sourceCompatibility</span> <span class="no">JavaVersion</span><span class="o">.</span><span class="n">VERSION_1_7</span>
+        <span class="n">targetCompatibility</span> <span class="no">JavaVersion</span><span class="o">.</span><span class="n">VERSION_1_7</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">afterEvaluate</span> <span class="p">{</span> <span class="n">project</span> <span class="o">-&gt;</span>
+    <span class="n">android</span><span class="o">.</span><span class="n">libraryVariants</span><span class="o">.</span><span class="n">all</span> <span class="p">{</span> <span class="n">variant</span> <span class="o">-&gt;</span>
+        <span class="n">tasks</span><span class="o">.</span><span class="n">androidJavadocs</span><span class="o">.</span><span class="n">doFirst</span> <span class="p">{</span>
+            <span class="n">classpath</span> <span class="o">+=</span> <span class="n">files</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">javaCompile</span><span class="o">.</span><span class="n">classpath</span><span class="o">.</span><span class="n">files</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">dependencies</span> <span class="p">{</span>
+    <span class="n">compile</span> <span class="n">fileTree</span><span class="p">(</span><span class="ss">dir</span><span class="p">:</span> <span class="s1">&#39;libs&#39;</span><span class="p">,</span> <span class="kp">include</span><span class="p">:</span> <span class="o">[</span><span class="s1">&#39;*.jar&#39;</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">testCompile</span> <span class="s1">&#39;junit:junit:4.12&#39;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>　　在gradle运行build任务</p>
+
+<p><img src="../assets/blog/publish-library-to-maven-central-repository/run-build-task.png" alt=""></p>
+
+<p>　　如果以上配置都正确的话，你应该在该项目下的<em>build/libs</em>目录下找到4个文件。</p>
+
+<ul>
+<li><code>xxxx-xxxx-javadoc.jar</code></li>
+<li><code>xxxx-xxxx-javadoc.jar.asc</code></li>
+<li><code>xxxx-xxxx-sources.jar</code></li>
+<li><code>xxxx-xxxx-sources.jar.asc</code></li>
+</ul>
+
+<h3>上传库</h3>
+
+<p>　　生成好库之后，就需要将它上传到Sonatype Nexus里去了。上传非常简单，运行Gradle uploadArchives任务就可以了。</p>
+
+<p><img src="../assets/blog/publish-library-to-maven-central-repository/run-upload-task.png" alt=""></p>
+
+<p>　　当在Android的控制台上看到<code>BUILD SUCCESSFUL</code>，我们来到<a href="https://oss.sonatype.org/#welcome">Sonatype Nexus Repository Manager</a>，来看看是否上传成功了。</p>
+
+<blockquote>
+<p>如果你在控制台上看到<em>Could not find metadata cn.yerl:android-promise/maven-metadata.xml in remote (https://oss.sonatype.org/service/local/staging/deploy/maven2)</em>，不需要理会。</p>
+</blockquote>
+
+<p>　　登录后，在左侧菜单选择<em>Staging Repositories</em>菜单。在打开的菜单的列表里，找到一个比较特殊的仓库(其它仓库都是以<em>central_bundles-xxxx</em>命令，这个特殊的仓库一般以你的group id命名)。勾选它，并打开Content选项卡，展开所有目录。</p>
+
+<p><img src="../assets/blog/publish-library-to-maven-central-repository/nexus-staging-repositories-content.png" alt=""></p>
+
+<p>　　如果你的结构与上图差不多，那么恭喜你，你快成功了。否则，回去检查一下哪一步出错了。</p>
+
+<p>　　点击<em>Close</em>。这个操作会触发检验操作，系统会自动检验你上传的包是否符合条件。</p>
+
+<p><img src="../assets/blog/publish-library-to-maven-central-repository/close-staging-repositories.png" alt=""></p>
+
+<p>　　几秒之后，<em>Refresh</em>。再打开页面。如果你的状态下图所示，那么恭喜你，一切顺利。不然，根据错误提示，修改你上传的包。</p>
+
+<p><img src="../assets/blog/publish-library-to-maven-central-repository/staging-repositories-status.png" alt=""></p>
+
+<p>　　现在，你的库已经可以发布了，点击<em>Release</em>即可。</p>
+
+<h3>回复JIRA</h3>
+
+<p>　　由于是第一次发布库，因此，还需要回到JIRA的Issue，回复审批人，告诉他，你已经准备好发布你的库了，请将库同步到Maven Central Repository里。</p>
+
+<p><img src="../assets/blog/publish-library-to-maven-central-repository/reply-jira.png" alt=""></p>
+
+<p>　　等待审批人回复之后，大概10分钟到2个小时，你的库便已经同步到中央库了。</p>
+
+<h3>更新</h3>
+
+<p>　　更新操作就非常简单了，只需要在<em>gradle.properties</em>文件里，将<code>POM_VERSION</code>的版本改为你想要的新版本，然后运行<code>gradle uploadArchives</code>，然后在Sonatype Nexus里面删掉<em>aar</em>相关的文件，然后<em>Close</em>、<em>Release</em>即可。过一段时间后，中央库就会同步过来了。</p>
+
+<blockquote>
+<p>据说Sonatype Nexus是每2个小时同步一次，所以可能需要等待一段时间才可以使用。</p>
+</blockquote>
+
+<h3>发布新的包</h3>
+
+<p>　　与更新一样的步骤，不需要完全走完所有流程。</p>
+
+<blockquote>
+<p>以上内容不是特别完整，可以在<a href="http://central.sonatype.org/pages/producers.html">这里</a>查看上传的完整流程。</p>
+</blockquote>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/publish-library-to-maven-center-repository'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/publish-library-to-maven-center-repository'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/java-environment">
+        <section class="post">
+            <h2>Java环境变量</h2>
+            <p># Ubuntu
+　　下载jdk，解压到*/opt/java/*目录下。
+
+> 我下载的版本是*jdk1.8.0_91*，所以我的路径是*/opt/java/jdk1.8.0_91*
+
+　　打开*Terminal*，编辑*/etc/profile*文件。
+
+```bash
+$ nano /et...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/ubuntu-mount-disk">
+        <section class="post">
+            <h2>Ubuntu自动挂载硬盘分区</h2>
+            <p>　　最近公司增配了一个固态硬盘，然后将老硬盘换下，固态作为系统分区。老硬盘2T不能浪费，作为备份盘。但是每次Ubuntu开机，都要手动挂载一下硬盘，比较烦。于是折腾一下，让系统开机之后自动挂载硬盘。
+
+　　查看硬盘挂载信息。
+$ sudo blkid
+
+/dev/sda1: LABEL=&qu...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

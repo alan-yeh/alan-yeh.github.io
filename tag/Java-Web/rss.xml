@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <channel>
+        <atom:link href="rss" rel="self" type="application/rss+xml" />
+        
+        <title><![CDATA[Alan Yeh - Java-Web]]></title>
+        <link>http://yerl.cn/tag/Java-Web</link>
+<!--        需要修复-->
+        <description><![CDATA[]]></description>
+        
+        
+        <language>zh-cn</language>
+        <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
+        
+<item>
+    <title><![CDATA[管理Nexus Repository OSS]]></title>
+    <link>http://yerl.cn/blog/manage-nexus-repository-oss</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-07-17T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/manage-nexus-repository-oss]]></guid>
+    <description><![CDATA[目录
+
+
+支持域名访问
+
+
+支持域名访问
+
+　　Nexus默认使用8081端口，总是输入IP+端口，略麻烦。因此折腾一下，使用域名来访问Nexus。
+
+修改Nexus配置
+
+　　Nexus默认Context Path是/nexus。如果继续使用这个路径的话，使用域名访问会没办法登录。因此需要先修改Nexus的配置。
+
+/opt/nexus/nexus-2.13.0-01/conf/nexus...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[搭建Nexus Repository OSS]]></title>
+    <link>http://yerl.cn/blog/setup-nexus-repository-oss</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-07-17T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/setup-nexus-repository-oss]]></guid>
+    <description><![CDATA[　　前面讲到，如何将Java库发布到中央库。Sonatype提供开源项目仓库托管服务，但是过程比较复杂，而且有的项目作为企业内部项目，不合适开源发布。但是又想使用maven的话，那怎么解决呢？那么，这篇博文可以为你解决这个问题。搭建Nexus Repository OOS私服。
+
+
+搭建环境为Ubuntu 16.04
+
+
+下载Nexus Repository OSS
+
+　　来到官方下载地址。...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Java环境变量]]></title>
+    <link>http://yerl.cn/blog/java-environment</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 05 Jul 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-07-05T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/java-environment]]></guid>
+    <description><![CDATA[Ubuntu
+
+　　下载jdk，解压到/opt/java/目录下。
+
+
+我下载的版本是jdk1.8.0_91，所以我的路径是/opt/java/jdk1.8.0_91
+
+
+　　打开Terminal，编辑/etc/profile文件。
+$ nano /etc/profile
+
+　　在最后面添加java环境变量
+export JAVA_HOME=/opt/java/jdk1.8.0_91
+exp...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[发布库到Maven Central Repository]]></title>
+    <link>http://yerl.cn/blog/publish-library-to-maven-center-repository</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-30T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/publish-library-to-maven-center-repository]]></guid>
+    <description><![CDATA[　　现在Maven几乎成了Java事实上的包管理工具了，Gradle作为后起之秀，也是建立在Maven现有的大量仓库资源之上。使用Maven Central Repository可以很方便地解决第三方库依赖问题。那么，如何将自己开发的包也发布到Maven Central Repository上去呢？
+
+　　Sonatype提供开源项目仓库托管(Open Source Software Rep...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[使用Maven构建Java工程]]></title>
+    <link>http://yerl.cn/blog/building-java-projects-with-maven</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 28 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-28T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/building-java-projects-with-maven]]></guid>
+    <description><![CDATA[　　这篇博客会带你一起来使用Maven构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Maven来构建它。为了让我们更关注如何使用Maven，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir gs-maven
+$ cd gs-maven
+
+　　使用命令mkdir -p src/main/jav...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[使用Gradle构建Java工程]]></title>
+    <link>http://yerl.cn/blog/building-java-projects-with-gradle</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-27T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/building-java-projects-with-gradle]]></guid>
+    <description><![CDATA[　　这篇博客会带你一起来使用Gradle构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Gradle来构建它。为了让我们的精力更专注于如何使用Gralde，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir gs-gradle
+$ cd gs-gradle
+
+　　使用命令mkdir -p src...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Mac OS X下Gradle的安装与配置]]></title>
+    <link>http://yerl.cn/blog/macos-setup-gradle</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-26T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/macos-setup-gradle]]></guid>
+    <description><![CDATA[下载Gradle
+
+到Gradle官网下载安装包，选择下载Binary only distribution。下载完了之后，解压到一个目录，比如Users/yerl/gradle。
+
+设置环境变量
+
+打开终端，输入以下命令，编辑bash_profile
+$ nano ~/.bash_profile
+
+添加以下代码在最后，保存并退出：
+# gradle
+export GRADLE_HOME=/U...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Mac OS X下Maven的安装与配置]]></title>
+    <link>http://yerl.cn/blog/macos-setup-maven</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-25T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/macos-setup-maven]]></guid>
+    <description><![CDATA[下载Maven
+
+到Maven官网下载安装包，选择下载Binary zip archive。下载完了之后，解压到一个目录，比如Users/yerl/maven。
+
+设置Maven环境变量
+
+打开终端，输入以下命令，编辑bash_profile
+$ nano ~/.bash_profile
+
+添加以下代码在最后，保存并退出：
+# maven
+export M2_HOME=/Users/yerl...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Intellij idea 创建maven webapp步骤]]></title>
+    <link>http://yerl.cn/blog/idea-create-maven-webapp</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 25 May 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-05-25T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/idea-create-maven-webapp]]></guid>
+    <description><![CDATA[　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
+
+
+
+　　以我的习惯，我会先建一个空Project，然后再添加Module。因此下一步，选择新建Empty Project。
+
+
+
+　　选择保存目录，确认。接着选择新建Module。
+
+
+
+　　在这个界面选择Maven，勾选上Create from archetype，选择org.apache.m...]]></description>
+</item>
+
+
+    </channel>
+</rss>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>GitLab管理全过程</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">GitLab管理全过程</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-05-06">06 May 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Git'>Git</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <h1>目录</h1>
+
+<ul>
+<li><a href="#setup-email">设置发送邮箱</a></li>
+<li><a href="#support-domain">支持域名访问</a></li>
+<li><a href="#auto-backup">自动备份</a></li>
+<li><a href="#restore-backup">备份恢复</a></li>
+<li><a href="#cache-clear">清除缓存</a></li>
+</ul>
+
+<h2><a id="setup-email"></a>设置发送邮箱</h2>
+
+<p>　　GitLab在使用的过程中，在很多地方都需要使用邮箱来发送通知，比如注册通知、权限变更通知、合并通知等等，因此需要为GitLab准备一个邮箱，用于发送这些通知。</p>
+
+<p>　　以下演示了如何配置QQ企业邮作为GitLab的发送邮箱。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /etc/gitlab/gitlab.rb
+</code></pre></div>
+<p>　　修改以下内容。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gitlab_rails<span class="o">[</span><span class="s1">&#39;time_zone&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;UTC&#39;</span>
+<span class="c"># 允许使用邮箱</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;gitlab_email_enabled&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="c"># 使用QQ企业邮的邮箱</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;gitlab_email_from&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;xxxx@xxxx.com&#39;</span>
+<span class="c"># 修改这个可以改变发送邮件的发送人</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;gitlab_email_display_name&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;GitLab&#39;</span>
+<span class="c"># 使用QQ企业邮的邮箱</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;gitlab_email_reply_to&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;xxxx@xxxx.com&#39;</span>
+<span class="c"># 这个好像是设置邮件的主题，设置为2，虽然我不知道其它的主题是怎么样的。</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;gitlab_default_theme&#39;</span><span class="o">]</span> <span class="o">=</span> 2
+
+<span class="c">################################</span>
+<span class="c"># GitLab email server settings #</span>
+<span class="c">################################</span>
+<span class="c"># see https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/smtp.md#smtp-settings</span>
+<span class="c"># Use smtp instead of sendmail/postfix.</span>
+
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_enable&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="nb">true</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_address&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;smtp.exmail.qq.com&quot;</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_port&#39;</span><span class="o">]</span> <span class="o">=</span> 465
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_user_name&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;xxxx@xxxx.com&quot;</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_password&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;xxxxxx&quot;</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_domain&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;qq.com&quot;</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_authentication&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;login&quot;</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_enable_starttls_auto&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="nb">true</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_tls&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="nb">true</span>
+</code></pre></div>
+<p>　　修改完配置后，需要让配置生效。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gitlab-ctl reconfigure
+</code></pre></div>
+<p>　　这样，GitLab就可以使用这个邮箱来发送邮件了。</p>
+
+<h2><a id="support-domain"></a>支持域名访问</h2>
+
+<p>　　使用域名作为访问地址，除了个性化、容易记之外，还有其它优点。在更换服务器的时候，只需要在域名提供商那边修改一下域名所指向的地址就可以了，所有的仓库都不需要改动。域名不仅仅可以指向外网地址，还可以指向内网地址（比如192.168.1.2），同样也是有效的。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /etc/gitlab/gitlab.rb
+</code></pre></div>
+<p>　　修改以下内容。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">## Url on which GitLab will be reachable.</span>
+<span class="c">## For more details on configuring external_url see:</span>
+<span class="c">## https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md#configuring-the-external-url-for-gitlab</span>
+<span class="c">## 将external_url改成你的域名地址</span>
+external_url <span class="s1">&#39;http://xxxx.com&#39;</span>
+</code></pre></div>
+<p>　　修改完配置后，需要让配置生效。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gitlab-ctl reconfigure
+</code></pre></div>
+<p>　　去域名提供商的解析中心，将你的域名指向你的GitLab服务器地址即可。如果你的域名在阿里云上购买的，可以这么设置。
+<img src="../assets/blog/gitlab-management/setup-domain.png" alt=""></p>
+
+<blockquote>
+<p>我的GitLab服务器的内网IP是192.168.9.80</p>
+</blockquote>
+
+<p>　　然后就可以使用你的个性域名访问GitLab了。同时，GitLab中所有仓库的地址都指向这个域名了。</p>
+
+<h2><a id="auto-backup"></a>自动备份</h2>
+
+<p>　　GitLab作为源代码管理器，需要好好保护源代码的安全。因此，一个自动、定期备份GitLab是需要的。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /etc/gitlab/gitlab.rb
+</code></pre></div>
+<p>　　修改以下内容。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># 自定义管理路径</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;manage_backup_path&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="c"># 备份存放地址</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;backup_path&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;/home/user/Gitlab_Backup&quot;</span>
+<span class="c"># GitLab会将数据打包成tar.gz，这个是用来设置它的访问级别，保存源代码。</span>
+gitlab_rails<span class="o">[</span><span class="s1">&#39;backup_archive_permissions&#39;</span><span class="o">]</span> <span class="o">=</span> 0644
+</code></pre></div>
+<p>　　修改完配置后，需要让配置生效。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gitlab-ctl reconfigure
+</code></pre></div>
+<p>　　以上设置，只是设置备份的路径和权限，并没有执行备份的动作。那么要自动备份的话，我们可以借助Linux的定期任务来完成。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># 以下命令需要在超级管理员(su)权限下执行。在Ubuntu下，可以直接在命令行下输入su并输入密码进入此模式</span>
+<span class="nv">$ </span>crontab -e
+</code></pre></div>
+<p>　　第一次执行的时候，会让你选择编辑器。我表示记不住vim的快捷键，所以我还是使用更简单的<code>nano</code>这个编辑器来编辑。在文件的最末端，添加以下的代码</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># 每天8点执行Gitlab备份任务</span>
+<span class="m">0</span> <span class="m">8</span> * * * sudo gitlab-rake gitlab:backup:create
+
+<span class="c"># 每天7点55分删除3天前的备份，如果想保存一个月的备份记录，可以改成 -mtime +30</span>
+<span class="m">55</span> <span class="m">7</span> * * * sudo find /home/yerl/Gitlab_Backup -name <span class="s2">&quot;*.tar&quot;</span> -mtime +3 -exec rm -rf <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
+<blockquote>
+<p>GitLab的备份文件文件名的格式大概是这样的<code>1459920857_gitlab_backup.tar</code></p>
+</blockquote>
+
+<p>　　OK，这样子，GitLab每天都会去备份一次源代码，并且，会自动删除3天前的备份。</p>
+
+<h2><a id="restore-backup"></a>备份恢复</h2>
+
+<p>　　上面讲到了，如何定期备份。备份有几种用途，第一个，可以保障源代码的安全，第二个，当我迁移服务器的时候，我可以将备份恢复到新的服务器上，这样，新的服务器就可以正常工作了。那么，这个备份应该如何使用呢？</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># 停止GitLab相关服务</span>
+<span class="nv">$ </span>sudo gitlab-ctl stop unicorn
+<span class="nv">$ </span>sudo gitlab-ctl stop sidekiq
+
+<span class="c"># 从备份目录中里的1459920857_gitlab_backup.tar中恢复</span>
+<span class="nv">$ </span>gitlab-rake gitlab:backup:restore <span class="nv">BACKUP</span><span class="o">=</span>1459920857
+
+<span class="c"># 启动Gitlab</span>
+<span class="nv">$ </span>sudo gitlab-ctl start
+</code></pre></div>
+<blockquote>
+<p>注意：GitLab的备份和恢复都需要在同一版本内进行，不同版本间的备份文件不通用。</p>
+</blockquote>
+
+<h2><a id="cache-clear"></a>清除缓存</h2>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gitlab-rake cache:clear
+</code></pre></div>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/gitlab-management'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/gitlab-management'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/idea-create-maven-webapp">
+        <section class="post">
+            <h2>Intellij idea 创建maven webapp步骤</h2>
+            <p>　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
+
+![](../assets/blog/idea-create-maven-webapp/intellij_idea_create_new_project.png)
+
+　　以我的习惯，我会先建一个空...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/install-gitlab">
+        <section class="post">
+            <h2>搭建GitLab全过程</h2>
+            <p>　　毕业后，遇到的公司都是使用SVN作为源代码管理工具，本来也觉得没什么十分大的不便。后来接触了GitHub，还有Git工作流等之后，发现SVN在团队合作的时候，有相当多的不足。另外，出于私人的一些原因，我的写的一些代码中，有一部分是开源放在GitHub上的，要Git与SVN协作管理一份代码，...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

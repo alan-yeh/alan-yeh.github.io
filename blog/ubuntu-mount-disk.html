@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>Ubuntu自动挂载硬盘分区</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">Ubuntu自动挂载硬盘分区</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-06-29">29 Jun 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Linux'>Linux</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　最近公司增配了一个固态硬盘，然后将老硬盘换下，固态作为系统分区。老硬盘2T不能浪费，作为备份盘。但是每次Ubuntu开机，都要手动挂载一下硬盘，比较烦。于是折腾一下，让系统开机之后自动挂载硬盘。</p>
+
+<p>　　查看硬盘挂载信息。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo blkid
+
+/dev/sda1: <span class="nv">LABEL</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span> <span class="nv">UUID</span><span class="o">=</span><span class="s2">&quot;2662a892-8f1d-42cc-b474-a22aa643b9e3&quot;</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">&quot;ext4&quot;</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&quot;ca795365-9cc0-4b41-a5f4-7f88256cc3df&quot;</span>
+/dev/sdb1: <span class="nv">UUID</span><span class="o">=</span><span class="s2">&quot;B138-0525&quot;</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">&quot;vfat&quot;</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&quot;051aab1d-d4a1-4649-9982-7b9e75702a4e&quot;</span>
+/dev/sdb2: <span class="nv">UUID</span><span class="o">=</span><span class="s2">&quot;87e2afb3-33dc-46a7-b407-92eed240d037&quot;</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">&quot;ext4&quot;</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&quot;93b5108a-f1df-40ed-97b0-371615ec57b2&quot;</span>
+/dev/sdb3: <span class="nv">UUID</span><span class="o">=</span><span class="s2">&quot;09b7568a-3d1a-4c22-a9ca-04e75a5542c4&quot;</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">&quot;swap&quot;</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&quot;87f8393c-4cd8-49ba-92fd-7773b1808740&quot;</span>
+</code></pre></div>
+<p>　　修改分区挂载配置表。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo nano /etc/fstab
+</code></pre></div>
+<p>　　配置文件包含以下几项信息：</p>
+
+<ul>
+<li><code>file system</code>: 分区定位，可以给磁盘号、UUID或Label，在<code>blkid</code>里，我们可以获得它的UUID或LABEL(如果存在)。</li>
+<li><code>mount point</code>: 挂载点。例如可以挂载在<code>/backup</code>，那么以后就可以使用<code>/backup</code>来访问硬盘。</li>
+<li><code>type</code>: 挂载磁盘类型。在<code>blkid</code>中可以找到TYPE。</li>
+<li><code>options</code>: 挂载参数。</li>
+<li><code>dump</code>: 磁盘备份，默认为0，不备份。</li>
+<li><code>pass</code>: 磁盘检查，默认为0，不检查。</li>
+</ul>
+
+<p>　　我现在想要将<em>/dev/sda1</em>挂载到<em>/backup</em>目录下，那么根据<code>blkid</code>给出的信息，那么可以像最后一行这样写：</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># /etc/fstab: static file system information.</span>
+<span class="c">#</span>
+<span class="c"># Use &#39;blkid&#39; to print the universally unique identifier for a</span>
+<span class="c"># device; this may be used with UUID= as a more robust way to name devices</span>
+<span class="c"># that works even if disks are added and removed. See fstab(5).</span>
+<span class="c">#</span>
+<span class="c"># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span>
+<span class="c"># / was on /dev/sda2 during installation</span>
+<span class="nv">UUID</span><span class="o">=</span>87e2afb3-33dc-46a7-b407-92eed240d037 /               ext4    <span class="nv">errors</span><span class="o">=</span>remount-ro <span class="m">0</span>       1
+<span class="c"># /boot/efi was on /dev/sda1 during installation</span>
+<span class="nv">UUID</span><span class="o">=</span>B138-0525  /boot/efi       vfat    <span class="nb">umask</span><span class="o">=</span><span class="m">0077</span>      <span class="m">0</span>       1
+<span class="c"># swap was on /dev/sda3 during installation</span>
+<span class="nv">UUID</span><span class="o">=</span>09b7568a-3d1a-4c22-a9ca-04e75a5542c4 none            swap    sw              <span class="m">0</span>       0
+
+<span class="c"># backup</span>
+<span class="nv">UUID</span><span class="o">=</span>2662a892-8f1d-42cc-b474-a22aa643b9e3 /backup ext4 <span class="nv">errors</span><span class="o">=</span>remount-ro <span class="m">0</span> 0
+</code></pre></div>
+<p>　　检查并挂载新添项。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo mount -a
+</code></pre></div>
+<p>　　<code>mount -a</code>会将<em>/etc/fstab</em>中的项全部挂载，如果有错，则会提示错误。然后根据错误找出原因修改。</p>
+
+<p>　　最后，重启试试效果。</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/ubuntu-mount-disk'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/ubuntu-mount-disk'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/publish-library-to-maven-center-repository">
+        <section class="post">
+            <h2>发布库到Maven Central Repository</h2>
+            <p>　　现在Maven几乎成了Java事实上的包管理工具了，Gradle作为后起之秀，也是建立在Maven现有的大量仓库资源之上。使用Maven Central Repository可以很方便地解决第三方库依赖问题。那么，如何将自己开发的包也发布到Maven Central Repository上...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/building-java-projects-with-maven">
+        <section class="post">
+            <h2>使用Maven构建Java工程</h2>
+            <p>　　这篇博客会带你一起来使用Maven构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Maven来构建它。为了让我们更关注如何使用Maven，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir g...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

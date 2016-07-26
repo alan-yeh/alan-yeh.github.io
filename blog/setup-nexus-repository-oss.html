@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>搭建Nexus Repository OSS</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">搭建Nexus Repository OSS</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-07-17">17 Jul 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　前面讲到，<a href="/blog/publish-library-to-maven-center-repository">如何将Java库发布到中央库</a>。<a href="http://central.sonatype.org">Sonatype</a>提供开源项目仓库托管服务，但是过程比较复杂，而且有的项目作为企业内部项目，不合适开源发布。但是又想使用maven的话，那怎么解决呢？那么，这篇博文可以为你解决这个问题。搭建Nexus Repository OOS私服。</p>
+
+<blockquote>
+<p>搭建环境为Ubuntu 16.04</p>
+</blockquote>
+
+<h2>下载Nexus Repository OSS</h2>
+
+<p>　　来到<a href="http://www.sonatype.com/download-oss-sonatype">官方下载地址</a>。现在Nexus Repository Manager OSS有两个版本，一个是3.xx版，一个是2.xx版。这里选择2.xx版的tar.gz。将下载回来的压缩包放在桌面。</p>
+
+<h2>配置Java环境</h2>
+
+<p>　　Nexus Repository OSS需要依赖Java环境。如果你还没有搭建Java环境，可以在<a href="/blog/java-environment">这里</a>学习。</p>
+
+<h2>配置Nexus Repository OSS</h2>
+
+<p>　　在<em>/opt</em>目录下新建文件夹<em>nexus</em>，然后在命令行中进入此文件夹。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> /opt
+<span class="nv">$ </span>sudo mkdir nexus
+<span class="nv">$ </span><span class="nb">cd</span> /opt/nexus
+</code></pre></div>
+<p>　　将桌面的压缩包复制并解压到此目录。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo cp ~/Desktop/nexus-2.13.0-01-bundle.tar.gz /opt/nexus
+<span class="nv">$ </span>sudo tar xvfz nexus-2.13.0-01-bundle.tar.gz
+</code></pre></div>
+<p>　　此时的目录结构如下</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">└── nexus
+    └── nexus-2.13.0-01
+    └── sonatype-work
+    └── nexus-2.13.0-01-bundle.tar.gz
+</code></pre></div>
+<p>　　在Terminal中打开<em>/opt/nexus/nexus-2.13.0-01/bin/jsw/conf/wrapper.conf</em>文件</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /opt/nexus/nexus-2.13.0-01/bin/jsw/conf/wrapper.conf
+</code></pre></div>
+<p>　　修改<code>wrapper.java.command</code>的属性如下。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">wrapper.java.command=/opt/java/jdk1.8.0_91/bin/java
+</code></pre></div>
+<blockquote>
+<p>此属性值根据你的Java环境修改</p>
+</blockquote>
+
+<p>　　修改<em>/opt/nexus/nexus-2.13.0-01/bin/nexus</em></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /opt/nexus/nexus-2.13.0-01/bin/nexus
+</code></pre></div>
+<p>　　将<code>RUN_AS_USER</code>属性改为root</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># NOTE - This will set the user which is used to run the Wrapper as well as
+#  the JVM and is not useful in situations where a privileged resource or
+#  port needs to be allocated prior to the user being changed.
+RUN_AS_USER=root
+</code></pre></div>
+<h2>启动Nexus Repository OSS</h2>
+
+<p>　　Terminal来到<em>/opt/nexus/nexus-2.13.0-01/bin</em>目录下。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> /opt/nexus/nexus-2.13.0-01/bin
+<span class="nv">$ </span>./nexus start
+</code></pre></div>
+<p>　　启动成功了</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">****************************************
+WARNING - NOT RECOMMENDED TO RUN AS ROOT
+****************************************
+Starting Nexus OSS...
+Started Nexus OSS.
+</code></pre></div>
+<p>　　启动成功后，可以打开<a href="http://localhost:8081/nexus">http://localhost:8081/nexus</a>，查看是否正常运行。如果打开不了，可以查看<em>/opt/nexus/nexus-2.13.0-01/logs/wrapper.log</em>文件。</p>
+
+<p><img src="../assets/blog/setup-nexus-repository-oss/setup-success.png" alt=""></p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/setup-nexus-repository-oss'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/setup-nexus-repository-oss'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/manage-nexus-repository-oss">
+        <section class="post">
+            <h2>管理Nexus Repository OSS</h2>
+            <p># 目录
+- [支持域名访问](#support-domain)
+
+## 支持域名访问
+　　Nexus默认使用8081端口，总是输入IP+端口，略麻烦。因此折腾一下，使用域名来访问Nexus。
+
+### 修改Nexus配置
+　　Nexus默认`Context Path`是*/nexus*。如果...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/java-environment">
+        <section class="post">
+            <h2>Java环境变量</h2>
+            <p>Ubuntu
+
+　　下载jdk，解压到/opt/java/目录下。
+
+
+我下载的版本是jdk1.8.0_91，所以我的路径是/opt/java/jdk1.8.0_91
+
+
+　　打开Terminal，编辑/etc/profile文件。
+$ nano /etc/profile
+
+　　在最后面添加j...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

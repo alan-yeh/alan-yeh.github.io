@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>使用jekyll布署个人博客</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover6.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">使用jekyll布署个人博客</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-01-20">20 Jan 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Jekyll'>Jekyll</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　这篇blog主要用于记录怎么在Mac下使用<a href="http://pages.github.com">pages.github.com</a>和<a href="https://jekyllrb.com">jekyll</a>布署个人博客。</p>
+
+<h2>步骤</h2>
+
+<p>　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。</p>
+
+<h3>关闭Rootless</h3>
+
+<p>　　Mac 10.11之后，苹果为系统加入了一个叫做<code>Rootless</code>的权限工具，用于保护系统的目录不被修改、写入。ruby和jekyll的部份插件需要一些权限，所以需要临时关闭这个功能。</p>
+
+<p>　　重启，开机时按住Command+R，进入恢复模式。打开终端，输入：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">csrutil disable
+</code></pre></div>
+<p>　　重新启动就可以了。完成配置jekyll之后，如果你对系统的安全感到担忧，可以将Rootless功能打开，只需要将上面的命令改成<code>csrutil enable</code>即可。</p>
+
+<h3>配置ruby</h3>
+
+<p>　　我使用的是Mac 10.11，系统自带了ruby等工具，所以可以跳过安装ruby、gem这些步骤(Mac果然是程序员的利器)。</p>
+
+<p>　　将gem的sources替换成国内镜像，以提升速度。在终端中输入：</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">--</span><span class="n">add</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">ruby</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="o">--</span><span class="n">remove</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+
+<span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">-</span><span class="n">l</span>
+<span class="o">***</span> <span class="no">CURRENT</span> <span class="no">SOURCES</span> <span class="o">***</span>
+
+<span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">ruby</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">org</span>
+<span class="c1">#确保只有ruby.taobao.org</span>
+</code></pre></div>
+<h3>安装Jekyll</h3>
+
+<p>　　在终端中输入：</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">##此命令需要输入你的用户密码</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span>
+
+<span class="c1">##安装完了之后，查看版本号</span>
+<span class="err">$</span> <span class="n">jekyll</span> <span class="o">-</span><span class="n">v</span>
+</code></pre></div>
+<p>　　至此，你已经成功地在本地安装好了Jekyll。</p>
+
+<h3>下载漂亮的博客主题</h3>
+
+<p>　　赏心悦目的博客才有心思用心经营下去。不懂Html，不懂css，不懂Javascript，怎么编写漂亮的博客？没关系，Jekyll上面有很多非常漂亮的博客模板。<a href="http://jekyllthemes.org">地址</a></p>
+
+<p>　　你是不是已经被那些漂亮的主题冲昏了脑袋，已经在想像中自己的博客也像这样美轮美奂？那么现在我们就去实现它，在Jekyll模板列表里，选取一个漂亮的模板，这里拿<a href="http://jekyllthemes.org/themes/clean/">clean</a>来做例子，点击<code>Download</code>下载到本地。</p>
+
+<p>　　解压后，目录如下:</p>
+
+<p>　　<img src="../assets/blog/use-jekyll-build-your-blog/folder-structure.jpg" alt=""></p>
+
+<h3>本地布署博客</h3>
+
+<p>　　我们需要对博客做一些初步的修改。用文本编辑器打开_config.yml，主要修改baseurl属性和markdown属性。修改如下</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Site settings</span>
+<span class="ss">title</span><span class="p">:</span> <span class="no">Clean</span>
+<span class="ss">email</span><span class="p">:</span> <span class="n">your</span><span class="o">-</span><span class="n">email</span><span class="vi">@domain</span><span class="o">.</span><span class="n">com</span>
+<span class="ss">description</span><span class="p">:</span> <span class="o">&gt;</span> <span class="c1"># this means to ignore newlines until &quot;baseurl:&quot;</span>
+  <span class="no">Write</span> <span class="n">an</span> <span class="n">awesome</span> <span class="n">description</span> <span class="k">for</span> <span class="n">your</span> <span class="kp">new</span> <span class="n">site</span> <span class="n">here</span><span class="o">.</span> <span class="no">You</span> <span class="n">can</span> <span class="n">edit</span> <span class="n">this</span>
+  <span class="n">line</span> <span class="k">in</span> <span class="n">_config</span><span class="o">.</span><span class="n">yml</span><span class="o">.</span>
+<span class="c1">#把根目录改成空</span>
+<span class="ss">baseurl</span><span class="p">:</span> <span class="s2">&quot;&quot;</span> <span class="c1"># the subpath of your site, e.g. /blog/</span>
+<span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;http://yourdomain.com&quot;</span> <span class="c1"># the base hostname &amp; protocol for your site</span>
+<span class="ss">twitter_username</span><span class="p">:</span> <span class="n">jekyllrb</span>
+<span class="ss">github_username</span><span class="p">:</span>  <span class="n">jekyll</span>
+
+<span class="c1"># Build settings</span>
+<span class="c1">#把markdown的解译器改成redcarpet,并添加一些插件以支持更多markdown语法</span>
+<span class="ss">markdown</span><span class="p">:</span> <span class="n">redcarpet</span>
+<span class="ss">redcarpet</span><span class="p">:</span>
+  <span class="ss">extensions</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;fenced_code_blocks&quot;</span><span class="p">,</span> <span class="s2">&quot;tables&quot;</span><span class="o">]</span>
+<span class="ss">gems</span><span class="p">:</span> <span class="o">[</span><span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span><span class="o">]</span>
+</code></pre></div>
+<p>　　改完_config.yml之后，保存。打开终端，然后进入该目录，输入</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#进入博客的本地目录</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span><span class="o">/</span><span class="n">clean</span><span class="o">-</span><span class="n">master</span>
+
+<span class="c1">#Jekyll开始服务</span>
+<span class="err">$</span> <span class="n">jekyll</span> <span class="n">s</span>
+</code></pre></div>
+<p>　　如果很不幸，你不能启动jekyll，并报了类似以下的错误，这是因为你缺少了博客需要的一些组件。</p>
+
+<p><img src="../assets/blog/use-jekyll-build-your-blog/terminal-error.png" alt=""></p>
+
+<p>　　因此你需要安装一些组件，使用gem可以很方便地安装这些组件。</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span>
+</code></pre></div>
+<p>　　如果你的终端与我的显示似类，那么恭喜你，你已经完成了本地博客的布署了。</p>
+
+<p><img src="../assets/blog/use-jekyll-build-your-blog/terminal-status.jpg" alt="成功提示"></p>
+
+<p>　　赶快打开你的浏览器，输入<a href="http://127.0.0.1:4000/">http://127.0.0.1:4000/</a>看看效果！</p>
+
+<p><img src="../assets/blog/use-jekyll-build-your-blog/browser-preview.jpg" alt="效果"></p>
+
+<h3>布署到服务器</h3>
+
+<p>　　仅仅只是在本地看看博客，肯定不能满足你骚动的心，你想要向世界展示你的才华，那么你需要一个服务器来托管你的博客。很幸运，GitHub免费为你提供了这项服务。</p>
+
+<p>　　<a href="http://www.github.com">点击这里</a>，注册你的GitHub帐户。注册完毕后，我们可以来继续我们的博客设置了。</p>
+
+<p>　　点击<code>+ New repository</code>，像以下这样填写你的信息。<code>Repository name</code>有格式要求，必须是<code>Owner.github.io</code>，这个Owner就是你的用户名，在图中你也可以找到Owner，我的帐户里，clean-blog就是Owner，所以我使用clean-blog.github.io作为我的设置。Description可以随意填。</p>
+
+<p><img src="../assets/blog/use-jekyll-build-your-blog/github-new-repository.jpg" alt=""></p>
+
+<p>　　点击Create repository，创建代码仓库。</p>
+
+<p><img src="../assets/blog/use-jekyll-build-your-blog/github-new-repository-page.jpg" alt=""></p>
+
+<p>　　到这里，你其实已经拥有了GitHub为你提供的博客空间。你需要做的就是将你的博客放到这里来。将刚才的clean-blog目录下的东西提交到GitHub的仓库下。</p>
+
+<p><img src="../assets/blog/use-jekyll-build-your-blog/github-upload-repo.jpg" alt=""></p>
+
+<p>　　然后在新的浏览器里，打开<code>Owner.github.io</code>（我的是clean-blog.github.io），你会惊喜地发现，你的博客已经布署到网络中了。至此，你也有了你的个人博客了！
+　　
+<img src="../assets/blog/use-jekyll-build-your-blog/net-browser-preview.jpg" alt=""></p>
+
+<h3>使用个性域名来访问你的博客</h3>
+
+<p>　　博客这么个性的东西，怎么能不配上你个性的域名呢？现在域名也比较便宜。我是在<a href="http://wanwang.aliyun.com">阿里云</a>上买的域名。你也可以在其它域名运营商里购买你喜欢的域名。域名购买的过程就不累述了，我们直接开始设置如何将你的个性域名指向到你的博客中。</p>
+
+<p>　　在你的域名解析里，添加以下两条记录，指向pages.github.io的服务器。</p>
+
+<p><img src="../assets/blog/use-jekyll-build-your-blog/setup-domain.jpg" alt=""></p>
+
+<p>　　回到你的本地博客目录中，新建一个文件，名为CNAME（文件名叫CNAME，没有文件后缀），内容为你的域名。比如我的CNAME的内容如下</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">yerl.cn
+</code></pre></div>
+<p>　　保存后，使用<code>GitHub Desktop</code>Commit你做的修改，并Sync到你的代码仓库里。然后你就可以使用你的域名来访问你的博客了。是不是很酷？</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/use-jekyll-build-your-blog'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/use-jekyll-build-your-blog'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover6.jpg)" href="/blog/use-travis-ci-generate-sites">
+        <section class="post">
+            <h2>利用Travis CI生成网页，支持Tags/Categorys</h2>
+            <p>　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。
+
+　　想要将Tags/Category...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/psdelayinvocation">
+        <section class="post">
+            <h2>PSDelayInvocation 间隔延时调用</h2>
+            <p>　　刚刚遇到一个问题，大概是这样的：UISlider滑动时，将UISlider当前值发送给蓝牙。很简单的需求，但是有一个问题，就是不能过于频繁地向蓝牙设备发送消息，否则蓝牙设备由于处理不过来而断开连接。最后测试结果是，最小间隔不能低于0.4秒，否则可能断开连接。
+
+　　刚开始，我觉得很简单。不...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

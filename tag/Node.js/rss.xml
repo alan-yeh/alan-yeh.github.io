@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <channel>
+        <atom:link href="rss" rel="self" type="application/rss+xml" />
+        
+        <title><![CDATA[Alan Yeh - Node.js]]></title>
+        <link>http://yerl.cn/tag/Node.js</link>
+<!--        需要修复-->
+        <description><![CDATA[]]></description>
+        
+        
+        <language>zh-cn</language>
+        <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
+        
+<item>
+    <title><![CDATA[Ejs-mate]]></title>
+    <link>http://yerl.cn/blog/ejs-mate</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 27 May 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-05-27T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/ejs-mate]]></guid>
+    <description><![CDATA[　　Ejs模板引擎不能使用layout语法，在整理html结构时相当不好用。但是Jackson Tian同学开发的ejs-mate为ejs添加了这个功能。那么，怎么在项目中使用ejs-mate呢？
+
+安装esj-mate
+
+　　命令行进入项目的根目录，然后使用npm安装。
+$ npm install ejs-mate --save
+
+使用ejs-mate
+
+　　编写一个layout文件， b...]]></description>
+</item>
+
+
+    </channel>
+</rss>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>Alan Yeh</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="paged archive-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+<!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
+
+<!-- The big featured header  -->
+<header class="main-header "
+        style="background-image: url(/assets/images/cover1.jpg) ">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Alan Yeh</h1>
+            <h2 class="page-description">写写代码，想想东西，程序员的世界可以就这么简单。</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+
+<!-- The main content area on the homepage -->
+<main id="content" class="content" role="main">
+
+    <!-- The tag below includes the post loop - partials/loop.hbs -->
+        <!-- Previous/next page links - only displayed on page 2+ -->
+    <div class="extra-pagination inner">
+        
+            <nav class="pagination" role="pagination">
+    
+        
+            <a class="newer-posts" href="/page5/" title="Previous Page">&laquo; Newer Posts</a>
+      
+    
+    <span class="page-number"> Page 6 of 6 </span>
+     
+</nav>
+        
+    </div>
+
+    <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/pslayout">PSLayout 代码布局工具</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　复杂业务、动画等，无法避免会用到代码布局，因此经常会在代码里充斥着xxxx.frame = CGRect(23, 55, 60, 11)之类布局代码，让人头晕目炫。写代码的同学估计也不会十分爽快，因为经常要去计算两个View的相对位置、相对父View的位置之类的（其实我就是这么走过来的），维护的同学看到这样的代码更是恶心想吐（我也是这么走过来的...）。
+
+　　说到代码布局，不得不说到M... <a class="read-more" href="/blog/pslayout">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Objective-C'>Objective-C</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-01-04">04 Jan 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/psstream">PSStream 极速集合处理</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　PSStream是用于处理集合的框架。灵感来自于ReactiveCocoa，但是希望能提供更多更全面的集合处理功能，所以简单编写了PSStream框架。Objective-C没有提供语法树分析、匿名类、类型推断等功能，所以感觉PSStream在使用的过程中，虽然能提供一定的便捷性，但仍无法达到像linq这样的使用体验。
+
+　　当前PSStream框架提供了延迟计算（部份）、链式调用等特性... <a class="read-more" href="/blog/psstream">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Objective-C'>Objective-C</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-01-03">03 Jan 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/psdicrecord">PSDicRecord 极速ORM</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　之前写过一段时间服务器端，使用了JFinal作为服务器开发框架，开发速度大大地加快。在开发的过程中，ActiveRecord的数据库访问操作也让我眼前一亮。由于我在iOS开发中也常使用到数据库，因此结合Objective-C的特性将ActiveRecord移植改造到iOS端，命名为PSDicRecord。
+
+　　PSDicRecord使用起来极为简单，支持自动建表，自动升级表结构。同时，... <a class="read-more" href="/blog/psdicrecord">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Objective-C'>Objective-C</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-01-02">02 Jan 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/psaspect">PSAspect 面向切面编程</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　在iOS开发中，常常需要引入数据统计、主题应用等，如果在每个ViewController中的viewDidLoad或viewWillAppear等方法进行配置，常常会非常烦索，同时也不容易维护。
+
+
+在我编写到快完成时，遇到了一些困难，在查找资料时，发现了神器Aspects，但是感觉在易用性上，还是PSAspect更好用一些
+
+
+　　PSAspect采用极速化的AOP设计，专注于AOP最... <a class="read-more" href="/blog/psaspect">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Objective-C'>Objective-C</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-01-01">01 Jan 2016</time>
+        </footer>
+    </article>
+    
+
+    <!-- Previous/next page links - displayed on every page -->
+    
+        <nav class="pagination" role="pagination">
+    
+        
+            <a class="newer-posts" href="/page5/" title="Previous Page">&laquo; Newer Posts</a>
+      
+    
+    <span class="page-number"> Page 6 of 6 </span>
+     
+</nav>
+    
+
+
+</main>
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

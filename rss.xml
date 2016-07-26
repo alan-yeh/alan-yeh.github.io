@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <channel>
+        <atom:link href="rss" rel="self" type="application/rss+xml" />
+        
+        <title><![CDATA[Alan Yeh]]></title>
+        <link>http://yerl.cn</link>
+        <description><![CDATA[写写代码，想想东西，程序员的世界可以就这么简单。]]></description>
+        
+        
+        <language>zh-cn</language>
+        <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
+        
+<item>
+    <title><![CDATA[管理Nexus Repository OSS]]></title>
+    <link>http://yerl.cn/blog/manage-nexus-repository-oss</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-07-17T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/manage-nexus-repository-oss]]></guid>
+    <description><![CDATA[目录
+
+
+支持域名访问
+
+
+支持域名访问
+
+　　Nexus默认使用8081端口，总是输入IP+端口，略麻烦。因此折腾一下，使用域名来访问Nexus。
+
+修改Nexus配置
+
+　　Nexus默认Context Path是/nexus。如果继续使用这个路径的话，使用域名访问会没办法登录。因此需要先修改Nexus的配置。
+
+/opt/nexus/nexus-2.13.0-01/conf/nexus...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[搭建Nexus Repository OSS]]></title>
+    <link>http://yerl.cn/blog/setup-nexus-repository-oss</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-07-17T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/setup-nexus-repository-oss]]></guid>
+    <description><![CDATA[　　前面讲到，如何将Java库发布到中央库。Sonatype提供开源项目仓库托管服务，但是过程比较复杂，而且有的项目作为企业内部项目，不合适开源发布。但是又想使用maven的话，那怎么解决呢？那么，这篇博文可以为你解决这个问题。搭建Nexus Repository OOS私服。
+
+
+搭建环境为Ubuntu 16.04
+
+
+下载Nexus Repository OSS
+
+　　来到官方下载地址。...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Java环境变量]]></title>
+    <link>http://yerl.cn/blog/java-environment</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 05 Jul 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-07-05T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/java-environment]]></guid>
+    <description><![CDATA[Ubuntu
+
+　　下载jdk，解压到/opt/java/目录下。
+
+
+我下载的版本是jdk1.8.0_91，所以我的路径是/opt/java/jdk1.8.0_91
+
+
+　　打开Terminal，编辑/etc/profile文件。
+$ nano /etc/profile
+
+　　在最后面添加java环境变量
+export JAVA_HOME=/opt/java/jdk1.8.0_91
+exp...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[发布库到Maven Central Repository]]></title>
+    <link>http://yerl.cn/blog/publish-library-to-maven-center-repository</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-30T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/publish-library-to-maven-center-repository]]></guid>
+    <description><![CDATA[　　现在Maven几乎成了Java事实上的包管理工具了，Gradle作为后起之秀，也是建立在Maven现有的大量仓库资源之上。使用Maven Central Repository可以很方便地解决第三方库依赖问题。那么，如何将自己开发的包也发布到Maven Central Repository上去呢？
+
+　　Sonatype提供开源项目仓库托管(Open Source Software Rep...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Ubuntu自动挂载硬盘分区]]></title>
+    <link>http://yerl.cn/blog/ubuntu-mount-disk</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-29T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/ubuntu-mount-disk]]></guid>
+    <description><![CDATA[　　最近公司增配了一个固态硬盘，然后将老硬盘换下，固态作为系统分区。老硬盘2T不能浪费，作为备份盘。但是每次Ubuntu开机，都要手动挂载一下硬盘，比较烦。于是折腾一下，让系统开机之后自动挂载硬盘。
+
+　　查看硬盘挂载信息。
+$ sudo blkid
+
+/dev/sda1: LABEL=&quot;Data&quot; UUID=&quot;2662a892-8f1d-42cc-b474-a...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[使用Maven构建Java工程]]></title>
+    <link>http://yerl.cn/blog/building-java-projects-with-maven</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 28 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-28T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/building-java-projects-with-maven]]></guid>
+    <description><![CDATA[　　这篇博客会带你一起来使用Maven构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Maven来构建它。为了让我们更关注如何使用Maven，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir gs-maven
+$ cd gs-maven
+
+　　使用命令mkdir -p src/main/jav...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[使用Gradle构建Java工程]]></title>
+    <link>http://yerl.cn/blog/building-java-projects-with-gradle</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-27T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/building-java-projects-with-gradle]]></guid>
+    <description><![CDATA[　　这篇博客会带你一起来使用Gradle构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Gradle来构建它。为了让我们的精力更专注于如何使用Gralde，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir gs-gradle
+$ cd gs-gradle
+
+　　使用命令mkdir -p src...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Mac OS X下Gradle的安装与配置]]></title>
+    <link>http://yerl.cn/blog/macos-setup-gradle</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-26T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/macos-setup-gradle]]></guid>
+    <description><![CDATA[下载Gradle
+
+到Gradle官网下载安装包，选择下载Binary only distribution。下载完了之后，解压到一个目录，比如Users/yerl/gradle。
+
+设置环境变量
+
+打开终端，输入以下命令，编辑bash_profile
+$ nano ~/.bash_profile
+
+添加以下代码在最后，保存并退出：
+# gradle
+export GRADLE_HOME=/U...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Mac OS X下Maven的安装与配置]]></title>
+    <link>http://yerl.cn/blog/macos-setup-maven</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-25T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/macos-setup-maven]]></guid>
+    <description><![CDATA[下载Maven
+
+到Maven官网下载安装包，选择下载Binary zip archive。下载完了之后，解压到一个目录，比如Users/yerl/maven。
+
+设置Maven环境变量
+
+打开终端，输入以下命令，编辑bash_profile
+$ nano ~/.bash_profile
+
+添加以下代码在最后，保存并退出：
+# maven
+export M2_HOME=/Users/yerl...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Ejs-mate]]></title>
+    <link>http://yerl.cn/blog/ejs-mate</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 27 May 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-05-27T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/ejs-mate]]></guid>
+    <description><![CDATA[　　Ejs模板引擎不能使用layout语法，在整理html结构时相当不好用。但是Jackson Tian同学开发的ejs-mate为ejs添加了这个功能。那么，怎么在项目中使用ejs-mate呢？
+
+安装esj-mate
+
+　　命令行进入项目的根目录，然后使用npm安装。
+$ npm install ejs-mate --save
+
+使用ejs-mate
+
+　　编写一个layout文件， b...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Intellij idea 创建maven webapp步骤]]></title>
+    <link>http://yerl.cn/blog/idea-create-maven-webapp</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 25 May 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-05-25T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/idea-create-maven-webapp]]></guid>
+    <description><![CDATA[　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
+
+
+
+　　以我的习惯，我会先建一个空Project，然后再添加Module。因此下一步，选择新建Empty Project。
+
+
+
+　　选择保存目录，确认。接着选择新建Module。
+
+
+
+　　在这个界面选择Maven，勾选上Create from archetype，选择org.apache.m...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[GitLab管理全过程]]></title>
+    <link>http://yerl.cn/blog/gitlab-management</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-05-06T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/gitlab-management]]></guid>
+    <description><![CDATA[目录
+
+
+设置发送邮箱
+支持域名访问
+自动备份
+备份恢复
+清除缓存
+
+
+设置发送邮箱
+
+　　GitLab在使用的过程中，在很多地方都需要使用邮箱来发送通知，比如注册通知、权限变更通知、合并通知等等，因此需要为GitLab准备一个邮箱，用于发送这些通知。
+
+　　以下演示了如何配置QQ企业邮作为GitLab的发送邮箱。
+$ sudo gedit /etc/gitlab/gitlab.rb
+
+　　...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[搭建GitLab全过程]]></title>
+    <link>http://yerl.cn/blog/install-gitlab</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Thu, 28 Apr 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-04-28T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/install-gitlab]]></guid>
+    <description><![CDATA[　　毕业后，遇到的公司都是使用SVN作为源代码管理工具，本来也觉得没什么十分大的不便。后来接触了GitHub，还有Git工作流等之后，发现SVN在团队合作的时候，有相当多的不足。另外，出于私人的一些原因，我的写的一些代码中，有一部分是开源放在GitHub上的，要Git与SVN协作管理一份代码，实在困难。
+
+　　后面萌生了把Git引入公司，替换SVN成为我们的新源代码管理器的想法。在网上搜了一...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Ubuntu安装中文输入法]]></title>
+    <link>http://yerl.cn/blog/ubuntu-setup-input-method</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Mon, 25 Apr 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-04-25T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/ubuntu-setup-input-method]]></guid>
+    <description><![CDATA[　　最近准备折腾Gitlab，需要安装一个Linux环境。大学的时候，装过Ubunut，感觉还不错。刚好Ubuntu 16.04 LTS发布了，同一时间，Ubuntu Kylin也同一时间更新了。但是新版的Ubuntu Kylin长相实在太不讨人喜欢了，后面就干脆直接下载安装原版英文版Ubuntu了。
+
+　　安装完后，接着就去安装中文输入法。由于对Ubuntu完全没有经验，完全不懂怎么安装输...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSPromise在项目中实践]]></title>
+    <link>http://yerl.cn/blog/promise-practise</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-03-07T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/promise-practise]]></guid>
+    <description><![CDATA[　　经过上一篇博客，对于PSPromise的介绍，对Promise的相关语法大概了解了。这篇博客主要介绍PSPromise在项目中如何实践，如何优雅地写代码。代码已上传至GitHub中。
+
+　　本项目使用了AFNetworking、SVProgressHUD、PSPromise三个框架。项目主要内容是，获取豆瓣网上一本书的标题与简介(字段太多了，只取了两个简单的字段)。通过Promise，将...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSPromise Promise的简易实现]]></title>
+    <link>http://yerl.cn/blog/pspromise</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-03-05T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/pspromise]]></guid>
+    <description><![CDATA[　　PSPromise是Promise的简易实现。遵循CommonJS的Promise/A接口标准，同时实现了一些扩展接口，使PSPromise更实用。
+
+　　近期看到一个很有意思的框架PromiseKit。看到PromiseKit的源码之后，对它的编写方式感到神奇，刚开始完全看不懂在写什么东西，而且代码是怎么运行的也完全没个头绪。仔细分析了大半天之后，感叹大神写代码的确与众不同。由于个人的...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[利用Travis CI生成网页，支持Tags/Categorys]]></title>
+    <link>http://yerl.cn/blog/use-travis-ci-generate-sites</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 24 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-24T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/use-travis-ci-generate-sites]]></guid>
+    <description><![CDATA[　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。
+
+　　想要将Tags/Categorys生成分页功能，有几个思路。由于jekyll在运行时，将所有博客生成静态页面，利用query par...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[使用jekyll布署个人博客]]></title>
+    <link>http://yerl.cn/blog/use-jekyll-build-your-blog</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 20 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-20T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/use-jekyll-build-your-blog]]></guid>
+    <description><![CDATA[　　这篇blog主要用于记录怎么在Mac下使用pages.github.com和jekyll布署个人博客。
+
+步骤
+
+　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
+
+关闭Rootless
+
+　　Mac 10.11之后，苹果为系统加入了一个叫做Rootless的权限工具，用于保护系统的目录不被修改、写入。ruby和jekyll的部份插件需要一些权限，所以需要临时关闭这个功能...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSDelayInvocation 间隔延时调用]]></title>
+    <link>http://yerl.cn/blog/psdelayinvocation</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 15 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-15T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/psdelayinvocation]]></guid>
+    <description><![CDATA[　　刚刚遇到一个问题，大概是这样的：UISlider滑动时，将UISlider当前值发送给蓝牙。很简单的需求，但是有一个问题，就是不能过于频繁地向蓝牙设备发送消息，否则蓝牙设备由于处理不过来而断开连接。最后测试结果是，最小间隔不能低于0.4秒，否则可能断开连接。
+
+　　刚开始，我觉得很简单。不能频繁调用嘛，用PSLockFunc将它锁起来就可以了，0.4秒之后再解锁。完成任务！
+
+　　发给客...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[其它工具]]></title>
+    <link>http://yerl.cn/blog/others</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-10T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/others]]></guid>
+    <description><![CDATA[　　PSExtensions还将日常很多常用的函数封装起来了，比如将NSDateFormatter缓存起来，防止多次创建引起的性能损耗、字符串转UIColor等等工具。了解这些工具之后，在将来的开发中，就更得心应手了。
+
+　　由于时间关系，这个Post在将来不定时更新新的工具的使用说明。
+
+1 PSAnimation
+
+
+
+　　简单封装UIView和CALayout的动画，方便编写简单动画。...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSJSWebview Javascript增强的WebView]]></title>
+    <link>http://yerl.cn/blog/psjswebview</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sat, 09 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-09T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/psjswebview]]></guid>
+    <description><![CDATA[　　PSJSWebView是PSAspect的一个简单应用。
+
+　　PSJSWebView为Javascript提供非常方便的调用OC代码的接口。现在已支持Json的基础数据类型。
+
+　　OC调用Javascript直接使用[UIWebView -stringByEvaluatingJavaScriptFromString]方法即可。
+
+2 代码示例
+
+
+//Student.h
+@inter...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSLog 更好的日志工具]]></title>
+    <link>http://yerl.cn/blog/pslog</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-08T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/pslog]]></guid>
+    <description><![CDATA[　　你还在用着NSLog来做日志输出吧？有没有想过，日志其实还可以更强大呢？PSLog便可以成为你的新的Debug利器。
+
+　　PSLog是一个可自定义化，并可以提供一些方便的调试与记录的功能的日志工具。它与NSLog的用法几乎一模一样，所以没有学习的难度。PSLog可以将日志输出到不同的地方，默认实现了PSConsoleLogger、PSFileLogger、PSSQLiteLogger三...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSFile 文件管理工具]]></title>
+    <link>http://yerl.cn/blog/psfile</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-08T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/psfile]]></guid>
+    <description><![CDATA[　　你是否厌倦了写一长串代码来获取Documents目录？你是否厌倦了NSFileManager那一大串复杂又难记又难打的api？很好，你现在可以用PSFile了。因为它足够简单，但功能却不简单。
+
+　　PSFile简单地封装了PSFileManager的一些功能，用于支持快速管理文件和目录。
+
+1 用法
+
+
+
+　　PSFile的头文件中，已经为每个方法做上了注释，看了注释之后便可以了解它的...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSThemeCenter、PSFontCenter]]></title>
+    <link>http://yerl.cn/blog/psthemecenter-psfontcenter</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 06 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-06T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/psthemecenter-psfontcenter]]></guid>
+    <description><![CDATA[　　当前，移动app对于界面的美观性等有越来越高的要求，一套UI已经满足不了用户日益增长的“精神需求”。因此，项目中经常会有更换主题、更换字体这类的需求。之前写主题管理时，经常乱得头皮发麻，经过几次整理、重构，完成了PSThemeCenter和PSFontCenter这两个管理界面管理类。
+
+1 PSThemeCenter
+
+
+
+　　PSThemeCenter是主题管理中心，主要用于管理Us...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSHttp AFNetworking简单封装]]></title>
+    <link>http://yerl.cn/blog/pshttp</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-05T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/pshttp]]></guid>
+    <description><![CDATA[　　在我初学iOS开发的时候，我曾经考虑项目应该使用AFNetworking还是ASIHTTPRequest，到后来决定使用AFNetworking后，又经历了AFNetworking 2升级到AFNetworking 3，大量Api被抛弃。经历这些之后，我认为，有的框架有必要自己封装一套，然后在项目中全部使用自己封装的工具类，外界不需要关心PSHttp是自己封装系统Api，还是使用AFNe...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSLayout 代码布局工具]]></title>
+    <link>http://yerl.cn/blog/pslayout</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Mon, 04 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-04T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/pslayout]]></guid>
+    <description><![CDATA[　　复杂业务、动画等，无法避免会用到代码布局，因此经常会在代码里充斥着xxxx.frame = CGRect(23, 55, 60, 11)之类布局代码，让人头晕目炫。写代码的同学估计也不会十分爽快，因为经常要去计算两个View的相对位置、相对父View的位置之类的（其实我就是这么走过来的），维护的同学看到这样的代码更是恶心想吐（我也是这么走过来的...）。
+
+　　说到代码布局，不得不说到M...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSStream 极速集合处理]]></title>
+    <link>http://yerl.cn/blog/psstream</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 03 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-03T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/psstream]]></guid>
+    <description><![CDATA[　　PSStream是用于处理集合的框架。灵感来自于ReactiveCocoa，但是希望能提供更多更全面的集合处理功能，所以简单编写了PSStream框架。Objective-C没有提供语法树分析、匿名类、类型推断等功能，所以感觉PSStream在使用的过程中，虽然能提供一定的便捷性，但仍无法达到像linq这样的使用体验。
+
+　　当前PSStream框架提供了延迟计算（部份）、链式调用等特性...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSDicRecord 极速ORM]]></title>
+    <link>http://yerl.cn/blog/psdicrecord</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sat, 02 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-02T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/psdicrecord]]></guid>
+    <description><![CDATA[　　之前写过一段时间服务器端，使用了JFinal作为服务器开发框架，开发速度大大地加快。在开发的过程中，ActiveRecord的数据库访问操作也让我眼前一亮。由于我在iOS开发中也常使用到数据库，因此结合Objective-C的特性将ActiveRecord移植改造到iOS端，命名为PSDicRecord。
+
+　　PSDicRecord使用起来极为简单，支持自动建表，自动升级表结构。同时，...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[PSAspect 面向切面编程]]></title>
+    <link>http://yerl.cn/blog/psaspect</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-01T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/psaspect]]></guid>
+    <description><![CDATA[　　在iOS开发中，常常需要引入数据统计、主题应用等，如果在每个ViewController中的viewDidLoad或viewWillAppear等方法进行配置，常常会非常烦索，同时也不容易维护。
+
+
+在我编写到快完成时，遇到了一些困难，在查找资料时，发现了神器Aspects，但是感觉在易用性上，还是PSAspect更好用一些
+
+
+　　PSAspect采用极速化的AOP设计，专注于AOP最...]]></description>
+</item>
+
+
+    </channel>
+</rss>

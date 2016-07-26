@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>使用Maven构建Java工程</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">使用Maven构建Java工程</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-06-28">28 Jun 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　这篇博客会带你一起来使用Maven构建Java工程。</p>
+
+<h3>创建一个Java工程</h3>
+
+<p>　　首先，新建一个Java工程，用于演示如何使用Maven来构建它。为了让我们更关注如何使用Maven，我们将这个工程建得非常简单。</p>
+
+<p>　　创建一个工程根目录，然后在<code>Terminal</code>打开它。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mkdir gs-maven
+<span class="nv">$ </span><span class="nb">cd </span>gs-maven
+</code></pre></div>
+<p>　　使用命令<code>mkdir -p src/main/java/hello</code>创建工程目录结构。你会得到以下的目录。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">└── src
+    └── main
+        └── java
+            └── hello
+</code></pre></div>
+<p>　　在<code>src/main/java/hello</code>目录下，你可以创建任意你想要的Java类。为了方便接下来的演示，这里仅创建两个简单的类：<code>HelloWorld.java</code>和<code>Greeter.java</code>。</p>
+
+<p><code>src/main/java/hello/HelloWorld.java</code></p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">hello</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Greeter</span> <span class="n">greeter</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Greeter</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">greeter</span><span class="o">.</span><span class="na">sayHello</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p><code>src/main/java/hello/Greeter.java</code></p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">hello</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Greeter</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="s">&quot;Hello world!&quot;</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<h3>安装Maven到你的工程</h3>
+
+<p>　　根据<a href="/blog/macos-setup-maven">前面的博客</a>配置Maven环境。如果你已经完配置环境了，那可以接着做以下的步骤。</p>
+
+<h3>定义一个简单的Maven构建</h3>
+
+<p>　　现在Maven已经安装好了，你需要将工程转换成Maven工程。Maven工程使用一个名为<code>pom.xml</code>文件来定议。这个文件定义了工程名字、版本、外部依赖等。</p>
+
+<p>　　在项目根目录创建一个<code>pom.xml</code>文件，并将以下内容复制到里面。</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>gs-maven<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1.0<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.1<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;transformers&gt;</span>
+                                <span class="nt">&lt;transformer</span> <span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
+                                    <span class="nt">&lt;mainClass&gt;</span>hello.HelloWorld<span class="nt">&lt;/mainClass&gt;</span>
+                                <span class="nt">&lt;/transformer&gt;</span>
+                            <span class="nt">&lt;/transformers&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<p>　　除了可选的<code>&lt;packaging&gt;</code>元素之外，这可能是最简单的Java工程<em>pom.xml</em>配置了。它包含了以下项目配置细节：</p>
+
+<ul>
+<li><code>&lt;modelVersion&gt;</code>. POM model version（一般来说都是4.0.0）。</li>
+<li><code>&lt;groupId&gt;</code>. 工程所属的分组或组织。通常使用反序域名作为groupId。</li>
+<li><code>&lt;artifactId&gt;</code>. 工程打包名。（比如JAR、WAR文件的名字）</li>
+<li><code>&lt;version&gt;</code>. 工程版本号。</li>
+<li><code>&lt;packaging&gt;</code>. 标记工程以什么方式打包。默认使用<code>jar</code>来打包JAR包，使用<code>war</code>来打包WAR文件。</li>
+</ul>
+
+<p>　　到此为止，你已经将工程转成Maven工程了。</p>
+
+<h3>Build Java code</h3>
+
+<p>　　Maven现在已经准备好构建工程了。你现在可以执行一系列Maven的构建周期目标（build lifecycle goal）了，包括编译工程代码，创建库包(library package)，以及将库安装到Maven本地依赖库中。</p>
+
+<p>　　使用以下命令来构建项目。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mvn compile
+</code></pre></div>
+<p>　　这个命令会开始运行Maven，并让它去执行编译目标(compile goal)。当命令执行完毕之后，你可以在<em>target/classes</em>目录下找到编译好的<em>.class</em>文件。</p>
+
+<p>　　你应该不会想要直接使用<em>.class</em>文件，你应该会将它们打包后再使用：</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mvn package
+</code></pre></div>
+<p>　　打包目标(package goal)会编译你的Java代码，运行所有测试，然后将<code>target</code>下编译好的代码打包成JAR文件。JAR文件会根据<code>pom.xml</code>中的<code>&lt;artifactId&gt;</code>和<code>&lt;version&gt;</code>来命名。在这个例子中，JAR文件最后会被命名为<em>gs-maven-0.1.0.jar</em>。</p>
+
+<p>　　Maven会在你本地机器里持有一个仓库，用于存放你的依赖(通常在<em>.m2/repository</em>目录下)，以便可以快速解决项目依赖。如果你想把你的工程打包好的JAR文件添加到这个仓库中，你可以使用<code>install</code>命令。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mvn install
+</code></pre></div>
+<p>　　安装目标(install goal)将会编译、测试、将工程打包起来，最后将它复制到本地他库中，这样其它工程就可以引用这个包作为它们的依赖了。</p>
+
+<p>　　即然谈到了依赖，那么现在，我们来为工程声明一个依赖，看Maven是如何工作的。</p>
+
+<h3>声明依赖</h3>
+
+<p>　　刚才那个<code>Hello World</code>项目是一个非常简单的项目，没有依赖任何外部库。但是，大多数应用会依赖外部库来处理命令和复杂的功能。</p>
+
+<p>　　继续刚才的<code>Hello World</code>项目。假设你现在需要让你的应用打印当前的日期和时间。当然，你可以使用Java原生的日期时间库来完成这个功能，但是，如果你使用<code>Joda Time</code>库来完成这个功能的话，会更有意思。</p>
+
+<p>　　首先，将<code>HelloWorld.java</code>文件修改成以下的样子。</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">hello</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.joda.time.LocalTime</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">LocalTime</span> <span class="n">currentTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">LocalTime</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;The current local time is: &quot;</span> <span class="o">+</span> <span class="n">currentTime</span><span class="o">);</span>
+
+    <span class="n">Greeter</span> <span class="n">greeter</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Greeter</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">greeter</span><span class="o">.</span><span class="na">sayHello</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>　　现在，<code>HelloWorld</code>使用<code>Joda Time</code>的<code>LocalTime</code>类来获取以及显示当前的时间。</p>
+
+<p>　　如果你现在使用<code>maven compile</code>来构建项目，这个任务将会失败，因为你还没有声明项目需要使用依赖<code>Joda Time</code>库。你可以通过把下面的内容加到<em>pom.xml</em>文件下的<code>&lt;project&gt;</code>节点修复这个问题。</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;java.version&gt;</span>1.8<span class="nt">&lt;/java.version&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>joda-time<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>joda-time<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.2<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+</code></pre></div>
+<p>　　以上的XML为项目声明了一个依赖列表。现在这个列表只有一项<code>Joda Time</code>依赖。在<code>&lt;dependency&gt;</code>元素中，依赖坐标(dependency coordinates)由三个元素组成：</p>
+
+<ul>
+<li><code>&lt;groupId&gt;</code>. 这个依赖归属的分组或组织</li>
+<li><code>&lt;artifactId&gt;</code>. 这个依赖的名字</li>
+<li><code>&lt;version&gt;</code>. 这个依赖的版本号</li>
+</ul>
+
+<p>　　Maven默使使用<code>compile</code>依赖。这意味着，他们在编译时(compile-time)应该是可用的(如果你是在打包WAR文件，这些依赖会被包含到<em>/WEB-INF/libs</em>目录下)。除了<code>compile</code>之类，<code>&lt;scope&gt;</code>可以指定为以下类型：</p>
+
+<ul>
+<li><code>provided</code>. 仅在编译时依赖，这个库会在容器运行时提供（比如<code>Java Servlet API</code>）。</li>
+<li><code>test</code>. 仅在运行测试用例时依赖，在打包或运行项目时不需要依赖。</li>
+</ul>
+
+<p>　　现在，你再次运行<code>mvn compile</code>或者<code>mvn package</code>，Maven就可以从Maven中央库(Maven Central repository)里找到你需要的<code>Joda Time</code>依赖，并正确执行任务。</p>
+
+<p>　　以下是完成之后的<code>pom.xml</code>文件。</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>gs-maven<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1.0<span class="nt">&lt;/version&gt;</span>
+
+    <span class="c">&lt;!-- tag::joda[] --&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;java.version&gt;</span>1.8<span class="nt">&lt;/java.version&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>joda-time<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>joda-time<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.2<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="c">&lt;!-- end::joda[] --&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.1<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;transformers&gt;</span>
+                                <span class="nt">&lt;transformer</span>
+                                    <span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
+                                    <span class="nt">&lt;mainClass&gt;</span>hello.HelloWorld<span class="nt">&lt;/mainClass&gt;</span>
+                                <span class="nt">&lt;/transformer&gt;</span>
+                            <span class="nt">&lt;/transformers&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<blockquote>
+<p>注意： 这个<strong>pom.xml</strong>文件使用<a href="http://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade Plugin</a>来生成可执行的JAR文件。这篇博客我们更关注如何入门Maven，而不是怎么来使用特定的插件。</p>
+</blockquote>
+
+<h3>总结</h3>
+
+<p>　　恭喜你，你现在已经可以使用Maven来简单、高效地构建Java项目了。</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/building-java-projects-with-maven'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/building-java-projects-with-maven'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/ubuntu-mount-disk">
+        <section class="post">
+            <h2>Ubuntu自动挂载硬盘分区</h2>
+            <p>　　最近公司增配了一个固态硬盘，然后将老硬盘换下，固态作为系统分区。老硬盘2T不能浪费，作为备份盘。但是每次Ubuntu开机，都要手动挂载一下硬盘，比较烦。于是折腾一下，让系统开机之后自动挂载硬盘。
+
+　　查看硬盘挂载信息。
+
+```bash
+$ sudo blkid
+
+/dev/sda1: ...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/building-java-projects-with-gradle">
+        <section class="post">
+            <h2>使用Gradle构建Java工程</h2>
+            <p>　　这篇博客会带你一起来使用Gradle构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Gradle来构建它。为了让我们的精力更专注于如何使用Gralde，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ ...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

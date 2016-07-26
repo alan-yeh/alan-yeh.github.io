@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>PSDicRecord 极速ORM</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">PSDicRecord 极速ORM</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-01-02">02 Jan 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Objective-C'>Objective-C</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　之前写过一段时间服务器端，使用了<a href="http://www.jfinal.com">JFinal</a>作为服务器开发框架，开发速度大大地加快。在开发的过程中，ActiveRecord的数据库访问操作也让我眼前一亮。由于我在iOS开发中也常使用到数据库，因此结合Objective-C的特性将ActiveRecord移植改造到iOS端，命名为PSDicRecord。</p>
+
+<p>　　PSDicRecord使用起来极为简单，支持自动建表，自动升级表结构。同时，PSDicRecord支持多数据源，并发访问控制等。</p>
+
+<h4>简单用例</h4>
+
+<p>　　首先，先演示一下，PSDicRecord的一些常规使用方法，再详细讲一下其它细节用法。</p>
+
+<p>　　声明一个实体Student</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">@class</span> <span class="nc">Student</span>;
+<span class="c1">//默认有一个名为ID的主键属性</span>
+<span class="k">@interface</span> <span class="nc">Student</span> : <span class="nc">PSModel</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span><span class="cm">/**&lt; 姓名 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">assign</span><span class="p">)</span> <span class="kt">int</span> <span class="n">age</span><span class="p">;</span><span class="cm">/**&lt; 年龄 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">retain</span><span class="p">)</span> <span class="bp">NSDate</span> <span class="o">*</span><span class="n">born</span><span class="p">;</span><span class="cm">/**&lt; 出生年月 */</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">Student</span>
+<span class="k">@dynamic</span> <span class="n">name</span><span class="p">;</span>
+<span class="k">@dynamic</span> <span class="n">age</span><span class="p">;</span>
+<span class="k">@dynamic</span> <span class="n">born</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre></div>
+<p>　　以上代码已经完成了PSDicRecord初始化的80%的工作了，接下来演示如何进行查询。</p>
+
+<p>　　PSModel的子类默认有一个单例静态方法<code>dao</code>，用于各类数据库操作。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="c1">//查询出生日期在2002年5月9日之后的学生</span>
+    <span class="bp">NSDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;2002-05-09&quot;</span> <span class="nl">ps_dateValue</span><span class="p">:</span><span class="s">@&quot;yyyy-MM-dd&quot;</span><span class="p">];</span>
+    <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">results</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findByCondition</span><span class="p">:</span><span class="s">@&quot;born &gt; ?&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">];</span>
+
+    <span class="c1">//查询年龄在15岁以下的学生</span>
+    <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">results</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findByCondition</span><span class="p">:</span><span class="s">@&quot;age &gt; ?&quot;</span><span class="p">,</span> <span class="mi">@15</span><span class="p">];</span><span class="c1">//仅接受OC类型</span>
+
+    <span class="c1">//查询出生日期在2002年5月9日之后的学生数量</span>
+    <span class="bp">NSUInteger</span> <span class="n">count</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">countByCondition</span><span class="p">:</span><span class="s">@&quot;born &gt; ?&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">];</span>
+
+    <span class="c1">//分页查询</span>
+    <span class="n">PSPage</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">stus</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">paginate</span><span class="p">:</span><span class="mi">1</span> <span class="nl">size</span><span class="p">:</span><span class="mi">10</span> <span class="nl">withSelect</span><span class="p">:</span><span class="s">@&quot;select * &quot;</span> <span class="nl">where</span><span class="p">:</span><span class="s">@&quot;from student where name like &#39;张%%&#39;&quot;</span><span class="p">];</span>
+</code></pre></div>
+<p>　　插入</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="c1">//单条插入</span>
+    <span class="n">Student</span> <span class="o">*</span><span class="n">stu</span> <span class="o">=</span> <span class="p">[</span><span class="n">Student</span> <span class="n">new</span><span class="p">];</span>
+    <span class="n">stu</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;张三&quot;</span><span class="p">;</span>
+    <span class="n">stu</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">stu</span><span class="p">.</span><span class="n">born</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSDate</span> <span class="n">new</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">stu</span> <span class="n">save</span><span class="p">];</span>
+
+    <span class="c1">//从Json到数据库</span>
+    <span class="bp">NSString</span> <span class="o">*</span><span class="n">jsonStr</span> <span class="o">=</span> <span class="s">@&quot;{&#39;name&#39;: &#39;张三&#39;, &#39;age&#39;: 14, &#39;born&#39;: 1020873600}&quot;</span><span class="p">;</span>
+    <span class="bp">NSDictionary</span> <span class="o">*</span><span class="n">jsonDic</span> <span class="o">=</span> <span class="p">[</span><span class="n">jsonStr</span> <span class="n">ps_jsonDictionary</span><span class="p">];</span>
+    <span class="n">Student</span> <span class="o">*</span><span class="n">stu</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithAttributes</span><span class="p">:</span><span class="n">jsonDic</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">stu</span> <span class="n">save</span><span class="p">];</span>
+</code></pre></div>
+<p>　　删除</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="c1">//单条删除</span>
+    <span class="n">Student</span> <span class="o">*</span><span class="n">stu</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findById</span><span class="p">:</span><span class="mi">15</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">stu</span> <span class="n">delete</span><span class="p">];</span>
+    <span class="c1">//按ID删除</span>
+    <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">deleteById</span><span class="p">:</span><span class="mi">20</span><span class="p">];</span>
+    <span class="c1">//按条件删除</span>
+    <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">deleteByCondition</span><span class="p">:</span><span class="s">@&quot;name = ?&quot;</span><span class="p">,</span> <span class="s">@&quot;张三&quot;</span><span class="p">];</span>
+</code></pre></div>
+<p>　　更新</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="n">stu</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;李四&quot;</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">stu</span> <span class="n">update</span><span class="p">];</span>
+</code></pre></div>
+<h3>2 PSDicRecord使用配置</h3>
+
+<hr>
+
+<p>　　好了，如果你看到了这里，说明你已经觉得这ORM框架还不错，可以继续深入了解。那么，接下来，我们再来完成一次完整初始化框架的工作。</p>
+
+<p>　　再声明一个实体Teacher</p>
+
+<blockquote>
+<p>　　PSModel是数据表实体类的基类，是PSDicRecord的重要组成部分。数据库实体类要求继承于PSModel类，并且要求将数据库列数性声明为@dynamic。</p>
+
+<blockquote>
+<p>没有声明@dynamic将不会保存到数据库中。</p>
+</blockquote>
+</blockquote>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">@class</span> <span class="nc">Teacher</span>;
+
+<span class="k">@interface</span> <span class="nc">Teacher</span> : <span class="nc">PSModel</span><span class="o">&lt;</span><span class="n">Teacher</span> <span class="o">*&gt;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">assign</span><span class="p">)</span> <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">Teacher</span>
+<span class="k">@dynamic</span> <span class="n">name</span><span class="p">;</span>
+<span class="k">@dynamic</span> <span class="n">age</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre></div>
+<p>　　声明PSDbContext，将实体类注册到上下文。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">   <span class="c1">//在Documents/db/database.db中建立数据库</span>
+   <span class="n">PSDbContext</span> <span class="o">*</span><span class="n">context</span> <span class="o">=</span> <span class="p">[[</span><span class="n">PSDbContext</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithDatasource</span><span class="p">:[[[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;db&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;database.db&quot;</span><span class="p">]];</span>
+   <span class="c1">//是否输出SQL到控制台</span>
+   <span class="n">context</span><span class="p">.</span><span class="n">showSql</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+   <span class="p">[</span><span class="n">context</span> <span class="nl">registerModel</span><span class="p">:[</span><span class="n">Student</span> <span class="k">class</span><span class="p">]];</span>
+   <span class="p">[</span><span class="n">context</span> <span class="nl">registerModel</span><span class="p">:[</span><span class="n">Teacher</span> <span class="k">class</span><span class="p">]];</span>
+   <span class="p">[</span><span class="n">context</span> <span class="n">initialize</span><span class="p">];</span>
+</code></pre></div>
+<blockquote>
+<p>关于PSFile的相关操作，参考<a href="/PSFile">PSFile</a></p>
+</blockquote>
+
+<p>　　<code>- registerModel:(Class)model</code>方法建立了数据库表与Model的映射关系。</p>
+
+<p>　　以上便是建立数据库的全部过程了。</p>
+
+<h3>3 PSModel</h3>
+
+<hr>
+
+<h4>数据库表的创建与升级</h4>
+
+<p>　　Model的<code>Configuration</code>分类中默认实现一些静态类方法。用户可以选择重写一部分方法用于自定义表名、自定义字段属性、插入初始化数据等。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cm">/**</span>
+<span class="cm"> *  Config table.</span>
+<span class="cm"> */</span>
+<span class="k">@interface</span> <span class="nc">PSModel</span><span class="o">&lt;</span><span class="n">M</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Configuration</span><span class="p">)</span>
+<span class="o">+</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">tableName</span><span class="p">;</span><span class="cm">/**&lt; Return table name of the model. default is class name. */</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nf">version</span><span class="p">;</span><span class="cm">/**&lt; Return current version of the model. default is 1.*/</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">propertyForColumn:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">column</span><span class="p">;</span><span class="cm">/**&lt; Return property of column. */</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">PSSql</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">migrateForm:</span><span class="p">(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nv">oldVersion</span> <span class="nf">to:</span><span class="p">(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nv">newVersion</span><span class="p">;</span><span class="cm">/**&lt; Return sqls for migration. default is nil.*/</span>
+<span class="k">@end</span>
+</code></pre></div>
+<p>　　重写<code>tableName</code>方法，可以自定义数据库表的名称。</p>
+
+<blockquote>
+<p>若表已经建立了，再更改此方法是无效的，并且可能会引起一些错误。因此一旦定义了表名之后，不要再改动此方法了。</p>
+</blockquote>
+
+<p>　　重写<code>version</code>方法，返回当前表的版本。默认为1。当用户重写并返回大于当前的版本号，PSDicRecord会重新检查表的结构与实体是否相符。如果发现新字段，将会自动添加新属性到数据库表中。</p>
+
+<blockquote>
+<p>由于sqlite不支持删除表的字段，所以被删除的列仅仅只是在查询时屏蔽了该字段。</p>
+</blockquote>
+
+<p>　　重写<code>propertyForColumn:</code>，用于自定义列的属性，如下：</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//age的默认值为10，name不能为空</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">propertyForColumn:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">column</span><span class="p">{</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">column</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&quot;age&quot;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">@&quot;default 10&quot;</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">([</span><span class="n">column</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&quot;name&quot;</span><span class="p">){</span>
+        <span class="k">return</span> <span class="s">@&quot;not null&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><code>propertyForColumn:</code>返回的字符串会直接拼接在字段后，如<strong>ALTER TABLE Student ADD subject TEXT <mark>default &#39;语文&#39;</mark></strong></p>
+</blockquote>
+
+<p>　　PSDicRecord在建表和升级表之后，会调用<code>updatesForm:to:</code>方法，用户可以重写此方法，返回sqls用于添加初始化数据或增加外键、唯一键之类。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//返回从旧版本升级到新版本所需要的sqls</span>
+<span class="c1">//oldVersion为0的时候，代表初始化数据库</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">NSArray</span><span class="o">&lt;</span><span class="bp">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">updatesForm:</span><span class="p">(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nv">oldVersion</span> <span class="nf">to:</span><span class="p">(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nv">newVersion</span><span class="p">{</span>
+        <span class="bp">NSMutableArray</span> <span class="o">*</span><span class="n">updateSqls</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSMutableArray</span> <span class="n">new</span><span class="p">];</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">oldVersion</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">0</span><span class="o">:</span><span class="c1">//初始化数据</span>
+            <span class="p">[</span><span class="n">updateSqls</span> <span class="nl">addObject</span><span class="p">:[</span><span class="n">PSSql</span> <span class="nl">buildSql</span><span class="p">:</span><span class="s">@&quot;insert into student(name, age) values(?, ?)&quot;</span><span class="p">,</span> <span class="s">@&quot;张三&quot;</span><span class="p">,</span> <span class="mi">@24</span><span class="p">]];</span>
+            <span class="p">[</span><span class="n">updateSqls</span> <span class="nl">addObject</span><span class="p">:[</span><span class="n">PSSql</span> <span class="nl">buildSql</span><span class="p">:</span><span class="s">@&quot;insert into student(name, age) values(?, ?)&quot;</span><span class="p">,</span> <span class="s">@&quot;李四&quot;</span><span class="p">,</span> <span class="mi">@25</span><span class="p">]];</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">updateSqls</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//返回当前表版本，默认version为1</span>
+<span class="p">+</span> <span class="p">(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nf">version</span><span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>建表时，PSDicRecord会调用<code>[Student updatesForm:0 to:1]</code></p>
+
+<p>建表时，<code>[+version]</code>若是返回3，则会调用<code>[Student updatesForm:0 to:3]</code></p>
+
+<p>升级表时，若原来的版本是2，<code>[+version]</code>返回5的话，会调用<code>[Student updatesForm:2 to:5]</code></p>
+</blockquote>
+
+<h3>增删改查</h3>
+
+<p>　　以上代码中的Teacher类通过继承PSModel，便立即拥有众多方便的操作数据库的方法。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">   <span class="c1">//创建name属性为Jack，age属性为40的Teacher对象并添加到数据库</span>
+   <span class="n">Teacher</span> <span class="o">*</span><span class="n">newTeacher</span> <span class="o">=</span> <span class="p">[</span><span class="n">Teacher</span> <span class="n">new</span><span class="p">];</span>
+   <span class="n">newTeacher</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Jack&quot;</span><span class="p">;</span>
+   <span class="n">newTeacher</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+   <span class="p">[</span><span class="n">newTeacher</span> <span class="n">save</span><span class="p">];</span>
+
+<span class="cm">/************************************************************/</span>
+   <span class="c1">//删除id值为11的Teacher</span>
+   <span class="p">[[</span><span class="n">Teacher</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">deleteById</span><span class="p">:</span><span class="mi">11</span><span class="p">];</span>
+
+<span class="cm">/************************************************************/</span>
+   <span class="c1">//查询id值为11的Teacher，将其name属性改为Jack并更新到数据库</span>
+   <span class="n">Teacher</span> <span class="o">*</span><span class="n">aTeacher</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Teacher</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findById</span><span class="p">:</span><span class="mi">11</span><span class="p">];</span>
+   <span class="n">aTeacher</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Jack&quot;</span><span class="p">;</span>
+   <span class="p">[</span><span class="n">aTeacher</span> <span class="n">update</span><span class="p">];</span>
+
+<span class="cm">/************************************************************/</span>
+   <span class="c1">//查询所有年龄大于30岁的Teacher</span>
+   <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">Teacher</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">teachers</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Teacher</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">find</span><span class="p">:</span><span class="s">@&quot;select * from teacher where age &gt; ?&quot;</span><span class="p">,</span> <span class="mi">@30</span><span class="p">];</span>
+   <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">Teacher</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">teachers</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Teacher</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findByCondition</span><span class="p">:</span><span class="s">@&quot;age &gt; ?&quot;</span><span class="p">,</span> <span class="mi">@30</span><span class="p">];</span>
+
+   <span class="c1">//分页查询年龄大于30岁的Teacher，当前页号为1，每页10个Teacher记录</span>
+   <span class="n">PSPage</span><span class="o">&lt;</span><span class="n">Teacher</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">teacherPage</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Teacher</span> <span class="n">dao</span><span class="p">]</span> <span class="n">paginate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">@&quot;select *&quot;</span><span class="p">,</span> <span class="s">@&quot;from teacher where age &gt; ?&quot;</span><span class="p">,</span> <span class="mi">@30</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>PSModel 还提供了很多其它的方便的方法</p>
+</blockquote>
+
+<h3>4 PSTypeConvertor</h3>
+
+<hr>
+
+<p>　　PSDicRecord具有一个非常方便的特性，我把它叫做属性修正。什么是属性修正，举个例子：</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="c1">//查询出生日期在2002年5月9日之后的学生</span>
+    <span class="bp">NSDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;2002-05-09&quot;</span> <span class="nl">ps_dateValue</span><span class="p">:</span><span class="s">@&quot;yyyy-MM-dd&quot;</span><span class="p">];</span>
+    <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">results</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findByCondition</span><span class="p">:</span><span class="s">@&quot;born &gt; ?&quot;</span><span class="p">,</span> <span class="n">date</span><span class="p">];</span>
+</code></pre></div>
+<p>　　在上面的查询中，<code>findByCondition:</code>方法中的条件参数，传入的是一个NSDate对象，PSDicRecord在执行SQL的时候，会将它转换成适当的数据用于查询。这是因为PSDicRecord为NSDate类实现了一个名为<code>PSNSDateConvertor</code>的属性转换器，因此，NSDate可以作为Model的属性，查询条件等。</p>
+
+<p>　　Convertor需要实现PSTypeConvertor协议，以下是该协议的方法列表</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#define PSSQLiteTypeNULL @&quot;NULL&quot;</span>
+<span class="cp">#define PSSQLiteTypeINTEGER @&quot;INTEGER&quot;</span>
+<span class="cp">#define PSSQLiteTypeREAL @&quot;REAL&quot;</span>
+<span class="cp">#define PSSQLiteTypeTEXT @&quot;TEXT&quot;</span>
+<span class="cp">#define PSSQLiteTypeBLOG @&quot;BLOG&quot;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">sqlite3_stmt</span> <span class="n">sqlite3_stmt</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> *  Property vlaue convertor</span>
+<span class="cm"> *  convert property type to objc type</span>
+<span class="cm"> */</span>
+<span class="k">@protocol</span> <span class="nc">PSTypeConvertor</span><span class="o">&lt;</span><span class="bp">NSObject</span><span class="o">&gt;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">type</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="kt">Class</span> <span class="n">objcType</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">dataType</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="bp">NSMethodSignature</span> <span class="o">*</span><span class="n">setterSignature</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="bp">NSMethodSignature</span> <span class="o">*</span><span class="n">getterSignature</span><span class="p">;</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">bindObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">obj</span> <span class="nf">toColumn:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nv">idx</span> <span class="nf">inStatement:</span><span class="p">(</span><span class="n">sqlite3_stmt</span> <span class="o">*</span><span class="p">)</span><span class="nv">statement</span><span class="p">;</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">getBuffer:</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">buffer</span> <span class="nf">fromObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">obj</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">objectForBuffer:</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">buffer</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre></div>
+<p>　　以下是PSNSDateConvertor的实现，用于解释PSTypeConvertor是如何工作的。注释是用于解释方法的用处：</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//PSNSDateConvertor.h</span>
+<span class="k">@interface</span> <span class="nc">PSNSDateConvertor</span> : <span class="bp">NSObject</span><span class="o">&lt;</span><span class="n">PSTypeConvertor</span><span class="o">&gt;</span>
+<span class="k">@end</span>
+
+<span class="c1">//PSNSDateConvertor.m</span>
+<span class="cp">#import &quot;PSNSDateConvertor.h&quot;</span>
+<span class="cp">#import &quot;PSFoudation.h&quot;</span>
+<span class="cp">#import &lt;sqlite3.h&gt;</span>
+<span class="cp">#import &lt;objc/runtime.h&gt;</span>
+
+<span class="k">@interface</span> <span class="nc">PSNSDateConvertor</span><span class="p">()</span>
+<span class="c1">//模拟NSDate作为成员属性</span>
+<span class="k">@property</span><span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">retain</span><span class="p">)</span> <span class="bp">NSDate</span> <span class="o">*</span><span class="n">signature</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">PSNSDateConvertor</span>
+<span class="c1">//获取属性的类型（可以直接复制以下代码）</span>
+<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">type</span><span class="p">{</span>
+    <span class="k">static</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">_type</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="kt">objc_property_t</span> <span class="n">property</span> <span class="o">=</span> <span class="n">class_getProperty</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="k">class</span><span class="p">,</span> <span class="s">&quot;signature&quot;</span><span class="p">);</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">type</span> <span class="o">=</span> <span class="n">property_copyAttributeValue</span><span class="p">(</span><span class="n">property</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="p">);</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="l">@(</span><span class="n">type</span><span class="l">)</span><span class="p">;</span>
+        <span class="n">free</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="n">_type</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//返回NSDate类型以什么形式存储。</span>
+<span class="c1">//由于NSDate是OC对象，所以可以直接存储在数组或字典中，所以直接返回NSDate的类型即可。</span>
+<span class="c1">//如果是基本类型，一般是返回保存它的OC对象，比如double类型返回NSNumber，CGRect返回NSValue</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">Class</span><span class="p">)</span><span class="nf">objcType</span><span class="p">{</span>
+    <span class="k">return</span> <span class="bp">NSDate</span><span class="p">.</span><span class="k">class</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//NSDate在数据库中使用REAL作为字段的属性</span>
+<span class="c1">//如果返回的是PSSQLiteTypeBLOG的话，则只能使用=，而不能再使用&gt;、&lt;来对比字段的值了。</span>
+<span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">dataType</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">PSSQLiteTypeREAL</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//Setter方法签名（可以直接复制以下代码）</span>
+<span class="p">-</span> <span class="p">(</span><span class="bp">NSMethodSignature</span> <span class="o">*</span><span class="p">)</span><span class="nf">setterSignature</span><span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">self</span> <span class="nl">methodSignatureForSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">setSignature</span><span class="p">:)];</span>
+<span class="p">}</span>
+<span class="c1">//Getter方法签名（可以直接复制以下代码）</span>
+<span class="p">-</span> <span class="p">(</span><span class="bp">NSMethodSignature</span> <span class="o">*</span><span class="p">)</span><span class="nf">getterSignature</span><span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">self</span> <span class="nl">methodSignatureForSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">signature</span><span class="p">)];</span>
+<span class="p">}</span>
+<span class="c1">//NSDate对象绑定到sql时，是如何处理的</span>
+<span class="c1">//由于在此Convertor中，NSDate是使用REAL类型存储的，所以这里将NSDate对象转换成double类型，并绑定到statement中</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">bindObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">obj</span> <span class="nf">toColumn:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nv">idx</span> <span class="nf">inStatement:</span><span class="p">(</span><span class="n">sqlite3_stmt</span> <span class="o">*</span><span class="p">)</span><span class="nv">statement</span><span class="p">{</span>
+    <span class="n">sqlite3_bind_double</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="p">[</span><span class="n">obj</span> <span class="n">timeIntervalSince1970</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="c1">//当用户调用了 NSDate *born = aStu.born时，此方法将会被调用。</span>
+<span class="c1">//此方法用于将obj转换成NSDate对象，并将对象放入缓冲buffer，之后PSDicRecord会将缓冲里的对象返回给用户。</span>
+<span class="c1">//由于数据库中，NSDate是以REAL类型保存的，所以读出来的时候，是NSNumber(double)类型，因此不能直接将它返回给用户，所以要将NSNumber转换成NSDate对象。</span>
+<span class="c1">//转换之后，将NSDate对象返回，在下一次用户取aStu.born的值时，obj的类型就是NSDate类型了，可以不需要转换直接放入缓冲中，以优化性能。</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">getBuffer:</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">buffer</span> <span class="nf">fromObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">obj</span><span class="p">{</span>
+    <span class="n">returnValIf</span><span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="nb">nil</span> <span class="o">||</span> <span class="p">[</span><span class="n">obj</span> <span class="nl">isEqual</span><span class="p">:[</span><span class="bp">NSNull</span> <span class="n">null</span><span class="p">]],</span> <span class="nb">nil</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">obj</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="bp">NSNumber</span> <span class="k">class</span><span class="p">]])</span> <span class="p">{</span>
+        <span class="bp">NSDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSDate</span> <span class="nl">dateWithTimeIntervalSince1970</span><span class="p">:[</span><span class="n">obj</span> <span class="n">doubleValue</span><span class="p">]];</span>
+        <span class="n">memcpy</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">date</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">id</span><span class="p">));</span>
+        <span class="k">return</span> <span class="n">date</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">([</span><span class="n">obj</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="bp">NSDate</span> <span class="k">class</span><span class="p">]]){</span>
+        <span class="n">memcpy</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">id</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">PSAssertFail</span><span class="p">(</span><span class="s">@&quot;can not conver &lt;%@ %p&gt;:%@ to NSDate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">obj</span> <span class="k">class</span><span class="p">],</span> <span class="n">obj</span><span class="p">,</span> <span class="n">obj</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//当用户调用了aStu.born = date时，此方法将会被调用</span>
+<span class="c1">//用于将缓冲的内存对象转换成OC类型的对象。</span>
+<span class="c1">//由于NSDate本身是OC类型的对象，所以可以直接将对象从缓冲中拿出来，返回</span>
+<span class="c1">//如果是基本类型，如double，则需要先将double从缓冲中拿出来，包装成NSNumber对象之后再返回。</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">objectForBuffer:</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="nv">buffer</span><span class="p">{</span>
+    <span class="n">returnValIf</span><span class="p">(</span><span class="n">buffer</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">nil</span><span class="p">);</span>
+    <span class="n">__unsafe_unretained</span> <span class="kt">id</span> <span class="n">obj</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">id</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre></div>
+<p>　　目前，PSDicRecord默认实现了以下Convertor</p>
+
+<table><thead>
+<tr>
+<th>Objective-C Type</th>
+<th>Property Attribute</th>
+<th>Store Type</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>char</td>
+<td>c</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>unsigned char</td>
+<td>C</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>short</td>
+<td>s</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>unsigned short</td>
+<td>S</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>int</td>
+<td>i</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>unsigned int</td>
+<td>I</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>long</td>
+<td>l (q 64bit)</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>L (Q 64bit)</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>long long</td>
+<td>q</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>unsigned long long</td>
+<td>Q</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>float</td>
+<td>f</td>
+<td>NSNumber</td>
+<td>REAL</td>
+</tr>
+<tr>
+<td>double</td>
+<td>d</td>
+<td>NSNumber</td>
+<td>REAL</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>c</td>
+<td>NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>Class</td>
+<td>#</td>
+<td>Class/NSString</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td>NSData</td>
+<td>@&quot;NSData&quot;</td>
+<td>NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>NSDate</td>
+<td>@&quot;NSDate&quot;</td>
+<td>NSDate/NSNumber</td>
+<td>REAL</td>
+</tr>
+<tr>
+<td>NSDecimalNumber</td>
+<td>@&quot;NSDecimalNumber&quot;</td>
+<td>NSDecimalNumber/NSString</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td>NSString</td>
+<td>@&quot;NSString&quot;</td>
+<td>NSString</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td>NSURL</td>
+<td>@&quot;NSURL&quot;</td>
+<td>NSURL/NSString</td>
+<td>TEXT</td>
+</tr>
+<tr>
+<td>UIColor</td>
+<td>@&quot;UIColor&quot;</td>
+<td>UIColor/NSNumber</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>NSValue</td>
+<td>@&quot;NSValue&quot;</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>CGAffineTransform</td>
+<td>{CGAffineTransform=dddddd}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>CGPoint</td>
+<td>{CGPoint=dd}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>CGRect</td>
+<td>{CGRect={CGPoint=ff}{CGSize=ff}}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>CGSize</td>
+<td>{CGSize=dd}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>CGVector</td>
+<td>{CGVector=dd}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>UIEdgeInsets</td>
+<td>{UIEdgeInsets=dddd}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>UIOffset</td>
+<td>{UIOffset=dd}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+<tr>
+<td>NSRange</td>
+<td>{_NSRange=QQ}</td>
+<td>NSValue/NSData</td>
+<td>BLOG</td>
+</tr>
+</tbody></table>
+
+<p>　　实现了Convertor的Objective-C Type可以在模型中直接使用。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">@interface</span> <span class="nc">Student</span> : <span class="nc">PSModel</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span> <span class="bp">UIColor</span> <span class="n">color</span><span class="p">;</span><span class="c1">//支持，因为已经为UIColor实现了Convertor</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">)</span> <span class="n">CGColorRef</span> <span class="n">colorRef</span><span class="p">;</span><span class="c1">//不支持，因为没有为CGColorRef实现Convertor</span>
+<span class="k">@end</span>
+</code></pre></div>
+<blockquote>
+<p>Store Type中，有的类型会出现两种存储类型(Store Type)。这是因为从数据库取出来的时候，并没有将它即时转换成合适的类型，而是在用到时，再将它通过对应的Convertor转换成合适的类型返回。所以数据从数据库转换成Model的时候，速度可以非常快。</p>
+
+<p>由以上面的原因，当用户使用KVC来取数据的时候，很有可能取出来的对象类型不是期望的类型。如NSDate *date = [aStu valueForKey:@&quot;born&quot;]，此时的date对象<mark>既可能是NSNumber类型，也可能是NSDate类型</mark>。同样，使用KVC设置属性的时候，也可以使用NSNumber类型或NSDate类型，在保存到数据库时，Convertors会处理好它们之间的转换的。
+<code>[aStu setValue:@(1020873600) forKey:@&quot;born&quot;]</code>和<code>[aStu setValue:date forKey:@&quot;born&quot;]</code>都是正确的。</p>
+</blockquote>
+
+<h3>5 PSDb + PSRecord模式</h3>
+
+<hr>
+
+<p>　　PSDb类及其配套的PSRecord类，提供用户使用SQL来操作数据库。同时，PSDb提供事务处理、批量执行SQL等功能。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="bp">NSMutableArray</span><span class="o">&lt;</span><span class="n">PSSql</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">sqls</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSMutableArray</span> <span class="n">array</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="n">sqls</span> <span class="nl">addObject</span><span class="p">:[</span><span class="n">PSSql</span> <span class="nl">buildSql</span><span class="p">:</span><span class="s">@&quot;insert into student(name, age) values(?, ?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&quot;张%d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="l">@(</span><span class="n">i</span><span class="l">)</span><span class="p">]];</span>
+    <span class="p">}</span>
+    <span class="c1">//批量执行3000条insert语句</span>
+    <span class="p">[[</span><span class="n">PSDb</span> <span class="n">main</span><span class="p">]</span> <span class="nl">batchSqls</span><span class="p">:</span><span class="n">sqls</span><span class="p">];</span>
+
+    <span class="c1">//事务</span>
+    <span class="p">[[</span><span class="n">PSDb</span> <span class="n">main</span><span class="p">]</span> <span class="nl">tx</span><span class="p">:</span><span class="o">^</span><span class="kt">BOOL</span><span class="p">(</span><span class="n">PSDb</span> <span class="o">*</span><span class="n">db</span><span class="p">){</span>
+        <span class="kt">BOOL</span> <span class="n">success</span> <span class="o">=</span> <span class="p">[</span><span class="n">db</span> <span class="nl">update</span><span class="p">:</span><span class="s">@&quot;update account set cash = cash - ? where id = ?&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">123</span><span class="p">];</span>
+        <span class="n">success</span> <span class="o">&amp;=</span> <span class="p">[</span><span class="n">db</span> <span class="nl">update</span><span class="p">:</span><span class="s">@&quot;update account set cash = cash + ?  where id = ?&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">456</span><span class="p">];</span>
+        <span class="k">return</span> <span class="n">success</span><span class="p">;</span>
+    <span class="p">}];</span>
+</code></pre></div>
+<blockquote>
+<p>以上两个数据库更新操作在一个事务中执行，如果执行过程中<code>发生异常</code>或者block<code>返回值为NO</code>，则自动回滚事务。</p>
+</blockquote>
+
+<h3>6 表关联操作</h3>
+
+<hr>
+
+<p>　　PSDicRecord天然支持表关联操作，并不需要学习新的东西。表关联操作主要有两种方式：一是直接使用sql得到关联数据，然后使用KVC获取表外的数据；二是在Model中添加获取关联数据的方法。</p>
+
+<p>　　假定有两张数据库表：teacher、student，并且teacher到student是一对多关系，student表中使用teacher_id关联到teacher表。</p>
+
+<h4>直接使用SQL查询</h4>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">   <span class="n">Student</span> <span class="o">*</span><span class="n">student</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findFirst</span><span class="p">:</span><span class="s">@&quot;select s.*, t.name t_name from student s, teacher t where s.teacher_id = t.id&quot;</span><span class="p">];</span>
+   <span class="bp">NSString</span> <span class="o">*</span><span class="n">teacherName</span> <span class="o">=</span> <span class="p">[</span><span class="n">student</span> <span class="nl">valueForKey</span><span class="p">:</span><span class="s">@&quot;t_name&quot;</span><span class="p">];</span>
+</code></pre></div>
+<h4>关联属性</h4>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">@interface</span> <span class="nc">Student</span> : <span class="nc">PSMolde</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span>
+<span class="p">...</span><span class="c1">//Student其它代码</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">Teacher</span> <span class="o">*</span><span class="n">teacher</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">Student</span>
+<span class="p">...</span><span class="c1">//Student其它代码</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">Teacher</span> <span class="o">*</span><span class="p">)</span><span class="n">teacher</span><span class="p">{</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">Teacher</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findById</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">teacher_id</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+
+<span class="cm">/***************************************************************/</span>
+<span class="k">@interface</span> <span class="nc">Teacher</span> : <span class="nc">PSModel</span><span class="o">&lt;</span><span class="n">Teacher</span> <span class="o">*&gt;</span>
+<span class="p">...</span><span class="c1">//Teacher其它代码</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">students</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">Teacher</span>
+<span class="p">...</span><span class="c1">//Teacher其它代码</span>
+<span class="o">-</span> <span class="p">(</span><span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">Student</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">students</span><span class="p">{</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findByCondition</span><span class="p">:</span><span class="s">@&quot;teacher_id = ?&quot;</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">ID</span><span class="p">]];</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre></div>
+<h3>7 多数据源支持</h3>
+
+<hr>
+
+<p>　　PSDicRecord可同时支持多数据源上下文，对每个上下文可以进行彼此独立的配置。</p>
+
+<p>　　当使用多数据源时，只需要对每个PSDbContext指定一个<code>configName</code>即可，如下代码示例：</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">PSDbContext</span> <span class="o">*</span><span class="n">drStu</span> <span class="o">=</span> <span class="p">[[</span><span class="n">PSDbContext</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithDataSource</span><span class="p">:</span><span class="s">@&quot;Document/db/Student.db&quot;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">drStu</span> <span class="nl">registerModel</span><span class="p">:[</span><span class="n">Student</span> <span class="k">class</span><span class="p">]];</span>
+    <span class="p">[</span><span class="n">drStu</span> <span class="n">start</span><span class="p">];</span>
+
+    <span class="n">PSDbContext</span> <span class="o">*</span><span class="n">drTea</span> <span class="o">=</span> <span class="p">[[</span><span class="n">PSDbContext</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithDataSource</span><span class="p">:</span><span class="s">@&quot;Document/db/Teacher.db&quot;</span> <span class="nl">forConfig</span><span class="p">:</span><span class="s">@&quot;TeacherDatasource&quot;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">drTea</span> <span class="nl">registerModel</span><span class="p">:[</span><span class="n">Teacher</span> <span class="k">class</span><span class="p">]];</span>
+    <span class="p">[</span><span class="n">drTea</span> <span class="n">start</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>　　以上代码创建了两个PSDbContext实例drStu与drTea，<mark>特别注意</mark>，创建drTea时，指定了其configName为&quot;TeacherDatasource&quot;，而drStu没有指定configName，则使用默认configName <code>main</code>。</p>
+
+<p>　　对于Model的使用，不同的Model会自动找到其所属的PSDicRecord实例以及相关配置进行数据库操作。假如希望同一个Model能够切换到不同的数据源上使用，也极度方便，这种用法非常适合于不同数据源中的table拥有相同表结构的情况，开发者希望用同一个Model来操作这些相同表结构的table，以下是示例代码：</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="c1">//从默认数据库main中取出数据</span>
+   <span class="n">Student</span> <span class="o">*</span><span class="n">stu</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Student</span> <span class="n">dao</span><span class="p">]</span> <span class="nl">findById</span><span class="p">:</span><span class="mi">123</span><span class="p">];</span>
+    <span class="c1">//将该记录保存到备份数据库中</span>
+   <span class="p">[[</span><span class="n">stu</span> <span class="nl">use</span><span class="p">:</span><span class="s">@&quot;backupDatabase&quot;</span><span class="p">]</span> <span class="n">save</span><span class="p">];</span>
+</code></pre></div>
+<p>　　上例中的代码，<code>[stu use:@&quot;backupDatabase&quot;]</code>方法切换数据源到<code>backupDatabase</code>并直接将数据保存起来。</p>
+
+<h5>特别注意</h5>
+
+<p>　　只有在同一个Model希望对应到多个数据源的table时才需要使用use方法，如果同一个Model唯一对应一个数据源的一个table，那么数据源的切换是自动的，无需使用use方法。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">    <span class="c1">//默认使用main数据库保存Student</span>
+    <span class="p">[</span><span class="n">stu</span> <span class="n">save</span><span class="p">];</span>
+    <span class="c1">//默认使用TeacherDatasource数据库保存Teacher</span>
+    <span class="p">[</span><span class="n">tea</span> <span class="n">save</span><span class="p">];</span>
+</code></pre></div>
+<p>　　对于PSDb+PSRecord的使用，数据源的切换需要使用PSDb *db = [PSDb use:configName]方法得到数据库操作对象，然后就可以进行数据库操作了，以下是代码示例：</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">   <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">PSRecord</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">teachers</span> <span class="o">=</span> <span class="p">[[</span><span class="n">PSDb</span> <span class="nl">use</span><span class="p">:</span><span class="s">@&quot;backup&quot;</span><span class="p">]</span> <span class="nl">find</span><span class="p">:</span><span class="s">@&quot;select * from teacher&quot;</span><span class="p">];</span>
+   <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">PSRecord</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">teachers</span> <span class="o">=</span> <span class="p">[[</span><span class="n">PSDb</span> <span class="n">main</span><span class="p">]</span> <span class="nl">find</span><span class="p">:</span><span class="s">@&quot;select * from teacher&quot;</span><span class="p">];</span>
+</code></pre></div>
+<p>　　以上两行代码，分别对应configName为<code>backup</code>、<code>main</code>的数据源中得到各自的数据库操作对象，然后就可以如同单数据源完全一样的方式来使用数据库操作API了。简言之，对于PSDb+PSRecord来说，多数据源相比单数据仅需多调用[PSDb use:]，随后的API使用方式完全一样。</p>
+
+<blockquote>
+<p>注意：最先创建的PSDbContext实例(没有指定数据源名称)将会成为主数据源，可以使用[PSDb main]。</p>
+</blockquote>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/psdicrecord'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/psdicrecord'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/psstream">
+        <section class="post">
+            <h2>PSStream 极速集合处理</h2>
+            <p>　　PSStream是用于处理集合的框架。灵感来自于ReactiveCocoa，但是希望能提供更多更全面的集合处理功能，所以简单编写了PSStream框架。Objective-C没有提供语法树分析、匿名类、类型推断等功能，所以感觉PSStream在使用的过程中，虽然能提供一定的便捷性，但仍无法...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/psaspect">
+        <section class="post">
+            <h2>PSAspect 面向切面编程</h2>
+            <p>　　在iOS开发中，常常需要引入数据统计、主题应用等，如果在每个ViewController中的viewDidLoad或viewWillAppear等方法进行配置，常常会非常烦索，同时也不容易维护。
+
+
+在我编写到快完成时，遇到了一些困难，在查找资料时，发现了神器Aspects，但是感觉在易用...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

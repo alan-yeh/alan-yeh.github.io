@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <channel>
+        <atom:link href="rss" rel="self" type="application/rss+xml" />
+        
+        <title><![CDATA[Alan Yeh - Jekyll]]></title>
+        <link>http://yerl.cn/tag/Jekyll</link>
+<!--        需要修复-->
+        <description><![CDATA[]]></description>
+        
+        
+        <language>zh-cn</language>
+        <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
+        
+<item>
+    <title><![CDATA[利用Travis CI生成网页，支持Tags/Categorys]]></title>
+    <link>http://yerl.cn/blog/use-travis-ci-generate-sites</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 24 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-24T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/use-travis-ci-generate-sites]]></guid>
+    <description><![CDATA[　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。
+
+　　想要将Tags/Categorys生成分页功能，有几个思路。由于jekyll在运行时，将所有博客生成静态页面，利用query par...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[使用jekyll布署个人博客]]></title>
+    <link>http://yerl.cn/blog/use-jekyll-build-your-blog</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 20 Jan 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-01-20T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/use-jekyll-build-your-blog]]></guid>
+    <description><![CDATA[　　这篇blog主要用于记录怎么在Mac下使用pages.github.com和jekyll布署个人博客。
+
+步骤
+
+　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
+
+关闭Rootless
+
+　　Mac 10.11之后，苹果为系统加入了一个叫做Rootless的权限工具，用于保护系统的目录不被修改、写入。ruby和jekyll的部份插件需要一些权限，所以需要临时关闭这个功能...]]></description>
+</item>
+
+
+    </channel>
+</rss>

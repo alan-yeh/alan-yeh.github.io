@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>Alan Yeh</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="paged archive-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+<!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
+
+<!-- The big featured header  -->
+<header class="main-header "
+        style="background-image: url(/assets/images/cover1.jpg) ">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Alan Yeh</h1>
+            <h2 class="page-description">写写代码，想想东西，程序员的世界可以就这么简单。</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+
+<!-- The main content area on the homepage -->
+<main id="content" class="content" role="main">
+
+    <!-- The tag below includes the post loop - partials/loop.hbs -->
+        <!-- Previous/next page links - only displayed on page 2+ -->
+    <div class="extra-pagination inner">
+        
+            <nav class="pagination" role="pagination">
+    
+        
+            <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
+        
+    
+    <span class="page-number"> Page 2 of 6 </span>
+     
+        <a class="older-posts" href="/page3/" title="Next Page">Older Posts &raquo;</a>
+     
+</nav>
+        
+    </div>
+
+    <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/building-java-projects-with-maven">使用Maven构建Java工程</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　这篇博客会带你一起来使用Maven构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Maven来构建它。为了让我们更关注如何使用Maven，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir gs-maven
+$ cd gs-maven
+
+　　使用命令mkdir -p src/main/jav... <a class="read-more" href="/blog/building-java-projects-with-maven">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-06-28">28 Jun 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/building-java-projects-with-gradle">使用Gradle构建Java工程</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　这篇博客会带你一起来使用Gradle构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Gradle来构建它。为了让我们的精力更专注于如何使用Gralde，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir gs-gradle
+$ cd gs-gradle
+
+　　使用命令mkdir -p src... <a class="read-more" href="/blog/building-java-projects-with-gradle">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-06-27">27 Jun 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/macos-setup-gradle">Mac OS X下Gradle的安装与配置</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>下载Gradle
+
+到Gradle官网下载安装包，选择下载Binary only distribution。下载完了之后，解压到一个目录，比如Users/yerl/gradle。
+
+设置环境变量
+
+打开终端，输入以下命令，编辑bash_profile
+$ nano ~/.bash_profile
+
+添加以下代码在最后，保存并退出：
+# gradle
+export GRADLE_HOME=/U... <a class="read-more" href="/blog/macos-setup-gradle">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-06-26">26 Jun 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/macos-setup-maven">Mac OS X下Maven的安装与配置</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>下载Maven
+
+到Maven官网下载安装包，选择下载Binary zip archive。下载完了之后，解压到一个目录，比如Users/yerl/maven。
+
+设置Maven环境变量
+
+打开终端，输入以下命令，编辑bash_profile
+$ nano ~/.bash_profile
+
+添加以下代码在最后，保存并退出：
+# maven
+export M2_HOME=/Users/yerl... <a class="read-more" href="/blog/macos-setup-maven">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-06-25">25 Jun 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/ejs-mate">Ejs-mate</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　Ejs模板引擎不能使用layout语法，在整理html结构时相当不好用。但是Jackson Tian同学开发的ejs-mate为ejs添加了这个功能。那么，怎么在项目中使用ejs-mate呢？
+
+安装esj-mate
+
+　　命令行进入项目的根目录，然后使用npm安装。
+$ npm install ejs-mate --save
+
+使用ejs-mate
+
+　　编写一个layout文件， b... <a class="read-more" href="/blog/ejs-mate">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Node.js'>Node.js</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-05-27">27 May 2016</time>
+        </footer>
+    </article>
+    
+
+    <!-- Previous/next page links - displayed on every page -->
+    
+        <nav class="pagination" role="pagination">
+    
+        
+            <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
+        
+    
+    <span class="page-number"> Page 2 of 6 </span>
+     
+        <a class="older-posts" href="/page3/" title="Next Page">Older Posts &raquo;</a>
+     
+</nav>
+    
+
+
+</main>
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

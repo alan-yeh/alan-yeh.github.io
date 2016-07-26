@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <channel>
+        <atom:link href="rss" rel="self" type="application/rss+xml" />
+        
+        <title><![CDATA[Alan Yeh - Linux]]></title>
+        <link>http://yerl.cn/tag/Linux</link>
+<!--        需要修复-->
+        <description><![CDATA[]]></description>
+        
+        
+        <language>zh-cn</language>
+        <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
+        
+<item>
+    <title><![CDATA[Ubuntu自动挂载硬盘分区]]></title>
+    <link>http://yerl.cn/blog/ubuntu-mount-disk</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-06-29T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/ubuntu-mount-disk]]></guid>
+    <description><![CDATA[　　最近公司增配了一个固态硬盘，然后将老硬盘换下，固态作为系统分区。老硬盘2T不能浪费，作为备份盘。但是每次Ubuntu开机，都要手动挂载一下硬盘，比较烦。于是折腾一下，让系统开机之后自动挂载硬盘。
+
+　　查看硬盘挂载信息。
+$ sudo blkid
+
+/dev/sda1: LABEL=&quot;Data&quot; UUID=&quot;2662a892-8f1d-42cc-b474-a...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Ubuntu安装中文输入法]]></title>
+    <link>http://yerl.cn/blog/ubuntu-setup-input-method</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Mon, 25 Apr 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-04-25T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/ubuntu-setup-input-method]]></guid>
+    <description><![CDATA[　　最近准备折腾Gitlab，需要安装一个Linux环境。大学的时候，装过Ubunut，感觉还不错。刚好Ubuntu 16.04 LTS发布了，同一时间，Ubuntu Kylin也同一时间更新了。但是新版的Ubuntu Kylin长相实在太不讨人喜欢了，后面就干脆直接下载安装原版英文版Ubuntu了。
+
+　　安装完后，接着就去安装中文输入法。由于对Ubuntu完全没有经验，完全不懂怎么安装输...]]></description>
+</item>
+
+
+    </channel>
+</rss>

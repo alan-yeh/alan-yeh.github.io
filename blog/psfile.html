@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>PSFile 文件管理工具</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">PSFile 文件管理工具</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-01-08">08 Jan 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Objective-C'>Objective-C</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　你是否厌倦了写一长串代码来获取Documents目录？你是否厌倦了NSFileManager那一大串复杂又难记又难打的api？很好，你现在可以用PSFile了。因为它足够简单，但功能却不简单。</p>
+
+<p>　　PSFile简单地封装了PSFileManager的一些功能，用于支持快速管理文件和目录。</p>
+
+<h3>1 用法</h3>
+
+<hr>
+
+<p>　　PSFile的头文件中，已经为每个方法做上了注释，看了注释之后便可以了解它的用法了。但是，下面仍然还是列了一点它的用法出来，不然，这个Post也太简单了😝。</p>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">   <span class="c1">//获取Documents目录</span>
+   <span class="p">[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">];</span>
+
+   <span class="c1">//在Documents目录下创建Users/Caches/Files目录</span>
+   <span class="p">[[[[[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Users&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Caches&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Files&quot;</span><span class="p">]</span> <span class="n">createIfNotExists</span><span class="p">];</span>
+
+   <span class="c1">//获取Documents/Users/Database/workflows.db文件路径</span>
+   <span class="c1">//仅仅只是获取路径，尽管Database目录还没有创建</span>
+   <span class="bp">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="p">[[[[[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Users&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Database&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;workflows.db&quot;</span><span class="p">].</span><span class="n">path</span><span class="p">;</span>
+
+   <span class="c1">//清空Library/Caches目录</span>
+   <span class="p">[[</span><span class="n">PSFile</span> <span class="n">caches</span><span class="p">]</span> <span class="n">clear</span><span class="p">];</span>
+
+   <span class="c1">//删除Document/Users目录（子目录和文件都会被删掉）</span>
+   <span class="p">[[[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Users&quot;</span><span class="p">]</span> <span class="n">delete</span><span class="p">];</span>
+
+   <span class="c1">//获取目录下所有文件和文件夹</span>
+   <span class="bp">NSArray</span><span class="o">&lt;</span><span class="n">PSFile</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">files</span> <span class="o">=</span> <span class="p">[[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">]</span> <span class="n">childs</span><span class="p">];</span>
+
+   <span class="c1">//获取文件或文件夹(递归计算)大小</span>
+   <span class="kt">long</span> <span class="kt">long</span> <span class="n">folderSize</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Users&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Caches&quot;</span><span class="p">].</span><span class="n">size</span><span class="p">;</span>
+
+   <span class="c1">//判断是文件夹还是文件</span>
+   <span class="c1">//NO</span>
+   <span class="kt">BOOL</span> <span class="n">isDocument</span> <span class="o">=</span> <span class="p">[[[[[[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Users&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;Database&quot;</span><span class="p">]</span> <span class="nl">child</span><span class="p">:</span><span class="s">@&quot;workflows.db&quot;</span><span class="p">]</span> <span class="n">isDocument</span><span class="p">];</span>
+   <span class="c1">//YES</span>
+   <span class="kt">BOOL</span> <span class="n">isDocument</span> <span class="o">=</span> <span class="p">[</span><span class="n">PSFile</span> <span class="n">documents</span><span class="p">].</span><span class="n">isDocument</span><span class="p">;</span>
+</code></pre></div>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/psfile'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/psfile'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/pslog">
+        <section class="post">
+            <h2>PSLog 更好的日志工具</h2>
+            <p>　　你还在用着NSLog来做日志输出吧？有没有想过，日志其实还可以更强大呢？PSLog便可以成为你的新的Debug利器。
+
+　　PSLog是一个可自定义化，并可以提供一些方便的调试与记录的功能的日志工具。它与NSLog的用法几乎一模一样，所以没有学习的难度。PSLog可以将日志输出到不同的地方...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/psthemecenter-psfontcenter">
+        <section class="post">
+            <h2>PSThemeCenter、PSFontCenter</h2>
+            <p>　　当前，移动app对于界面的美观性等有越来越高的要求，一套UI已经满足不了用户日益增长的“精神需求”。因此，项目中经常会有更换主题、更换字体这类的需求。之前写主题管理时，经常乱得头皮发麻，经过几次整理、重构，完成了PSThemeCenter和PSFontCenter这两个管理界面管理类。
+
+...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>

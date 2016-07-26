@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>Ejs-mate</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">Ejs-mate</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-05-27">27 May 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Node.js'>Node.js</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <p>　　Ejs模板引擎不能使用layout语法，在整理html结构时相当不好用。但是<a href="https://github.com/JacksonTian">Jackson Tian</a>同学开发的ejs-mate为ejs添加了这个功能。那么，怎么在项目中使用<code>ejs-mate</code>呢？</p>
+
+<h3>安装esj-mate</h3>
+
+<p>　　命令行进入项目的根目录，然后使用npm安装。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install ejs-mate --save
+</code></pre></div>
+<h3>使用ejs-mate</h3>
+
+<p>　　编写一个layout文件， <code>boilerplate.ejs</code>:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>It&#39;s <span class="err">&lt;</span>%= who %&gt;<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;section&gt;</span>
+      <span class="err">&lt;</span>%- body -%&gt;
+    <span class="nt">&lt;/section&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>　　编写一个模板，<code>index.ejs</code>，该模板使用<code>layout.ejs</code>作为layout：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="err">&lt;</span>% layout(&#39;boilerplate&#39;) -%&gt;
+<span class="nt">&lt;h1&gt;</span>I am the <span class="err">&lt;</span>%= what %&gt; template<span class="nt">&lt;/h1&gt;</span>
+</code></pre></div>
+<p>　　使用Express 4.0应用来生成渲染模板：</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">),</span>
+  <span class="nx">engine</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ejs-mate&#39;</span><span class="p">),</span>
+  <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="c1">// use ejs-locals for all ejs templates:</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">engine</span><span class="p">(</span><span class="s1">&#39;ejs&#39;</span><span class="p">,</span> <span class="nx">engine</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;views&#39;</span><span class="p">,</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/views&#39;</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;view engine&#39;</span><span class="p">,</span> <span class="s1">&#39;ejs&#39;</span><span class="p">);</span> <span class="c1">// so you can render(&#39;index&#39;)</span>
+
+<span class="c1">// render &#39;index&#39; into &#39;boilerplate&#39;:</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">what</span><span class="o">:</span> <span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="nx">who</span><span class="o">:</span> <span class="s1">&#39;me&#39;</span> <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</code></pre></div>
+<p>　　最后结果</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>title<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;section&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>template<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h3>ejs-mate语法</h3>
+
+<h4><code>layout(view)</code></h4>
+
+<p>　　在模板中的任何位置调用此方法，会将此模板的内容套用在layout的<code>&lt;%- body -%&gt;</code>中。</p>
+
+<h4><code>partial(view, optionsOrCollection)</code></h4>
+
+<p>　　当在模板中调用这个方法时，会将目标view的内容嵌套到当前的模板中，并表，可以通过<code>optionsOrCollections</code>将相关参数传递给目录view。</p>
+
+<h4><code>block(&#39;name&#39;)</code></h4>
+
+<p>　　使用<code>block(&#39;name&#39;)</code>来创建一个块对象。这个块对象有4个方法，分别是<code>append()</code>，<code>prepend()</code>，<code>replace()</code>和<code>toString()</code>。</p>
+
+<p><em>基本用法</em>
+body-template.ejs</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="o">&lt;%</span> <span class="nx">layout</span><span class="p">(</span><span class="s1">&#39;boilerplate&#39;</span><span class="p">)</span> <span class="o">-%&gt;</span>
+<span class="o">&lt;%</span> <span class="nx">block</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;link type=&quot;text/css&quot; href=&quot;/foo.css&quot;&gt;&#39;</span><span class="p">)</span> <span class="o">%&gt;</span>
+<span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="nx">the</span> <span class="nx">template</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="o">&lt;%</span> <span class="nx">block</span><span class="p">(</span><span class="s1">&#39;footer&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;script src=&quot;/bar.js&quot;&gt;&lt;/script&gt;&#39;</span><span class="p">)</span> <span class="o">%&gt;</span>
+</code></pre></div>
+<p>layout文件，<code>boilerplate.ejs</code>:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>I&#39;m the layout<span class="nt">&lt;/title&gt;</span>
+    <span class="err">&lt;</span>%- block(&#39;head&#39;).toString() %&gt;
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;section&gt;</span>
+      <span class="err">&lt;</span>%-body -%&gt;
+    <span class="nt">&lt;/section&gt;</span>
+    <span class="err">&lt;</span>%= block(&#39;footer&#39;).toString() %&gt;
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>最终结果</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>I&#39;m the layout<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;/foo.css&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;section&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>I am the template<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/bar.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/ejs-mate'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/ejs-mate'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+
+    <!-- [[! next_post ]] -->
+    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/macos-setup-maven">
+        <section class="post">
+            <h2>Mac OS X下Maven的安装与配置</h2>
+            <p>## 下载Maven
+到[Maven官网](https://maven.apache.org/download.cgi)下载安装包，选择下载`Binary zip archive`。下载完了之后，解压到一个目录，比如`Users/yerl/maven`。
+
+## 设置`Maven`环境变量
+打...</p>
+        </section>
+    </a>
+        
+    <!-- [[! /next_post ]] -->
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/idea-create-maven-webapp">
+        <section class="post">
+            <h2>Intellij idea 创建maven webapp步骤</h2>
+            <p>　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
+
+
+
+　　以我的习惯，我会先建一个空Project，然后再添加Module。因此下一步，选择新建Empty Project。
+
+
+
+　　选择保存目录，确认。接着选择新建Module。
+
+
+
+　　在这...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>
