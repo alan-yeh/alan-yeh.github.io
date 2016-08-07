@@ -120,67 +120,13 @@
             <a class="newer-posts" href="/page3/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 4 of 6 </span>
-     
-        <a class="older-posts" href="/page5/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 4 of 4 </span>
      
 </nav>
         
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/pspromise">PSPromise Promise的简易实现</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　PSPromise是Promise的简易实现。遵循CommonJS的Promise/A接口标准，同时实现了一些扩展接口，使PSPromise更实用。
-
-　　近期看到一个很有意思的框架PromiseKit。看到PromiseKit的源码之后，对它的编写方式感到神奇，刚开始完全看不懂在写什么东西，而且代码是怎么运行的也完全没个头绪。仔细分析了大半天之后，感叹大神写代码的确与众不同。由于个人的... <a class="read-more" href="/blog/pspromise">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Objective-C'>Objective-C</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-03-05">05 Mar 2016</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/use-travis-ci-generate-sites">利用Travis CI生成网页，支持Tags/Categorys</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。
-
-　　想要将Tags/Categorys生成分页功能，有几个思路。由于jekyll在运行时，将所有博客生成静态页面，利用query par... <a class="read-more" href="/blog/use-travis-ci-generate-sites">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Jekyll'>Jekyll</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-01-24">24 Jan 2016</time>
-        </footer>
-    </article>
     
     <article class="post">
         <header class="post-header">
@@ -214,66 +160,6 @@
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/psdelayinvocation">PSDelayInvocation 间隔延时调用</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　刚刚遇到一个问题，大概是这样的：UISlider滑动时，将UISlider当前值发送给蓝牙。很简单的需求，但是有一个问题，就是不能过于频繁地向蓝牙设备发送消息，否则蓝牙设备由于处理不过来而断开连接。最后测试结果是，最小间隔不能低于0.4秒，否则可能断开连接。
-
-　　刚开始，我觉得很简单。不能频繁调用嘛，用PSLockFunc将它锁起来就可以了，0.4秒之后再解锁。完成任务！
-
-　　发给客... <a class="read-more" href="/blog/psdelayinvocation">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Objective-C'>Objective-C</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-01-15">15 Jan 2016</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/others">其它工具</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　PSExtensions还将日常很多常用的函数封装起来了，比如将NSDateFormatter缓存起来，防止多次创建引起的性能损耗、字符串转UIColor等等工具。了解这些工具之后，在将来的开发中，就更得心应手了。
-
-　　由于时间关系，这个Post在将来不定时更新新的工具的使用说明。
-
-1 PSAnimation
-
-
-
-　　简单封装UIView和CALayout的动画，方便编写简单动画。... <a class="read-more" href="/blog/others">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Objective-C'>Objective-C</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-01-10">10 Jan 2016</time>
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
@@ -283,9 +169,7 @@
             <a class="newer-posts" href="/page3/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 4 of 6 </span>
-     
-        <a class="older-posts" href="/page5/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 4 of 4 </span>
      
 </nav>
     
