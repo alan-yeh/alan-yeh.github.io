@@ -192,7 +192,7 @@
 
 <p>　　解压后，目录如下:</p>
 
-<p>　　<img src="/assets/blog/use-jekyll-build-your-blog/folder-structure.jpg" alt=""></p>
+<p><img src="/assets/blog/2016-01-20-folder-structure.jpg" alt="2016-01-20-folder-structure"></p>
 
 <h3>本地布署博客</h3>
 
@@ -223,20 +223,19 @@
 <span class="c1">#Jekyll开始服务</span>
 <span class="err">$</span> <span class="n">jekyll</span> <span class="n">s</span>
 </code></pre></div>
-<p>　　如果很不幸，你不能启动jekyll，并报了类似以下的错误，这是因为你缺少了博客需要的一些组件。</p>
-
-<p><img src="/assets/blog/use-jekyll-build-your-blog/terminal-error.png" alt=""></p>
+<p>　　如果很不幸，你不能启动jekyll，并报了类似以下的错误，这是因为你缺少了博客需要的一些组件。
+<img src="/assets/blog/2016-01-20-terminal-error.png" alt="2016-01-20-terminal-erro"></p>
 
 <p>　　因此你需要安装一些组件，使用gem可以很方便地安装这些组件。</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">paginate</span>
 </code></pre></div>
 <p>　　如果你的终端与我的显示似类，那么恭喜你，你已经完成了本地博客的布署了。</p>
 
-<p><img src="/assets/blog/use-jekyll-build-your-blog/terminal-status.jpg" alt="成功提示"></p>
+<p><img src="/assets/blog/2016-01-20-terminal-status.jpg" alt="2016-01-20-terminal-status"></p>
 
 <p>　　赶快打开你的浏览器，输入<a href="http://127.0.0.1:4000/">http://127.0.0.1:4000/</a>看看效果！</p>
 
-<p><img src="/assets/blog/use-jekyll-build-your-blog/browser-preview.jpg" alt="效果"></p>
+<p><img src="/assets/blog/2016-01-20-browser-preview.jpg" alt="2016-01-20-browser-previe"></p>
 
 <h3>布署到服务器</h3>
 
@@ -246,19 +245,19 @@
 
 <p>　　点击<code>+ New repository</code>，像以下这样填写你的信息。<code>Repository name</code>有格式要求，必须是<code>Owner.github.io</code>，这个Owner就是你的用户名，在图中你也可以找到Owner，我的帐户里，clean-blog就是Owner，所以我使用clean-blog.github.io作为我的设置。Description可以随意填。</p>
 
-<p><img src="/assets/blog/use-jekyll-build-your-blog/github-new-repository.jpg" alt=""></p>
+<p><img src="/assets/blog/2016-01-20-github-new-repository.jpg" alt="2016-01-20-github-new-repository"></p>
 
 <p>　　点击Create repository，创建代码仓库。</p>
 
-<p><img src="/assets/blog/use-jekyll-build-your-blog/github-new-repository-page.jpg" alt=""></p>
+<p><img src="/assets/blog/2016-01-20-github-new-repository-page.jpg" alt="2016-01-20-github-new-repository-page"></p>
 
 <p>　　到这里，你其实已经拥有了GitHub为你提供的博客空间。你需要做的就是将你的博客放到这里来。将刚才的clean-blog目录下的东西提交到GitHub的仓库下。</p>
 
-<p><img src="/assets/blog/use-jekyll-build-your-blog/github-upload-repo.jpg" alt=""></p>
+<p><img src="/assets/blog/2016-01-20-github-upload-repo.jpg" alt="2016-01-20-github-upload-repo"></p>
 
 <p>　　然后在新的浏览器里，打开<code>Owner.github.io</code>（我的是clean-blog.github.io），你会惊喜地发现，你的博客已经布署到网络中了。至此，你也有了你的个人博客了！
 　　
-<img src="/assets/blog/use-jekyll-build-your-blog/net-browser-preview.jpg" alt=""></p>
+<img src="/assets/blog/2016-01-20-net-browser-preview.jpg" alt="2016-01-20-net-browser-previe"></p>
 
 <h3>使用个性域名来访问你的博客</h3>
 
@@ -266,7 +265,7 @@
 
 <p>　　在你的域名解析里，添加以下两条记录，指向pages.github.io的服务器。</p>
 
-<p><img src="/assets/blog/use-jekyll-build-your-blog/setup-domain.jpg" alt=""></p>
+<p><img src="/assets/blog/2016-01-20-setup-domain.jpg" alt="2016-01-20-setup-domain"></p>
 
 <p>　　回到你的本地博客目录中，新建一个文件，名为CNAME（文件名叫CNAME，没有文件后缀），内容为你的域名。比如我的CNAME的内容如下</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">yerl.cn
