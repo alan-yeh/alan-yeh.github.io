@@ -18,6 +18,52 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[Spring入门(二)]]></title>
+    <link>http://yerl.cn/blog/spring-02</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 27 Sep 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-09-27T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/spring-02]]></guid>
+    <description><![CDATA[Spring入门(二)
+
+　　项目使用Gradle作为依赖管理工具。此项目建立在上一篇博客的基础上。
+
+集成beetl
+
+　　使用beetl作为视图引擎。
+
+
+添加beetl依赖
+
+    //模板引擎
+    compile group: &#39;org.beetl&#39;, name: &#39;beetl-core&#39;, version: &#39;2.2.3&#39;
+
+
+...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Spring入门(一)]]></title>
+    <link>http://yerl.cn/blog/spring-01</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-09-26T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/spring-01]]></guid>
+    <description><![CDATA[Spring入门(一)
+
+　　项目使用Gradle作为依赖管理工具。
+
+添加项目依赖
+
+　　新建Gralde的web项目，添加spring-webmvc依赖，添加servlet-api的依赖。
+group &#39;cn.yerl&#39;
+version &#39;1.0-SNAPSHOT&#39;
+
+apply plugin: &#39;java&#39;
+apply plugin: &...]]></description>
+</item>
+
+<item>
     <title><![CDATA[管理Nexus Repository OSS]]></title>
     <link>http://yerl.cn/blog/manage-nexus-repository-oss</link>
     <author><![CDATA[Alan Yeh]]></author>
@@ -174,28 +220,6 @@ $ nano ~/.bash_profile
 添加以下代码在最后，保存并退出：
 # maven
 export M2_HOME=/Users/yerl...]]></description>
-</item>
-
-<item>
-    <title><![CDATA[Intellij idea 创建maven webapp步骤]]></title>
-    <link>http://yerl.cn/blog/idea-create-maven-webapp</link>
-    <author><![CDATA[Alan Yeh]]></author>
-    <pubDate>Wed, 25 May 2016 00:00:00 +0000</pubDate>
-    <dc:date>2016-05-25T00:00:00+00:00</dc:date>
-    <guid><![CDATA[/blog/idea-create-maven-webapp]]></guid>
-    <description><![CDATA[　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
-
-
-
-　　以我的习惯，我会先建一个空Project，然后再添加Module。因此下一步，选择新建Empty Project。
-
-
-
-　　选择保存目录，确认。接着选择新建Module。
-
-
-
-　　在这个界面选择Maven，勾选上Create from archetype，选择org.apache.m...]]></description>
 </item>
 
 

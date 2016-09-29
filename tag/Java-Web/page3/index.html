@@ -72,7 +72,7 @@
 			
 	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
 			
-	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+	    <li class="nav-Java-Web nav-current" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
 			
 	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
 			
@@ -88,23 +88,28 @@
     <div class="site-wrapper">
 
         <!-- [[! Everything else gets inserted here ]] -->
-        <!-- < default -->
+        <!-- < dynamically overriding backgrounds for tags as well as descriptions -->
+
+
+<!-- < default}} -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header  -->
-<header class="main-header "
-        style="background-image: url(/assets/images/cover1.jpg) ">
+<!-- If we have a tag cover, display that - else blog cover - else nothing -->
+<header class="main-header tag-head " style="background-image: url(/assets/images/cover7.jpg) ">
     <nav class="main-nav overlay clearfix">
-        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
-        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+	    <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+	    <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Alan Yeh</h1>
-            <h2 class="page-description">写写代码，想想东西，程序员的世界可以就这么简单。</h2>
+            <h1 class="page-title">Java-Web</h1>
+            <h2 class="page-description">
+            
+                Java-Web
+            
+            </h2>
         </div>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
 <!-- The main content area on the homepage -->
@@ -117,10 +122,10 @@
             <nav class="pagination" role="pagination">
     
         
-            <a class="newer-posts" href="/page3/" title="Previous Page">&laquo; Newer Posts</a>
+            <a class="newer-posts" href="/tag/Java-Web/page2/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 4 of 4 </span>
+    <span class="page-number"> Page 3 of 3 </span>
      
 </nav>
         
@@ -130,12 +135,22 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/ubuntu-setup-input-method">Ubuntu安装中文输入法</a></h2>
+            <h2 class="post-title"><a href="/blog/idea-create-maven-webapp">Intellij idea 创建maven webapp步骤</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>　　最近准备折腾Gitlab，需要安装一个Linux环境。大学的时候，装过Ubunut，感觉还不错。刚好Ubuntu 16.04 LTS发布了，同一时间，Ubuntu Kylin也同一时间更新了。但是新版的Ubuntu Kylin长相实在太不讨人喜欢了，后面就干脆直接下载安装原版英文版Ubuntu了。
+            <p>　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
 
-　　安装完后，接着就去安装中文输入法。由于对Ubuntu完全没有经验，完全不懂怎么安装输... <a class="read-more" href="/blog/ubuntu-setup-input-method">&raquo;</a></p>
+
+
+　　以我的习惯，我会先建一个空Project，然后再添加Module。因此下一步，选择新建Empty Project。
+
+
+
+　　选择保存目录，确认。接着选择新建Module。
+
+
+
+　　在这个界面选择Maven，勾选上Create from archetype，选择org.apache.m... <a class="read-more" href="/blog/idea-create-maven-webapp">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
@@ -146,69 +161,11 @@
                 on 
                 
                     
-                       <a href='/tag/Linux'>Linux</a>
+                       <a href='/tag/Java-Web'>Java-Web</a>
                        
                 
             
-            <time class="post-date" datetime="2016-04-25">25 Apr 2016</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/use-travis-ci-generate-sites">利用Travis CI生成网页，支持Tags/Categorys</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。
-
-　　想要将Tags/Categorys生成分页功能，有几个思路。由于jekyll在运行时，将所有博客生成静态页面，利用query par... <a class="read-more" href="/blog/use-travis-ci-generate-sites">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Jekyll'>Jekyll</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-01-24">24 Jan 2016</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/use-jekyll-build-your-blog">使用jekyll布署个人博客</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　这篇blog主要用于记录怎么在Mac下使用pages.github.com和jekyll布署个人博客。
-
-步骤
-
-　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
-
-关闭Rootless
-
-　　Mac 10.11之后，苹果为系统加入了一个叫做Rootless的权限工具，用于保护系统的目录不被修改、写入。ruby和jekyll的部份插件需要一些权限，所以需要临时关闭这个功能... <a class="read-more" href="/blog/use-jekyll-build-your-blog">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Jekyll'>Jekyll</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-01-20">20 Jan 2016</time>
+            <time class="post-date" datetime="2016-05-25">25 May 2016</time>
         </footer>
     </article>
     
@@ -218,17 +175,16 @@
         <nav class="pagination" role="pagination">
     
         
-            <a class="newer-posts" href="/page3/" title="Previous Page">&laquo; Newer Posts</a>
+            <a class="newer-posts" href="/tag/Java-Web/page2/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 4 of 4 </span>
+    <span class="page-number"> Page 3 of 3 </span>
      
 </nav>
     
 
 
 </main>
-
 
         <footer class="site-footer clearfix">
           <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>

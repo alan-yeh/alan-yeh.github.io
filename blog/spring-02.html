@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>Spring入门(二)</title>
+    <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+<!--
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Alan Yeh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alan Yeh" />
+    <meta property="og:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alan Yeh" />
+    <meta name="twitter:description" content="写写代码，想想东西，程序员的世界可以就这么简单。" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Alan Yeh" href="/rss.xml" />
+    
+    
+    	<!-- Baidu Analytics Tracking code -->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?32c2c629fa6b497aa2a25454093d6dd9";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+    
+    
+</head>
+<body class="home-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+	    	
+	    <li class="nav-Home" role="presentation"><a href="/">Home</a></li>
+			
+	    <li class="nav-About" role="presentation"><a href="/about">About</a></li>
+			
+	    <li class="nav-Objective-C" role="presentation"><a href="/tag/Objective-C">Objective-C</a></li>
+			
+	    <li class="nav-Java-Web" role="presentation"><a href="/tag/Java-Web">Java-Web</a></li>
+			
+	    <li class="nav-Linux" role="presentation"><a href="/tag/Linux">Linux</a></li>
+			
+	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
+			
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+		
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+<!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+	
+		
+		
+			
+		
+			
+				
+				
+	
+
+
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-fiction">
+
+        <header class="post-header">
+            <h1 class="post-title">Spring入门(二)</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Alan Yeh</a> -->
+            <time class="post-date" datetime="2016-09-27">27 Sep 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                 
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+            
+            <h1>Spring入门(二)</h1>
+
+<p>　　项目使用Gradle作为依赖管理工具。此项目建立在上一篇博客的基础上。</p>
+
+<h2>集成beetl</h2>
+
+<p>　　使用beetl作为视图引擎。</p>
+
+<ul>
+<li>添加beetl依赖</li>
+</ul>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy">    <span class="c1">//模板引擎</span>
+    <span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;org.beetl&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;beetl-core&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;2.2.3&#39;</span>
+</code></pre></div>
+<ul>
+<li>修改<em>src/main/resources/spring-context-config.xml</em>，使用beetl作为视图引擎。</li>
+</ul>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+       <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="na">xmlns:mvc=</span><span class="s">&quot;http://www.springframework.org/schema/mvc&quot;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd</span>
+<span class="s">        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- scan the package and the sub package --&gt;</span>
+    <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&quot;cn.yerl.spring.demo&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- don&#39;t handle the static resource --&gt;</span>
+    <span class="nt">&lt;mvc:default-servlet-handler</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- if you use annotation you must configure following setting --&gt;</span>
+    <span class="nt">&lt;mvc:annotation-driven</span> <span class="nt">/&gt;</span>
+
+
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;beetlConfig&quot;</span> <span class="na">class=</span><span class="s">&quot;org.beetl.ext.spring.BeetlGroupUtilConfiguration&quot;</span> <span class="na">init-method=</span><span class="s">&quot;init&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;viewResolver&quot;</span> <span class="na">class=</span><span class="s">&quot;org.beetl.ext.spring.BeetlSpringViewResolver&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;contentType&quot;</span> <span class="na">value=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 前缀 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;prefix&quot;</span> <span class="na">value=</span><span class="s">&quot;/WEB-INF/view/&quot;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 后缀 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;suffix&quot;</span> <span class="na">value=</span><span class="s">&quot;.html&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div>
+<ul>
+<li>Controller</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">yerl</span><span class="o">.</span><span class="na">spring</span><span class="o">.</span><span class="na">demo</span><span class="o">.</span><span class="na">controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.ModelAndView</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndexController</span> <span class="o">{</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&quot;/engine&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">ModelAndView</span> <span class="nf">engine</span><span class="o">(){</span>
+        <span class="n">ModelAndView</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ModelAndView</span><span class="o">(</span><span class="s">&quot;engine&quot;</span><span class="o">);</span>
+        <span class="n">view</span><span class="o">.</span><span class="na">addObject</span><span class="o">(</span><span class="s">&quot;text&quot;</span><span class="o">,</span> <span class="s">&quot;Spring&quot;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">view</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>在<em>src/main/java/webapp/WEB-INF/view</em>下添加<em>engine.html</em>文件</li>
+</ul>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Hello Spring<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+Hello ${text}
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<blockquote>
+<p>在<em>src/main/resources</em>下添加<em>beetl.properties</em>文件，可以修改beetl的配置</p>
+</blockquote>
+
+<h2>返回Json</h2>
+
+<p>　　使用fastjson返回json格式的数据。</p>
+
+<ul>
+<li>添加fastjson依赖</li>
+</ul>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;com.alibaba&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;fastjson&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;1.2.17&#39;</span>
+</code></pre></div>
+<ul>
+<li>修改spring-context-config.xml</li>
+</ul>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+       <span class="na">xmlns:context=</span><span class="s">&quot;http://www.springframework.org/schema/context&quot;</span>
+       <span class="na">xmlns:mvc=</span><span class="s">&quot;http://www.springframework.org/schema/mvc&quot;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+<span class="s">        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd</span>
+<span class="s">        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- scan the package and the sub package --&gt;</span>
+    <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&quot;cn.yerl.spring.demo&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- don&#39;t handle the static resource --&gt;</span>
+    <span class="nt">&lt;mvc:default-servlet-handler</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- if you use annotation you must configure following setting --&gt;</span>
+    <span class="nt">&lt;mvc:annotation-driven&gt;</span>
+        <span class="nt">&lt;mvc:message-converters</span> <span class="na">register-defaults=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- 配置Fastjson支持 --&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;supportedMediaTypes&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;list&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>text/html;charset=UTF-8<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>application/json<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/list&gt;</span>
+                <span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;/bean&gt;</span>
+        <span class="nt">&lt;/mvc:message-converters&gt;</span>
+    <span class="nt">&lt;/mvc:annotation-driven&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div>
+<ul>
+<li>Controller</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndexController</span> <span class="o">{</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&quot;/json&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nd">@ResponseBody</span> <span class="n">Person</span> <span class="nf">json</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Person</span><span class="o">(</span><span class="s">&quot;Alan&quot;</span><span class="o">,</span> <span class="mi">25</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Model</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Person{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, age=&quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(){}</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>效果
+<img src="/assets/blog/2016-08-27-spring-json.png" alt="2016-08-27-spring-json"></li>
+</ul>
+
+<h2>集成Log4j</h2>
+
+<ul>
+<li>gradle引用即可，需要排除<code>commons-logging</code>引用</li>
+</ul>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy">    <span class="n">compile</span><span class="o">(</span><span class="nl">group:</span> <span class="s1">&#39;org.springframework&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;spring-webmvc&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;4.3.3.RELEASE&#39;</span><span class="o">){</span>
+        <span class="n">exclude</span> <span class="nl">group:</span> <span class="s1">&#39;commons-logging&#39;</span>
+    <span class="o">}</span>
+
+    <span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;org.slf4j&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;slf4j-api&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;1.7.21&#39;</span>
+    <span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;org.slf4j&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;jcl-over-slf4j&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;1.7.21&#39;</span>
+    <span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;org.slf4j&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;slf4j-log4j12&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;1.7.21&#39;</span>
+</code></pre></div>
+<blockquote>
+<p>在<em>src/main/resources</em>中添加log4j.properties文件，并配置log4j</p>
+</blockquote>
+
+<h2>拦截器</h2>
+
+<ul>
+<li>实现拦截器</li>
+</ul>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">yerl</span><span class="o">.</span><span class="na">spring</span><span class="o">.</span><span class="na">demo</span><span class="o">.</span><span class="na">interceptor</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.commons.logging.Log</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.commons.logging.LogFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.method.HandlerMethod</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.HandlerInterceptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.ModelAndView</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Enumeration</span><span class="o">;</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * Created by PoiSon on 2016/9/27.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LogInterceptor</span> <span class="kd">implements</span> <span class="n">HandlerInterceptor</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kd">final</span> <span class="n">Log</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LogFactory</span><span class="o">.</span><span class="na">getLog</span><span class="o">(</span><span class="n">getClass</span><span class="o">());</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">SimpleDateFormat</span><span class="o">&gt;</span> <span class="n">sdf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">SimpleDateFormat</span><span class="o">&gt;()</span> <span class="o">{</span>
+        <span class="kd">protected</span> <span class="n">SimpleDateFormat</span> <span class="nf">initialValue</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">SimpleDateFormat</span><span class="o">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">Object</span> <span class="n">handler</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">handler</span> <span class="k">instanceof</span> <span class="n">HandlerMethod</span><span class="o">){</span>
+            <span class="n">HandlerMethod</span> <span class="n">method</span> <span class="o">=</span> <span class="o">(</span><span class="n">HandlerMethod</span><span class="o">)</span><span class="n">handler</span><span class="o">;</span>
+
+
+            <span class="n">StringBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">(</span><span class="s">&quot;Action report ----------- &quot;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">sdf</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">format</span><span class="o">(</span><span class="k">new</span> <span class="nf">Date</span><span class="o">())).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; ---------------------------\n&quot;</span><span class="o">);</span>
+            <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;Controller  : &quot;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getBeanType</span><span class="o">().</span><span class="na">getName</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;.(&quot;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getBeanType</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;.java:1)\n&quot;</span><span class="o">);</span>
+            <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;Method      : &quot;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getMethod</span><span class="o">().</span><span class="na">getName</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\n&quot;</span><span class="o">);</span>
+
+            <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterNames</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">()){</span>
+                <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;Parameter   : &quot;</span><span class="o">);</span>
+                <span class="k">while</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">()){</span>
+                    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="na">nextElement</span><span class="o">();</span>
+                    <span class="n">String</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterValues</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">values</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">name</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;=&quot;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">values</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+                    <span class="o">}</span>
+                    <span class="k">else</span> <span class="o">{</span>
+                        <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">name</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;[]={&quot;</span><span class="o">);</span>
+                        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">values</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+                                <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">);</span>
+                            <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">values</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+                        <span class="o">}</span>
+                        <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;}&quot;</span><span class="o">);</span>
+                    <span class="o">}</span>
+                    <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;  &quot;</span><span class="o">);</span>
+                <span class="o">}</span>
+                <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;\n&quot;</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;--------------------------------------------------------------------------------\n&quot;</span><span class="o">);</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">builder</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">postHandle</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">Object</span> <span class="n">handler</span><span class="o">,</span> <span class="n">ModelAndView</span> <span class="n">modelAndView</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterCompletion</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">Object</span> <span class="n">handler</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<blockquote>
+<p>此功能实现输出参数信息</p>
+</blockquote>
+
+<ul>
+<li>修改<code>spring-context-config.xml</code></li>
+</ul>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="nt">&lt;mvc:interceptors&gt;</span>
+        <span class="c">&lt;!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 --&gt;</span>
+        <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;cn.yerl.spring.demo.interceptor.LogInterceptor&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;mvc:interceptor&gt;</span>
+            <span class="nt">&lt;mvc:mapping</span> <span class="na">path=</span><span class="s">&quot;/log/*&quot;</span><span class="nt">/&gt;</span>
+            <span class="c">&lt;!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 --&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;cn.yerl.spring.demo.interceptor.LogInterceptor&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/mvc:interceptor&gt;</span>
+    <span class="nt">&lt;/mvc:interceptors&gt;</span>
+</code></pre></div>
+<h2>集成beetlSql</h2>
+
+<ul>
+<li>添加beetlsql的引用和数据库的引用</li>
+</ul>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy">    <span class="c1">//数据库</span>
+    <span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;com.alibaba&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;druid&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;1.0.26&#39;</span>
+    <span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;com.ibeetl&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;beetlsql&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;2.6.5&#39;</span>
+    <span class="n">compile</span><span class="o">(</span><span class="nl">group:</span> <span class="s1">&#39;org.springframework&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;spring-jdbc&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;4.3.3.RELEASE&#39;</span><span class="o">)</span>
+</code></pre></div>
+<ul>
+<li>修改<code>spring-context-config.xml</code></li>
+</ul>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">    <span class="c">&lt;!--数据库--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;dataSource&quot;</span> <span class="na">class=</span><span class="s">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>
+          <span class="na">destroy-method=</span><span class="s">&quot;close&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;driverClassName&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;value&gt;</span>oracle.jdbc.driver.OracleDriver<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;value&gt;</span>jdbc:oracle:thin:@192.168.0.185:1521:orcl
+            <span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;value&gt;</span>hyoa_base<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;value&gt;</span>hyoa<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;initialSize&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;value&gt;</span>2<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;maxActive&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;value&gt;</span>2<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">&quot;beetlSqlScannerConfigurer&quot;</span> <span class="na">class=</span><span class="s">&quot;org.beetl.sql.ext.spring4.BeetlSqlScannerConfigurer&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 哪些类可以自动注入 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;basePackage&quot;</span> <span class="na">value=</span><span class="s">&quot;cn.yerl.spring.demo&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;daoSuffix&quot;</span> <span class="na">value=</span><span class="s">&quot;Dao&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;sqlManagerFactoryBeanName&quot;</span> <span class="na">value=</span><span class="s">&quot;sqlManagerFactoryBean&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;sqlManagerFactoryBean&quot;</span> <span class="na">class=</span><span class="s">&quot;org.beetl.sql.ext.spring4.SqlManagerFactoryBean&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;cs&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;org.beetl.sql.ext.spring4.BeetlSqlDataSource&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;masterSource&quot;</span> <span class="na">ref=</span><span class="s">&quot;dataSource&quot;</span><span class="nt">&gt;&lt;/property&gt;</span>
+            <span class="nt">&lt;/bean&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;dbStyle&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;org.beetl.sql.core.db.OracleStyle&quot;</span><span class="nt">&gt;&lt;/bean&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;sqlLoader&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;org.beetl.sql.core.ClasspathLoader&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;sqlRoot&quot;</span> <span class="na">value=</span><span class="s">&quot;/sql&quot;</span><span class="nt">&gt;&lt;/property&gt;</span>
+            <span class="nt">&lt;/bean&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;nc&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;org.beetl.sql.core.UnderlinedNameConversion&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;/bean&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;interceptors&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;list&gt;</span>
+                <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;org.beetl.sql.ext.DebugInterceptor&quot;</span><span class="nt">&gt;&lt;/bean&gt;</span>
+            <span class="nt">&lt;/list&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="c">&lt;!--数据库--&gt;</span>
+</code></pre></div>
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about" style="background-image: url(/assets/images/avatar.jpg)"><span class="hidden">Alan Yeh's Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about">Alan Yeh</a></h4>
+                
+                
+                    <p> 简单技术控，喜欢接触各类技术</p>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location"> GZ, China</span> 
+                    <span class="author-link icon-link"><a href="http://yerl.cn"> http://yerl.cn</a></span> 
+                </div>
+            </section>
+
+            <!-- /author  -->
+            
+            <!-- Add Comments -->
+            
+            
+            
+                
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http://yerl.cn/blog/spring-02'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/spring-02'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = '//yerll.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- disqus -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+    
+    
+    
+    	
+			
+				
+				
+					
+				
+					
+						
+						
+			
+		
+		
+    <!-- [[! prev_post ]] -->
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/spring-01">
+        <section class="post">
+            <h2>Spring入门(一)</h2>
+            <p>Spring入门(一)
+
+　　项目使用Gradle作为依赖管理工具。
+
+添加项目依赖
+
+　　新建Gralde的web项目，添加spring-webmvc依赖，添加servlet-api的依赖。
+group &#39;cn.yerl&#39;
+version &#39;1.0-SNAPSHOT&...</p>
+        </section>
+    </a>
+    <!-- [[! /prev_post ]] -->
+    
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
+</html>
