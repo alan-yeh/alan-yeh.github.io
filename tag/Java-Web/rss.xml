@@ -18,6 +18,28 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[Gradle管理多子项目]]></title>
+    <link>http://yerl.cn/blog/gradle-subprojects-management</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 23 Oct 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-10-23T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/gradle-subprojects-management]]></guid>
+    <description><![CDATA[Gradle管理多子项目
+
+　　当项目达到一定规模时，我们一般会将项目拆分成各个小的项目，以便进行管理。本篇主要介绍Gradle如何便利地管理多子项目。
+
+项目结构
+
+　　拆分项目时，可能会拆分成如下结构:
+└── gradle-subprojects-example
+    └── service-api
+    └── service-impl
+    └── web
+
+　　其中，ser...]]></description>
+</item>
+
+<item>
     <title><![CDATA[Spring入门(二)]]></title>
     <link>http://yerl.cn/blog/spring-02</link>
     <author><![CDATA[Alan Yeh]]></author>
@@ -199,27 +221,6 @@ $ nano ~/.bash_profile
 添加以下代码在最后，保存并退出：
 # gradle
 export GRADLE_HOME=/U...]]></description>
-</item>
-
-<item>
-    <title><![CDATA[Mac OS X下Maven的安装与配置]]></title>
-    <link>http://yerl.cn/blog/macos-setup-maven</link>
-    <author><![CDATA[Alan Yeh]]></author>
-    <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
-    <dc:date>2016-06-25T00:00:00+00:00</dc:date>
-    <guid><![CDATA[/blog/macos-setup-maven]]></guid>
-    <description><![CDATA[下载Maven
-
-到Maven官网下载安装包，选择下载Binary zip archive。下载完了之后，解压到一个目录，比如Users/yerl/maven。
-
-设置Maven环境变量
-
-打开终端，输入以下命令，编辑bash_profile
-$ nano ~/.bash_profile
-
-添加以下代码在最后，保存并退出：
-# maven
-export M2_HOME=/Users/yerl...]]></description>
 </item>
 
 

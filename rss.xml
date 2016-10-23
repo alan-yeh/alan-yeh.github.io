@@ -17,6 +17,28 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[Gradle管理多子项目]]></title>
+    <link>http://yerl.cn/blog/gradle-subprojects-management</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 23 Oct 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-10-23T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/gradle-subprojects-management]]></guid>
+    <description><![CDATA[Gradle管理多子项目
+
+　　当项目达到一定规模时，我们一般会将项目拆分成各个小的项目，以便进行管理。本篇主要介绍Gradle如何便利地管理多子项目。
+
+项目结构
+
+　　拆分项目时，可能会拆分成如下结构:
+└── gradle-subprojects-example
+    └── service-api
+    └── service-impl
+    └── web
+
+　　其中，ser...]]></description>
+</item>
+
+<item>
     <title><![CDATA[Spring入门(二)]]></title>
     <link>http://yerl.cn/blog/spring-02</link>
     <author><![CDATA[Alan Yeh]]></author>
