@@ -154,6 +154,8 @@
 <h2>settings文件</h2>
 
 <p>　　settings文件声明了项目的层次结构。在默认情况下，这个文件被命名为settings.gradle，并且和根项目的build.gradle文件放在一起。</p>
+
+<p><code>gradle-subprojects-example/settings.gradle</code>:</p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">rootProject</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;gradle-subprojects-example&#39;</span>
 <span class="n">include</span> <span class="s1">&#39;service-api&#39;</span>
 <span class="n">include</span> <span class="s1">&#39;service-impl&#39;</span>
@@ -220,6 +222,8 @@
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;cn.yerl&#39;</span>
 <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0-SNAPSHOT&#39;</span>
 </code></pre></div>
+<p>--</p>
+
 <p><code>gradle-subprojects-example/service-api/build.gradle</code></p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;cn.yerl&#39;</span>
 <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0-SNAPSHOT&#39;</span>
@@ -227,6 +231,8 @@
 
 <span class="n">sourceCompatibility</span> <span class="o">=</span> <span class="mf">1.6</span>
 </code></pre></div>
+<p>--</p>
+
 <p><code>gradle-subprojects-example/service-impl/build.gradle</code></p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;cn.yerl&#39;</span>
 <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0-SNAPSHOT&#39;</span>
@@ -243,6 +249,8 @@
     <span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">&#39;:service-api&#39;</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre></div>
+<p>--</p>
+
 <p><code>gradle-subprojects-example/web/build.gradle</code></p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;cn.yerl&#39;</span>
 <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0-SNAPSHOT&#39;</span>
@@ -295,13 +303,19 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
+<p>--</p>
+
 <p><code>gradle-subprojects-example/service-api/build.gradle</code></p>
+
+<p>--</p>
 
 <p><code>gradle-subprojects-example/service-impl/build.gradle</code></p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
     <span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">&#39;:service-api&#39;</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre></div>
+<p>--</p>
+
 <p><code>gradle-subprojects-example/web/build.gradle</code></p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
     <span class="n">compileOnly</span> <span class="s1">&#39;javax.servlet:servlet-api:2.5&#39;</span>
