@@ -201,214 +201,64 @@ sub   2048R/5D8F2176 2016-06-29
 
 <h3>生成库</h3>
 
-<p>　　Android Studio使用Gradle作为项目编译、库依赖工作，那么这里就以Gradle为例子，看如何生成jar包并上传到Sonatype的服务器上。</p>
+<p>　　Android Studio使用Gradle作为项目编译、库依赖工作，那么这里就以Gradle为例子，看如何生成aar包并上传到Sonatype的服务器上。</p>
 
-<p>　　将以下的内容复制到Android Studio项目下的根目录下的<em>upload.gradle</em>文件里。</p>
-
-<p><code>upload.gradle</code></p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;maven&#39;</span>
-<span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;signing&#39;</span>
-
-<span class="n">afterEvaluate</span> <span class="p">{</span> <span class="n">project</span> <span class="o">-&gt;</span>
-    <span class="n">uploadArchives</span> <span class="p">{</span>
-        <span class="n">repositories</span> <span class="p">{</span>
-            <span class="n">mavenDeployer</span> <span class="p">{</span>
-                <span class="n">beforeDeployment</span> <span class="p">{</span> <span class="no">MavenDeployment</span> <span class="n">deployment</span> <span class="o">-&gt;</span> <span class="n">signing</span><span class="o">.</span><span class="n">signPom</span><span class="p">(</span><span class="n">deployment</span><span class="p">)</span> <span class="p">}</span>
-
-                <span class="n">repository</span><span class="p">(</span><span class="ss">url</span><span class="p">:</span> <span class="no">RELEASE_REPOSITORY_URL</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">authentication</span><span class="p">(</span><span class="ss">userName</span><span class="p">:</span> <span class="no">NEXUS_USERNAME</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="no">NEXUS_PASSWORD</span><span class="p">)</span>
-                <span class="p">}</span>
-                <span class="n">snapshotRepository</span><span class="p">(</span><span class="ss">url</span><span class="p">:</span> <span class="no">SNAPSHOT_REPOSITORY_URL</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">authentication</span><span class="p">(</span><span class="ss">userName</span><span class="p">:</span> <span class="no">NEXUS_USERNAME</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="no">NEXUS_PASSWORD</span><span class="p">)</span>
-                <span class="p">}</span>
-
-                <span class="n">pom</span><span class="o">.</span><span class="n">project</span> <span class="p">{</span>
-                    <span class="n">groupId</span> <span class="no">POM_GROUP_ID</span>
-                    <span class="n">artifactId</span> <span class="no">POM_ARTIFACT_ID</span>
-                    <span class="n">version</span> <span class="no">POM_VERSION</span>
-                    <span class="n">packaging</span> <span class="no">POM_PACKAGING</span>
-
-                    <span class="nb">name</span> <span class="no">SONATYPE_NAME</span>
-                    <span class="n">description</span> <span class="no">SONATYPE_DESCRIPTION</span>
-                    <span class="n">url</span> <span class="no">SONATYPE_URL</span>
-
-                    <span class="n">licenses</span> <span class="p">{</span>
-                        <span class="n">license</span> <span class="p">{</span>
-                            <span class="nb">name</span> <span class="no">SONATYPE_LICENCE_NAME</span>
-                            <span class="n">url</span> <span class="no">SONATYPE_LICENCE_URL</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-
-                    <span class="n">developers</span> <span class="p">{</span>
-                        <span class="n">developer</span> <span class="p">{</span>
-                            <span class="nb">name</span> <span class="no">SONATYPE_DEVELOPER_NAME</span>
-                            <span class="n">email</span> <span class="no">SONATYPE_DEVELOPER_EMAIL</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-
-                    <span class="n">scm</span> <span class="p">{</span>
-                        <span class="n">connection</span> <span class="no">SONATYPE_SCM_CONNECTION</span>
-                        <span class="n">developerConnection</span> <span class="no">SONATYPE_SCM_DEVELOPER_CONNECTION</span>
-                        <span class="n">url</span> <span class="no">SONATYPE_SCM_URL</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">task</span> <span class="n">installArchives</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Upload</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">description</span> <span class="s2">&quot;Installs the artifacts to the local Maven repository.&quot;</span>
-        <span class="n">configuration</span> <span class="o">=</span> <span class="n">configurations</span><span class="o">[</span><span class="s1">&#39;archives&#39;</span><span class="o">]</span>
-        <span class="n">repositories</span> <span class="p">{</span>
-            <span class="n">mavenDeployer</span> <span class="p">{</span>
-                <span class="n">pom</span><span class="o">.</span><span class="n">groupId</span> <span class="o">=</span> <span class="no">POM_GROUP_ID</span>
-                <span class="n">pom</span><span class="o">.</span><span class="n">artifactId</span> <span class="o">=</span> <span class="no">POM_ARTIFACT_ID</span>
-                <span class="n">pom</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="no">POM_VERSION</span>
-
-                <span class="n">repository</span> <span class="ss">url</span><span class="p">:</span> <span class="s2">&quot;file://${System.properties[&#39;user.home&#39;]}/.m2/repository&quot;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">signing</span> <span class="p">{</span>
-        <span class="n">sign</span> <span class="n">configurations</span><span class="o">.</span><span class="n">archives</span>
-    <span class="p">}</span>
-
-    <span class="n">task</span> <span class="n">androidJavadocs</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Javadoc</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">source</span> <span class="o">=</span> <span class="n">android</span><span class="o">.</span><span class="n">sourceSets</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">srcDirs</span>
-        <span class="n">classpath</span> <span class="o">+=</span> <span class="n">project</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">android</span><span class="o">.</span><span class="n">getBootClasspath</span><span class="p">()</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">pathSeparator</span><span class="p">))</span>
-    <span class="p">}</span>
-
-    <span class="n">task</span> <span class="n">androidJavadocsJar</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Jar</span><span class="p">,</span> <span class="ss">dependsOn</span><span class="p">:</span> <span class="n">androidJavadocs</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">classifier</span> <span class="o">=</span> <span class="s1">&#39;javadoc&#39;</span>
-        <span class="n">from</span> <span class="n">androidJavadocs</span><span class="o">.</span><span class="n">destinationDir</span>
-    <span class="p">}</span>
-
-    <span class="n">task</span> <span class="n">androidSourcesJar</span><span class="p">(</span><span class="ss">type</span><span class="p">:</span> <span class="no">Jar</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">classifier</span> <span class="o">=</span> <span class="s1">&#39;sources&#39;</span>
-        <span class="n">from</span> <span class="n">android</span><span class="o">.</span><span class="n">sourceSets</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">srcDirs</span>
-    <span class="p">}</span>
-
-    <span class="n">artifacts</span> <span class="p">{</span>
-        <span class="n">archives</span> <span class="n">androidSourcesJar</span>
-        <span class="n">archives</span> <span class="n">androidJavadocsJar</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>　　这段Gradle脚本用于生成Sonatype Nexus要求的所有文件，包括</p>
-
-<ul>
-<li><code>xxxx-xxxx.jar</code> 库的打包文件。Android的库文件后缀名为aar。</li>
-<li><code>xxxx-xxxx.jar.asc</code> PGP签名</li>
-<li><code>xxxx-xxxx-javadoc.jar</code> 项目生成的document</li>
-<li><code>xxxx-xxxx-javadoc.jar.asc</code> PGP签名</li>
-<li><code>xxxx-xxxx-sources.jar</code> 项目的源代码</li>
-<li><code>xxxx-xxxx-sources.jar.asc</code> PGP签名</li>
-</ul>
-
-<p>　　同时，这段脚本还可以将生成的文件、pom等上传到Sonatype Nexus服务器上。</p>
-
-<p>　　修改<em>gradle.properties</em>，按需修改以下属性设置。</p>
-
-<p><code>gradle.properties</code></p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># POM属性设置</span>
-<span class="no">POM_VERSION</span><span class="o">=</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span>
-<span class="no">POM_GROUP_ID</span><span class="o">=</span><span class="n">cn</span><span class="o">.</span><span class="n">yerl</span>
-<span class="no">POM_ARTIFACT_ID</span><span class="o">=</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span>
-<span class="no">POM_PACKAGING</span><span class="o">=</span><span class="n">aar</span>
-
-<span class="c1"># sonatype.org要求的相关属性</span>
-<span class="c1">#-&gt; Project Name, Description and URL</span>
-<span class="no">SONATYPE_NAME</span><span class="o">=</span><span class="no">Android</span> <span class="no">Promise</span> <span class="no">Core</span>
-<span class="no">SONATYPE_DESCRIPTION</span><span class="o">=</span><span class="n">A</span> <span class="n">promise</span> <span class="n">implementation</span> <span class="k">for</span> <span class="no">Android</span>
-<span class="no">SONATYPE_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="no">Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span>
-
-<span class="c1">#-&gt; License Information</span>
-<span class="no">SONATYPE_LICENCE_NAME</span><span class="o">=</span><span class="no">The</span> <span class="no">Apache</span> <span class="no">Software</span> <span class="no">License</span><span class="p">,</span> <span class="no">Version</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
-<span class="no">SONATYPE_LICENCE_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="no">LICENSE</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">txt</span>
-
-<span class="c1">#-&gt; Developer Information</span>
-<span class="no">SONATYPE_DEVELOPER_NAME</span><span class="o">=</span><span class="n">yerl</span>
-<span class="no">SONATYPE_DEVELOPER_EMAIL</span><span class="o">=</span><span class="n">git</span><span class="vi">@yerl</span><span class="o">.</span><span class="n">cn</span>
-
-<span class="c1">#-&gt; SCM Information</span>
-<span class="no">SONATYPE_SCM_CONNECTION</span><span class="o">=</span><span class="ss">scm</span><span class="p">:</span><span class="ss">git</span><span class="p">:</span><span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span><span class="o">.</span><span class="n">git</span>
-<span class="no">SONATYPE_SCM_DEVELOPER_CONNECTION</span><span class="o">=</span><span class="ss">scm</span><span class="p">:</span><span class="ss">git</span><span class="p">:</span><span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span><span class="o">.</span><span class="n">git</span>
-<span class="no">SONATYPE_SCM_URL</span><span class="o">=</span><span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:Poi</span><span class="o">-</span><span class="no">Son</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="n">promise</span><span class="o">.</span><span class="n">git</span>
-
-
-<span class="c1"># 如果想上传到私服,则将这个改成私服的地址</span>
-<span class="no">RELEASE_REPOSITORY_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//oss</span><span class="o">.</span><span class="n">sonatype</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">service</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">staging</span><span class="o">/</span><span class="n">deploy</span><span class="o">/</span><span class="n">maven2</span>
-<span class="no">SNAPSHOT_REPOSITORY_URL</span><span class="o">=</span><span class="ss">https</span><span class="p">:</span><span class="sr">//oss</span><span class="o">.</span><span class="n">sonatype</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">snapshots</span>
-</code></pre></div>
-<p>　　另外，由于上传时需要帐号密码、密钥相关信息，如果将这些信息放在项目下的<code>gradle.properties</code>里，并上传到GitHub上的话，会造成信息泄露。因此，可以将这些信息放在<em>~/.gradle/gradle.properties</em>文件里。</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># NEXUS用户名和密码</span>
-<span class="no">NEXUS_USERNAME</span><span class="o">=</span><span class="n">your</span> <span class="n">nexus</span> <span class="n">username</span>
-<span class="no">NEXUS_PASSWORD</span><span class="o">=</span><span class="n">your</span> <span class="n">nexus</span> <span class="n">password</span>
-
-<span class="c1"># 密钥配置</span>
-<span class="n">signing</span><span class="o">.</span><span class="n">keyId</span><span class="o">=</span><span class="n">your</span> <span class="n">pgp</span> <span class="n">key</span> <span class="nb">id</span>
-<span class="n">signing</span><span class="o">.</span><span class="n">password</span><span class="o">=</span><span class="n">your</span> <span class="n">gpg</span> <span class="n">password</span>
-<span class="n">signing</span><span class="o">.</span><span class="n">secretKeyRingFile</span><span class="o">=</span><span class="n">your</span> <span class="n">gpg</span> <span class="n">secring</span> <span class="n">file</span>
-</code></pre></div>
-<blockquote>
-<p>signing.secretKeyRingFile的目录一般是这样的：<em>~/.gnupg/secring.gpg</em></p>
-</blockquote>
-
-<p>　　修改一下库项目的<em>build.gradle</em>文件。</p>
+<p>　　将以下的内容复制到Android Studio项目下的<em>build.gradle</em>文件里。</p>
 
 <p><code>build.gradle</code></p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">apply</span> <span class="ss">plugin</span><span class="p">:</span> <span class="s1">&#39;com.android.library&#39;</span>
-<span class="n">apply</span> <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;../upload.gradle&#39;</span>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
 
-<span class="n">android</span> <span class="p">{</span>
-    <span class="n">compileSdkVersion</span> <span class="mi">24</span>
-    <span class="n">buildToolsVersion</span> <span class="s2">&quot;24.0.0&quot;</span>
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="s1">&#39;cn.yerl.gradle:nexus-plugin:+&#39;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-    <span class="n">defaultConfig</span> <span class="p">{</span>
-        <span class="n">minSdkVersion</span> <span class="mi">14</span>
-        <span class="n">targetSdkVersion</span> <span class="mi">24</span>
-    <span class="p">}</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;nexus&#39;</span>
 
-    <span class="n">lintOptions</span> <span class="p">{</span>
-        <span class="n">xmlReport</span> <span class="kp">false</span>
-        <span class="n">warningsAsErrors</span> <span class="kp">true</span>
-        <span class="n">quiet</span> <span class="kp">false</span>
-        <span class="n">showAll</span> <span class="kp">true</span>
-        <span class="n">disable</span> <span class="s1">&#39;OldTargetApi&#39;</span>
-    <span class="p">}</span>
+<span class="n">nexus</span> <span class="o">{</span>
+    <span class="n">repository</span> <span class="o">{</span>
+        <span class="n">username</span> <span class="s1">&#39;your_nexus_username&#39;</span>
+        <span class="n">password</span> <span class="s1">&#39;your_nexus_password&#39;</span>
+    <span class="o">}</span>
 
-    <span class="n">compileOptions</span> <span class="p">{</span>
-        <span class="n">sourceCompatibility</span> <span class="no">JavaVersion</span><span class="o">.</span><span class="n">VERSION_1_7</span>
-        <span class="n">targetCompatibility</span> <span class="no">JavaVersion</span><span class="o">.</span><span class="n">VERSION_1_7</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="n">signatory</span> <span class="o">{</span>
+        <span class="n">keyId</span> <span class="s1">&#39;your_GnuPG_key_id&#39;</span>
+        <span class="n">password</span> <span class="s1">&#39;your_GnuPG_password&#39;</span>
+    <span class="o">}</span>
 
-<span class="n">afterEvaluate</span> <span class="p">{</span> <span class="n">project</span> <span class="o">-&gt;</span>
-    <span class="n">android</span><span class="o">.</span><span class="n">libraryVariants</span><span class="o">.</span><span class="n">all</span> <span class="p">{</span> <span class="n">variant</span> <span class="o">-&gt;</span>
-        <span class="n">tasks</span><span class="o">.</span><span class="n">androidJavadocs</span><span class="o">.</span><span class="n">doFirst</span> <span class="p">{</span>
-            <span class="n">classpath</span> <span class="o">+=</span> <span class="n">files</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">javaCompile</span><span class="o">.</span><span class="n">classpath</span><span class="o">.</span><span class="n">files</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="n">pom</span> <span class="o">{</span>
+        <span class="n">name</span> <span class="s1">&#39;your_project_name&#39;</span>
+        <span class="n">description</span> <span class="s1">&#39;your_project_description&#39;</span>
+        <span class="n">url</span> <span class="s1">&#39;your_project_website&#39;</span>
 
-<span class="n">dependencies</span> <span class="p">{</span>
-    <span class="n">compile</span> <span class="n">fileTree</span><span class="p">(</span><span class="ss">dir</span><span class="p">:</span> <span class="s1">&#39;libs&#39;</span><span class="p">,</span> <span class="kp">include</span><span class="p">:</span> <span class="o">[</span><span class="s1">&#39;*.jar&#39;</span><span class="o">]</span><span class="p">)</span>
-    <span class="n">testCompile</span> <span class="s1">&#39;junit:junit:4.12&#39;</span>
-<span class="p">}</span>
+        <span class="n">scm</span> <span class="o">{</span>
+            <span class="n">url</span> <span class="s1">&#39;https://github.com/example-user/example-project&#39;</span>
+            <span class="n">connection</span> <span class="s1">&#39;scm:https://github.com/example-user/example-project.git&#39;</span>
+            <span class="n">developerConnection</span> <span class="s1">&#39;scm:git@github.com:example-user/example-project.git&#39;</span>
+        <span class="o">}</span>
+
+        <span class="n">licenses</span> <span class="o">{</span>
+            <span class="n">license</span> <span class="o">{</span>
+                <span class="n">name</span> <span class="s1">&#39;The Apache Software License, Version 2.0&#39;</span>
+                <span class="n">url</span> <span class="s1">&#39;http://www.apache.org/licenses/LICENSE-2.0.txt&#39;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">developers</span> <span class="o">{</span>
+            <span class="n">developer</span> <span class="o">{</span>
+                <span class="n">name</span> <span class="s1">&#39;Your Name&#39;</span>
+                <span class="n">email</span> <span class="s1">&#39;your@email.com&#39;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
-<p>　　在gradle运行build任务</p>
+<p>　　<code>nexus</code>插件用于生成Sonatype Nexus要求的所有文件，并上传到服务器中</p>
 
-<p><img src="/assets/blog/2016-06-30-run-build-task.png" alt="2016-06-30-run-build-task"></p>
-
-<p>　　如果以上配置都正确的话，你应该在该项目下的<em>build/libs</em>目录下找到4个文件。</p>
-
-<ul>
-<li><code>xxxx-xxxx-javadoc.jar</code></li>
-<li><code>xxxx-xxxx-javadoc.jar.asc</code></li>
-<li><code>xxxx-xxxx-sources.jar</code></li>
-<li><code>xxxx-xxxx-sources.jar.asc</code></li>
-</ul>
+<p>　　另外，由于上传时需要帐号密码、密钥相关信息，如果将这些信息放在项目下，并上传到GitHub上的话，会造成信息泄露。因此，可以将这些信息放在<em>~/.gradle/gradle.properties</em>文件里。</p>
 
 <h3>上传库</h3>
 
