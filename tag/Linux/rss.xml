@@ -18,6 +18,23 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[CentOS安装Nginx]]></title>
+    <link>http://yerl.cn/blog/setup-nginx-in-centos</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-12-27T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/setup-nginx-in-centos]]></guid>
+    <description><![CDATA[Linxu(CentOS)环境下安装部署nginx
+
+　　Ubuntu安装Nginx是比较简单的，使用sudo apt-get install nginx就可以了，但是公司经常使用CentOS，就不是特别会配置了。还是记录一下。
+
+安装依赖项
+yum install -y pcre pcre-devel  
+yum install -y zlib zlib-devel  
+yum insta...]]></description>
+</item>
+
+<item>
     <title><![CDATA[Ubuntu自动挂载硬盘分区]]></title>
     <link>http://yerl.cn/blog/ubuntu-mount-disk</link>
     <author><![CDATA[Alan Yeh]]></author>
