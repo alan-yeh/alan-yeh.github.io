@@ -17,6 +17,47 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[apk和ipa文件的MIME类型]]></title>
+    <link>http://yerl.cn/blog/imme-for-ipa-apk</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+    <dc:date>2017-01-10T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/imme-for-ipa-apk]]></guid>
+    <description><![CDATA[MIME 类型
+
+　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。
+
+　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。
+
+
+以上摘抄自W3School
+
+
+问题
+
+　　公司有一个app管理平台，用于管理应用的下载、升级等等。
+
+　　但是公司的E人E本的原生浏览器下载apk总是提示【无法打开...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Java Web多现场配置]]></title>
+    <link>http://yerl.cn/blog/profile-in-web</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 28 Dec 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-12-28T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/profile-in-web]]></guid>
+    <description><![CDATA[Java Web多现场配置
+
+　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
+
+　　为了解决这个问题，我开发了一个gradle插件，来解决这个问题。
+
+插件引用
+repositories {...]]></description>
+</item>
+
+<item>
     <title><![CDATA[CentOS安装Nginx]]></title>
     <link>http://yerl.cn/blog/setup-nginx-in-centos</link>
     <author><![CDATA[Alan Yeh]]></author>

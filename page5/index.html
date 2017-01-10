@@ -57,7 +57,7 @@
     
     
 </head>
-<body class="tag-template nav-closed">
+<body class="paged archive-template nav-closed">
 
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -78,7 +78,7 @@
 			
 	    <li class="nav-Git" role="presentation"><a href="/tag/Git">Git</a></li>
 			
-	    <li class="nav-Jekyll nav-current" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
+	    <li class="nav-Jekyll" role="presentation"><a href="/tag/Jekyll">Jekyll</a></li>
 		
     </ul>
     <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
@@ -88,28 +88,23 @@
     <div class="site-wrapper">
 
         <!-- [[! Everything else gets inserted here ]] -->
-        <!-- < dynamically overriding backgrounds for tags as well as descriptions -->
-
-
-<!-- < default}} -->
+        <!-- < default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- If we have a tag cover, display that - else blog cover - else nothing -->
-<header class="main-header tag-head " style="background-image: url(/assets/images/cover6.jpg) ">
+<!-- The big featured header  -->
+<header class="main-header "
+        style="background-image: url(/assets/images/cover1.jpg) ">
     <nav class="main-nav overlay clearfix">
-	    <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
-	    <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Jekyll</h1>
-            <h2 class="page-description">
-            
-                Jekyll
-            
-            </h2>
+            <h1 class="page-title">Alan Yeh</h1>
+            <h2 class="page-description">写写代码，想想东西，程序员的世界可以就这么简单。</h2>
         </div>
     </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
 <!-- The main content area on the homepage -->
@@ -121,7 +116,11 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+        
+            <a class="newer-posts" href="/page4/" title="Previous Page">&laquo; Newer Posts</a>
+      
+    
+    <span class="page-number"> Page 5 of 5 </span>
      
 </nav>
         
@@ -192,13 +191,18 @@
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+        
+            <a class="newer-posts" href="/page4/" title="Previous Page">&laquo; Newer Posts</a>
+      
+    
+    <span class="page-number"> Page 5 of 5 </span>
      
 </nav>
     
 
 
 </main>
+
 
         <footer class="site-footer clearfix">
           <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2017</section>

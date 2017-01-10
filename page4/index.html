@@ -120,13 +120,84 @@
             <a class="newer-posts" href="/page3/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 4 of 4 </span>
+    <span class="page-number"> Page 4 of 5 </span>
+     
+        <a class="older-posts" href="/page5/" title="Next Page">Older Posts &raquo;</a>
      
 </nav>
         
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/ejs-mate">Ejs-mate</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　Ejs模板引擎不能使用layout语法，在整理html结构时相当不好用。但是Jackson Tian同学开发的ejs-mate为ejs添加了这个功能。那么，怎么在项目中使用ejs-mate呢？
+
+安装esj-mate
+
+　　命令行进入项目的根目录，然后使用npm安装。
+$ npm install ejs-mate --save
+
+使用ejs-mate
+
+　　编写一个layout文件， b... <a class="read-more" href="/blog/ejs-mate">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Node.js'>Node.js</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-05-27">27 May 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/idea-create-maven-webapp">Intellij idea 创建maven webapp步骤</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
+
+
+
+　　以我的习惯，我会先建一个空Project，然后再添加Module。因此下一步，选择新建Empty Project。
+
+
+
+　　选择保存目录，确认。接着选择新建Module。
+
+
+
+　　在这个界面选择Maven，勾选上Create from archetype，选择org.apache.m... <a class="read-more" href="/blog/idea-create-maven-webapp">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-05-25">25 May 2016</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -221,64 +292,6 @@ $ sudo gedit /etc/gitlab/gitlab.rb
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/use-travis-ci-generate-sites">利用Travis CI生成网页，支持Tags/Categorys</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。
-
-　　想要将Tags/Categorys生成分页功能，有几个思路。由于jekyll在运行时，将所有博客生成静态页面，利用query par... <a class="read-more" href="/blog/use-travis-ci-generate-sites">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Jekyll'>Jekyll</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-01-24">24 Jan 2016</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/use-jekyll-build-your-blog">使用jekyll布署个人博客</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　这篇blog主要用于记录怎么在Mac下使用pages.github.com和jekyll布署个人博客。
-
-步骤
-
-　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
-
-关闭Rootless
-
-　　Mac 10.11之后，苹果为系统加入了一个叫做Rootless的权限工具，用于保护系统的目录不被修改、写入。ruby和jekyll的部份插件需要一些权限，所以需要临时关闭这个功能... <a class="read-more" href="/blog/use-jekyll-build-your-blog">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Jekyll'>Jekyll</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-01-20">20 Jan 2016</time>
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
@@ -288,7 +301,9 @@ $ sudo gedit /etc/gitlab/gitlab.rb
             <a class="newer-posts" href="/page3/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 4 of 4 </span>
+    <span class="page-number"> Page 4 of 5 </span>
+     
+        <a class="older-posts" href="/page5/" title="Next Page">Older Posts &raquo;</a>
      
 </nav>
     
@@ -298,7 +313,7 @@ $ sudo gedit /etc/gitlab/gitlab.rb
 
 
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2017</section>
           <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
         </footer>
     </div>

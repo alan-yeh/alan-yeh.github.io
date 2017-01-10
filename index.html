@@ -116,7 +116,7 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 4 </span>
+    <span class="page-number"> Page 1 of 5 </span>
      
         <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
      
@@ -125,6 +125,75 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/imme-for-ipa-apk">apk和ipa文件的MIME类型</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>MIME 类型
+
+　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。
+
+　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。
+
+
+以上摘抄自W3School
+
+
+问题
+
+　　公司有一个app管理平台，用于管理应用的下载、升级等等。
+
+　　但是公司的E人E本的原生浏览器下载apk总是提示【无法打开... <a class="read-more" href="/blog/imme-for-ipa-apk">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2017-01-10">10 Jan 2017</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/profile-in-web">Java Web多现场配置</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>Java Web多现场配置
+
+　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
+
+　　为了解决这个问题，我开发了一个gradle插件，来解决这个问题。
+
+插件引用
+repositories {... <a class="read-more" href="/blog/profile-in-web">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-12-28">28 Dec 2016</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -232,85 +301,12 @@ yum insta... <a class="read-more" href="/blog/setup-nginx-in-centos">&raquo;</a>
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/spring-01">Spring入门(一)</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Spring入门(一)
-
-　　项目使用Gradle作为依赖管理工具。
-
-添加项目依赖
-
-　　新建Gralde的web项目，添加spring-webmvc依赖，添加servlet-api的依赖。
-group &#39;cn.yerl&#39;
-version &#39;1.0-SNAPSHOT&#39;
-
-apply plugin: &#39;java&#39;
-apply plugin: &... <a class="read-more" href="/blog/spring-01">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-09-26">26 Sep 2016</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/manage-nexus-repository-oss">管理Nexus Repository OSS</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>目录
-
-
-支持域名访问
-
-
-支持域名访问
-
-　　Nexus默认使用8081端口，总是输入IP+端口，略麻烦。因此折腾一下，使用域名来访问Nexus。
-
-修改Nexus配置
-
-　　Nexus默认Context Path是/nexus。如果继续使用这个路径的话，使用域名访问会没办法登录。因此需要先修改Nexus的配置。
-
-/opt/nexus/nexus-2.13.0-01/conf/nexus... <a class="read-more" href="/blog/manage-nexus-repository-oss">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-07-17">17 Jul 2016</time>
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 4 </span>
+    <span class="page-number"> Page 1 of 5 </span>
      
         <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
      
@@ -322,7 +318,7 @@ apply plugin: &... <a class="read-more" href="/blog/spring-01">&raquo;</a></p>
 
 
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2017</section>
           <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
         </footer>
     </div>

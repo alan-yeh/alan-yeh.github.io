@@ -120,7 +120,7 @@
             <a class="newer-posts" href="/page2/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 3 of 4 </span>
+    <span class="page-number"> Page 3 of 5 </span>
      
         <a class="older-posts" href="/page4/" title="Next Page">Older Posts &raquo;</a>
      
@@ -129,6 +129,69 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/ubuntu-mount-disk">Ubuntu自动挂载硬盘分区</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　最近公司增配了一个固态硬盘，然后将老硬盘换下，固态作为系统分区。老硬盘2T不能浪费，作为备份盘。但是每次Ubuntu开机，都要手动挂载一下硬盘，比较烦。于是折腾一下，让系统开机之后自动挂载硬盘。
+
+　　查看硬盘挂载信息。
+$ sudo blkid
+
+/dev/sda1: LABEL=&quot;Data&quot; UUID=&quot;2662a892-8f1d-42cc-b474-a... <a class="read-more" href="/blog/ubuntu-mount-disk">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Linux'>Linux</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-06-29">29 Jun 2016</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/building-java-projects-with-maven">使用Maven构建Java工程</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>　　这篇博客会带你一起来使用Maven构建Java工程。
+
+创建一个Java工程
+
+　　首先，新建一个Java工程，用于演示如何使用Maven来构建它。为了让我们更关注如何使用Maven，我们将这个工程建得非常简单。
+
+　　创建一个工程根目录，然后在Terminal打开它。
+$ mkdir gs-maven
+$ cd gs-maven
+
+　　使用命令mkdir -p src/main/jav... <a class="read-more" href="/blog/building-java-projects-with-maven">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-06-28">28 Jun 2016</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -234,75 +297,6 @@ export M2_HOME=/Users/yerl... <a class="read-more" href="/blog/macos-setup-maven
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/ejs-mate">Ejs-mate</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　Ejs模板引擎不能使用layout语法，在整理html结构时相当不好用。但是Jackson Tian同学开发的ejs-mate为ejs添加了这个功能。那么，怎么在项目中使用ejs-mate呢？
-
-安装esj-mate
-
-　　命令行进入项目的根目录，然后使用npm安装。
-$ npm install ejs-mate --save
-
-使用ejs-mate
-
-　　编写一个layout文件， b... <a class="read-more" href="/blog/ejs-mate">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Node.js'>Node.js</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-05-27">27 May 2016</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/idea-create-maven-webapp">Intellij idea 创建maven webapp步骤</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　这篇文章记录如何在Intellij idea里创建一个标准maven webapp的步骤。
-
-
-
-　　以我的习惯，我会先建一个空Project，然后再添加Module。因此下一步，选择新建Empty Project。
-
-
-
-　　选择保存目录，确认。接着选择新建Module。
-
-
-
-　　在这个界面选择Maven，勾选上Create from archetype，选择org.apache.m... <a class="read-more" href="/blog/idea-create-maven-webapp">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-05-25">25 May 2016</time>
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
@@ -312,7 +306,7 @@ $ npm install ejs-mate --save
             <a class="newer-posts" href="/page2/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 3 of 4 </span>
+    <span class="page-number"> Page 3 of 5 </span>
      
         <a class="older-posts" href="/page4/" title="Next Page">Older Posts &raquo;</a>
      
@@ -324,7 +318,7 @@ $ npm install ejs-mate --save
 
 
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2016</section>
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2017</section>
           <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
         </footer>
     </div>

@@ -18,6 +18,47 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[apk和ipa文件的MIME类型]]></title>
+    <link>http://yerl.cn/blog/imme-for-ipa-apk</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+    <dc:date>2017-01-10T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/imme-for-ipa-apk]]></guid>
+    <description><![CDATA[MIME 类型
+
+　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。
+
+　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。
+
+
+以上摘抄自W3School
+
+
+问题
+
+　　公司有一个app管理平台，用于管理应用的下载、升级等等。
+
+　　但是公司的E人E本的原生浏览器下载apk总是提示【无法打开...]]></description>
+</item>
+
+<item>
+    <title><![CDATA[Java Web多现场配置]]></title>
+    <link>http://yerl.cn/blog/profile-in-web</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 28 Dec 2016 00:00:00 +0000</pubDate>
+    <dc:date>2016-12-28T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/profile-in-web]]></guid>
+    <description><![CDATA[Java Web多现场配置
+
+　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
+
+　　为了解决这个问题，我开发了一个gradle插件，来解决这个问题。
+
+插件引用
+repositories {...]]></description>
+</item>
+
+<item>
     <title><![CDATA[Gradle管理多子项目]]></title>
     <link>http://yerl.cn/blog/gradle-subprojects-management</link>
     <author><![CDATA[Alan Yeh]]></author>
@@ -180,47 +221,6 @@ $ mkdir gs-maven
 $ cd gs-maven
 
 　　使用命令mkdir -p src/main/jav...]]></description>
-</item>
-
-<item>
-    <title><![CDATA[使用Gradle构建Java工程]]></title>
-    <link>http://yerl.cn/blog/building-java-projects-with-gradle</link>
-    <author><![CDATA[Alan Yeh]]></author>
-    <pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate>
-    <dc:date>2016-06-27T00:00:00+00:00</dc:date>
-    <guid><![CDATA[/blog/building-java-projects-with-gradle]]></guid>
-    <description><![CDATA[　　这篇博客会带你一起来使用Gradle构建Java工程。
-
-创建一个Java工程
-
-　　首先，新建一个Java工程，用于演示如何使用Gradle来构建它。为了让我们的精力更专注于如何使用Gralde，我们将这个工程建得非常简单。
-
-　　创建一个工程根目录，然后在Terminal打开它。
-$ mkdir gs-gradle
-$ cd gs-gradle
-
-　　使用命令mkdir -p src...]]></description>
-</item>
-
-<item>
-    <title><![CDATA[Mac OS X下Gradle的安装与配置]]></title>
-    <link>http://yerl.cn/blog/macos-setup-gradle</link>
-    <author><![CDATA[Alan Yeh]]></author>
-    <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
-    <dc:date>2016-06-26T00:00:00+00:00</dc:date>
-    <guid><![CDATA[/blog/macos-setup-gradle]]></guid>
-    <description><![CDATA[下载Gradle
-
-到Gradle官网下载安装包，选择下载Binary only distribution。下载完了之后，解压到一个目录，比如Users/yerl/gradle。
-
-设置环境变量
-
-打开终端，输入以下命令，编辑bash_profile
-$ nano ~/.bash_profile
-
-添加以下代码在最后，保存并退出：
-# gradle
-export GRADLE_HOME=/U...]]></description>
 </item>
 
 

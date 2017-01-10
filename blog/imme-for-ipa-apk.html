@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>Java环境变量</title>
+    <title>apk和ipa文件的MIME类型</title>
     <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -119,10 +119,10 @@
     <article class="post tag-fiction">
 
         <header class="post-header">
-            <h1 class="post-title">Java环境变量</h1>
+            <h1 class="post-title">apk和ipa文件的MIME类型</h1>
             <section class="post-meta">
             <!-- <a href='/'>Alan Yeh</a> -->
-            <time class="post-date" datetime="2016-07-05">05 Jul 2016</time>
+            <time class="post-date" datetime="2017-01-10">10 Jan 2017</time>
                 <!-- [[tags prefix=" on "]] -->
                  
                 on 
@@ -137,44 +137,33 @@
 
         <section class="post-content">
             
-            <h1>Ubuntu</h1>
+            <h1>MIME 类型</h1>
 
-<p>　　下载jdk，解压到<em>/opt/java/</em>目录下。</p>
+<p>　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。</p>
+
+<p>　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。</p>
 
 <blockquote>
-<p>我下载的版本是<em>jdk1.8.0_91</em>，所以我的路径是<em>/opt/java/jdk1.8.0_91</em></p>
+<p>以上摘抄自<a href="http://www.w3school.com.cn/media/media_mimeref.asp">W3School</a></p>
 </blockquote>
 
-<p>　　打开<em>Terminal</em>，编辑<em>/etc/profile</em>文件。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>nano /etc/profile
-</code></pre></div>
-<p>　　在最后面添加java环境变量</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/opt/java/jdk1.8.0_91
-<span class="nb">export </span><span class="nv">JRE_HOME</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/jre
-<span class="nb">export </span><span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="nv">$CLASSPATH</span>:<span class="nv">$JAVA_HOME</span>/lib:<span class="nv">$JRE_HOME</span>/lib
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$JRE_HOME</span>/bin
-</code></pre></div>
-<p>　　按下<code>Ctrl + X</code>，保存后退出。然后在<em>Terminal</em>中输入以下命令，应用Java环境。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">source</span> /etc/profile
-</code></pre></div>
-<p>　　检测Java环境是否安装正确。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>java -version
+<h1>问题</h1>
 
-java version <span class="s2">&quot;1.8.0_91&quot;</span>
-Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.8.0_91-b14<span class="o">)</span>
-Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.91-b14, mixed mode<span class="o">)</span>
-</code></pre></div>
-<h1>Windows</h1>
+<p>　　公司有一个app管理平台，用于管理应用的下载、升级等等。</p>
 
-<p>　　安装JDK，我的安装路径为<em>C:\Program Files\Java\jdk1.8.0_92</em></p>
+<p>　　但是公司的E人E本的原生浏览器下载apk总是提示【无法打开文件】，但是到QQ官网下载android QQ又没有这个问题。换一个浏览器，比如UC、QQ浏览器，又可以打开并安装。</p>
 
-<p>　　<code>我的电脑</code>--&gt;<code>属性</code>--&gt;<code>高级系统设置</code>--&gt;<code>环境变量</code>。</p>
+<p>　　刚开是怀疑是不是E人E本对APP的来源有限制，只能使用https下软件，后面试了一下，又没有问题。</p>
 
-<p>系统变量中加入以下内容：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">JAVA_HOME=C:\Program Files\Java\jdk1.8.0_92
-Path=;%JAVA_HOME%\bin
-CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar; 
-</code></pre></div>
+<p>　　后面去抓包看了一下，原来那些能正常下载安装应用的链接的Http Header的Content-Type是<code>application/vnd.android.package-archive</code>，而我们的是<code>application/x-download</code>。按着改了一下，果然修复了。</p>
+
+<p>　　记录一下：</p>
+
+<ul>
+<li>apk: application/vnd.android.package-archive</li>
+<li>ipa: application/iphone</li>
+</ul>
+
 
         </section>
 
@@ -212,8 +201,8 @@ CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 <div id="disqus_thread"></div>
 <script>
 	var disqus_config = function () {
-		this.page.url = 'http://yerl.cn/blog/java-environment'; // Replace PAGE_URL with your page's canonical URL variable
-		this.page.identifier = '/blog/java-environment'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		this.page.url = 'http://yerl.cn/blog/imme-for-ipa-apk'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/imme-for-ipa-apk'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 	};
 
 	(function() { // DON'T EDIT BELOW THIS LINE
@@ -236,28 +225,6 @@ CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 <aside class="read-next">
     
     
-    	
-			
-				
-				
-					
-				
-					
-						
-						
-			
-		
-
-    <!-- [[! next_post ]] -->
-    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/setup-nexus-repository-oss">
-        <section class="post">
-            <h2>搭建Nexus Repository OSS</h2>
-            <p>　　前面讲到，[如何将Java库发布到中央库](/blog/publish-library-to-maven-center-repository)。[Sonatype](http://central.sonatype.org)提供开源项目仓库托管服务，但是过程比较复杂，而且有的项目作为企业内部...</p>
-        </section>
-    </a>
-        
-    <!-- [[! /next_post ]] -->
-    
     
     	
 			
@@ -272,10 +239,14 @@ CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 		
 		
     <!-- [[! prev_post ]] -->
-    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/publish-library-to-maven-center-repository">
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/profile-in-web">
         <section class="post">
-            <h2>发布库到Maven Central Repository</h2>
-            <p>　　现在Maven几乎成了Java事实上的包管理工具了，Gradle作为后起之秀，也是建立在Maven现有的大量仓库资源之上。使用Maven Central Repository可以很方便地解决第三方库依赖问题。那么，如何将自己开发的包也发布到Maven Central Repository上...</p>
+            <h2>Java Web多现场配置</h2>
+            <p>Java Web多现场配置
+
+　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
+
+　　为了解...</p>
         </section>
     </a>
     <!-- [[! /prev_post ]] -->
