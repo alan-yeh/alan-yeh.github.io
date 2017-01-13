@@ -18,6 +18,43 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[申请并使用HTTPS]]></title>
+    <link>http://yerl.cn/blog/https-cert</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+    <dc:date>2017-01-13T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/https-cert]]></guid>
+    <description><![CDATA[Https证书申请
+
+　　阿里云提供免费的证书申请服务，过程比较简单，记录一下。
+
+　　打开阿里云首页。首先注册并登录。
+
+　　打开产品-&gt;安全-&gt;CA证书服务。
+
+
+　　点击立即购买。
+
+
+　　选择免费型DV SSL，然后立即购买。
+
+
+　　支付成功后，进入证书控制台
+
+
+　　打开红框标注的证书服务
+
+
+　　点击补全
+
+
+　　在框框中填写你要申请的域名地址，然后下一步。
+
+
+　...]]></description>
+</item>
+
+<item>
     <title><![CDATA[apk和ipa文件的MIME类型]]></title>
     <link>http://yerl.cn/blog/imme-for-ipa-apk</link>
     <author><![CDATA[Alan Yeh]]></author>
@@ -201,26 +238,6 @@ exp...]]></description>
     <description><![CDATA[　　现在Maven几乎成了Java事实上的包管理工具了，Gradle作为后起之秀，也是建立在Maven现有的大量仓库资源之上。使用Maven Central Repository可以很方便地解决第三方库依赖问题。那么，如何将自己开发的包也发布到Maven Central Repository上去呢？
 
 　　Sonatype提供开源项目仓库托管(Open Source Software Rep...]]></description>
-</item>
-
-<item>
-    <title><![CDATA[使用Maven构建Java工程]]></title>
-    <link>http://yerl.cn/blog/building-java-projects-with-maven</link>
-    <author><![CDATA[Alan Yeh]]></author>
-    <pubDate>Tue, 28 Jun 2016 00:00:00 +0000</pubDate>
-    <dc:date>2016-06-28T00:00:00+00:00</dc:date>
-    <guid><![CDATA[/blog/building-java-projects-with-maven]]></guid>
-    <description><![CDATA[　　这篇博客会带你一起来使用Maven构建Java工程。
-
-创建一个Java工程
-
-　　首先，新建一个Java工程，用于演示如何使用Maven来构建它。为了让我们更关注如何使用Maven，我们将这个工程建得非常简单。
-
-　　创建一个工程根目录，然后在Terminal打开它。
-$ mkdir gs-maven
-$ cd gs-maven
-
-　　使用命令mkdir -p src/main/jav...]]></description>
 </item>
 
 

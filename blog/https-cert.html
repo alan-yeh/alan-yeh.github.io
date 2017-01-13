@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>apk和ipa文件的MIME类型</title>
+    <title>申请并使用HTTPS</title>
     <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -119,10 +119,10 @@
     <article class="post tag-fiction">
 
         <header class="post-header">
-            <h1 class="post-title">apk和ipa文件的MIME类型</h1>
+            <h1 class="post-title">申请并使用HTTPS</h1>
             <section class="post-meta">
             <!-- <a href='/'>Alan Yeh</a> -->
-            <time class="post-date" datetime="2017-01-10">10 Jan 2017</time>
+            <time class="post-date" datetime="2017-01-13">13 Jan 2017</time>
                 <!-- [[tags prefix=" on "]] -->
                  
                 on 
@@ -137,32 +137,85 @@
 
         <section class="post-content">
             
-            <h1>MIME 类型</h1>
+            <h1>Https证书申请</h1>
 
-<p>　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。</p>
+<p>　　阿里云提供免费的证书申请服务，过程比较简单，记录一下。</p>
 
-<p>　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。</p>
+<p>　　打开<a href="https://wanwang.aliyun.com">阿里云首页</a>。首先注册并登录。</p>
 
-<blockquote>
-<p>以上摘抄自<a href="http://www.w3school.com.cn/media/media_mimeref.asp">W3School</a></p>
-</blockquote>
+<p>　　打开<code>产品</code>-&gt;<code>安全</code>-&gt;<code>CA证书服务</code>。
+<img src="/assets/blog/2017-01-13-ali-index.png" alt="2017-01-13-ali-index"></p>
 
-<h1>问题</h1>
+<p>　　点击<code>立即购买</code>。
+<img src="/assets/blog/2017-01-13-shop-index.png" alt="2017-01-13-shop-index"></p>
 
-<p>　　公司有一个app管理平台，用于管理应用的下载、升级等等。</p>
+<p>　　选择<code>免费型DV SSL</code>，然后<code>立即购买</code>。
+<img src="/assets/blog/2017-01-13-pay.png" alt="2017-01-13-pay"></p>
 
-<p>　　但是公司的E人E本的原生浏览器下载apk总是提示【无法打开文件】，但是到QQ官网下载android QQ又没有这个问题。换一个浏览器，比如UC、QQ浏览器，又可以打开并安装。</p>
+<p>　　支付成功后，进入<code>证书控制台</code>
+<img src="/assets/blog/2017-01-13-pay-success.png" alt="2017-01-13-pay-success"></p>
 
-<p>　　刚开是怀疑是不是E人E本对APP的来源有限制，只能使用https下软件，后面试了一下，又没有问题。</p>
+<p>　　打开红框标注的<code>证书服务</code>
+<img src="/assets/blog/7F0EA76B-6BCF-42CF-B975-BDD3EB28EEE4.png" alt="7F0EA76B-6BCF-42CF-B975-BDD3EB28EEE4"></p>
 
-<p>　　后面去抓包看了一下，原来那些能正常下载安装应用的链接的Http Header的Content-Type是<code>application/vnd.android.package-archive</code>，而我们的是<code>application/x-download</code>。按着改了一下，果然修复了。</p>
+<p>　　点击<code>补全</code>
+<img src="/assets/blog/2017-01-13-cert-list.png" alt="2017-01-13-cert-list"></p>
 
-<p>　　记录一下：</p>
+<p>　　在框框中填写你要申请的域名地址，然后下一步。
+<img src="/assets/blog/2017-01-13-input-domain.png" alt="2017-01-13-input-domain"></p>
 
-<ul>
-<li>apk: application/vnd.android.package-archive</li>
-<li>ipa: application/iphone</li>
-</ul>
+<p>　　填写一些信息，下一步
+　　
+<img src="/assets/blog/2017-01-13-input-infomation.png" alt="2017-01-13-input-infomation"></p>
+
+<p>　　选择<code>系统生成CSR</code>，点击<code>创建</code>。创建成功之后，提交审核。</p>
+
+<p><img src="/assets/blog/2017-01-13-gen-csr.png" alt="2017-01-13-gen-cs"></p>
+
+<p>　　之后注意查收邮件，会有进度提醒。</p>
+
+<p><img src="/assets/blog/2017-01-13-email.png" alt="2017-01-13-emai">
+　　
+　　需要去域名管理中心进行域名认证。去域名解析中心添加一个主机记录。按邮件上面提供的主机记录填写即可。
+　　
+<img src="/assets/blog/2017-01-13-CNAME.png" alt="2017-01-13-CNAME"></p>
+
+<p>　　稍等数分钟，刷新证书列表，等待证书状态变更。签发证书成功。</p>
+
+<p><img src="/assets/blog/2017-01-13-success.png" alt="2017-01-13-success"></p>
+
+<p>　　点击下载，就可以下载对应的服务器所需的证书。</p>
+
+<p><img src="/assets/blog/2017-01-13-download.png" alt="2017-01-13-download"></p>
+
+<h1>使用Https证书</h1>
+
+<p>　　点击<code>下载证书for Nginx</code>，得到一个压缩包。解压后如下：</p>
+
+<p><img src="/assets/blog/2017-01-13-nginx-certs.png" alt="2017-01-13-nginx-certs"></p>
+
+<p>　　将这两个证书文件拷贝到nginx目录下的<code>conf</code>目录下。然后编辑<code>nginx.conf</code></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    server{
+        listen 443;
+        server_name ssl.yerl.cn;
+        ssl on;
+        ssl_certificate 213998963030095.pem;
+        ssl_certificate_key 213998963030095.key;
+
+        location /{
+            # 转发到本地的Tomcat服务器
+            proxy_pass http://127.0.0.1:8080;
+            proxy_redirect default;
+            client_max_body_size 100m;
+            #root html;
+            #index oa.html;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Scheme $scheme;
+        }
+    }
+</code></pre></div>
+<p>　　启动nginx之后，就可以使用<code>https://ssl.yerl.cn</code>访问服务器了。</p>
 
 
         </section>
@@ -201,8 +254,8 @@
 <div id="disqus_thread"></div>
 <script>
 	var disqus_config = function () {
-		this.page.url = 'http://yerl.cn/blog/imme-for-ipa-apk'; // Replace PAGE_URL with your page's canonical URL variable
-		this.page.identifier = '/blog/imme-for-ipa-apk'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		this.page.url = 'http://yerl.cn/blog/https-cert'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/https-cert'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 	};
 
 	(function() { // DON'T EDIT BELOW THIS LINE
@@ -225,34 +278,6 @@
 <aside class="read-next">
     
     
-    	
-			
-				
-				
-					
-				
-					
-						
-						
-			
-		
-
-    <!-- [[! next_post ]] -->
-    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/https-cert">
-        <section class="post">
-            <h2>申请并使用HTTPS</h2>
-            <p># Https证书申请
-　　阿里云提供免费的证书申请服务，过程比较简单，记录一下。
-
-　　打开[阿里云首页](https://wanwang.aliyun.com)。首先注册并登录。
-
-　　打开`产品`->`安全`->`CA证书服务`。
-![2017-01-13-ali-index](/ass...</p>
-        </section>
-    </a>
-        
-    <!-- [[! /next_post ]] -->
-    
     
     	
 			
@@ -267,14 +292,22 @@
 		
 		
     <!-- [[! prev_post ]] -->
-    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/profile-in-web">
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/imme-for-ipa-apk">
         <section class="post">
-            <h2>Java Web多现场配置</h2>
-            <p>Java Web多现场配置
+            <h2>apk和ipa文件的MIME类型</h2>
+            <p>MIME 类型
 
-　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
+　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。
 
-　　为了解...</p>
+　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。
+
+
+以上摘抄自W3School
+
+
+问题
+
+　　公司有一个app管理平...</p>
         </section>
     </a>
     <!-- [[! /prev_post ]] -->
