@@ -220,14 +220,15 @@
             <h2 class="post-title"><a href="/blog/profile-in-web">Java Web多现场配置</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>Java Web多现场配置
+            <p>简介
 
 　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
 
 　　为了解决这个问题，我开发了一个gradle插件，来解决这个问题。
 
 插件引用
-repositories {... <a class="read-more" href="/blog/profile-in-web">&raquo;</a></p>
+repositories {
+    mavenL... <a class="read-more" href="/blog/profile-in-web">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
@@ -251,14 +252,14 @@ repositories {... <a class="read-more" href="/blog/profile-in-web">&raquo;</a></
             <h2 class="post-title"><a href="/blog/setup-nginx-in-centos">CentOS安装Nginx</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>Linxu(CentOS)环境下安装部署nginx
+            <p>背景
 
 　　Ubuntu安装Nginx是比较简单的，使用sudo apt-get install nginx就可以了，但是公司经常使用CentOS，就不是特别会配置了。还是记录一下。
 
 安装依赖项
 yum install -y pcre pcre-devel  
 yum install -y zlib zlib-devel  
-yum insta... <a class="read-more" href="/blog/setup-nginx-in-centos">&raquo;</a></p>
+yum install -y openssl openssl-d... <a class="read-more" href="/blog/setup-nginx-in-centos">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
@@ -282,9 +283,7 @@ yum insta... <a class="read-more" href="/blog/setup-nginx-in-centos">&raquo;</a>
             <h2 class="post-title"><a href="/blog/gradle-subprojects-management">Gradle管理多子项目</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>Gradle管理多子项目
-
-　　当项目达到一定规模时，我们一般会将项目拆分成各个小的项目，以便进行管理。本篇主要介绍Gradle如何便利地管理多子项目。
+            <p>　　当项目达到一定规模时，我们一般会将项目拆分成各个小的项目，以便进行管理。本篇主要介绍Gradle如何便利地管理多子项目。
 
 项目结构
 
@@ -294,7 +293,7 @@ yum insta... <a class="read-more" href="/blog/setup-nginx-in-centos">&raquo;</a>
     └── service-impl
     └── web
 
-　　其中，ser... <a class="read-more" href="/blog/gradle-subprojects-management">&raquo;</a></p>
+　　其中，service-impl依赖于se... <a class="read-more" href="/blog/gradle-subprojects-management">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />

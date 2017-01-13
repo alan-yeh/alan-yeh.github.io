@@ -84,14 +84,15 @@
     <pubDate>Wed, 28 Dec 2016 00:00:00 +0000</pubDate>
     <dc:date>2016-12-28T00:00:00+00:00</dc:date>
     <guid><![CDATA[/blog/profile-in-web]]></guid>
-    <description><![CDATA[Java Web多现场配置
+    <description><![CDATA[简介
 
 　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
 
 　　为了解决这个问题，我开发了一个gradle插件，来解决这个问题。
 
 插件引用
-repositories {...]]></description>
+repositories {
+    mavenL...]]></description>
 </item>
 
 <item>
@@ -101,14 +102,14 @@ repositories {...]]></description>
     <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
     <dc:date>2016-12-27T00:00:00+00:00</dc:date>
     <guid><![CDATA[/blog/setup-nginx-in-centos]]></guid>
-    <description><![CDATA[Linxu(CentOS)环境下安装部署nginx
+    <description><![CDATA[背景
 
 　　Ubuntu安装Nginx是比较简单的，使用sudo apt-get install nginx就可以了，但是公司经常使用CentOS，就不是特别会配置了。还是记录一下。
 
 安装依赖项
 yum install -y pcre pcre-devel  
 yum install -y zlib zlib-devel  
-yum insta...]]></description>
+yum install -y openssl openssl-d...]]></description>
 </item>
 
 <item>
@@ -118,9 +119,7 @@ yum insta...]]></description>
     <pubDate>Sun, 23 Oct 2016 00:00:00 +0000</pubDate>
     <dc:date>2016-10-23T00:00:00+00:00</dc:date>
     <guid><![CDATA[/blog/gradle-subprojects-management]]></guid>
-    <description><![CDATA[Gradle管理多子项目
-
-　　当项目达到一定规模时，我们一般会将项目拆分成各个小的项目，以便进行管理。本篇主要介绍Gradle如何便利地管理多子项目。
+    <description><![CDATA[　　当项目达到一定规模时，我们一般会将项目拆分成各个小的项目，以便进行管理。本篇主要介绍Gradle如何便利地管理多子项目。
 
 项目结构
 
@@ -130,7 +129,7 @@ yum insta...]]></description>
     └── service-impl
     └── web
 
-　　其中，ser...]]></description>
+　　其中，service-impl依赖于se...]]></description>
 </item>
 
 <item>
@@ -140,9 +139,7 @@ yum insta...]]></description>
     <pubDate>Tue, 27 Sep 2016 00:00:00 +0000</pubDate>
     <dc:date>2016-09-27T00:00:00+00:00</dc:date>
     <guid><![CDATA[/blog/spring-02]]></guid>
-    <description><![CDATA[Spring入门(二)
-
-　　项目使用Gradle作为依赖管理工具。此项目建立在上一篇博客的基础上。
+    <description><![CDATA[　　项目使用Gradle作为依赖管理工具。此项目建立在上一篇博客的基础上。
 
 集成beetl
 
@@ -155,7 +152,7 @@ yum insta...]]></description>
     compile group: &#39;org.beetl&#39;, name: &#39;beetl-core&#39;, version: &#39;2.2.3&#39;
 
 
-...]]></description>
+修改src/main/re...]]></description>
 </item>
 
 <item>
@@ -165,9 +162,7 @@ yum insta...]]></description>
     <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
     <dc:date>2016-09-26T00:00:00+00:00</dc:date>
     <guid><![CDATA[/blog/spring-01]]></guid>
-    <description><![CDATA[Spring入门(一)
-
-　　项目使用Gradle作为依赖管理工具。
+    <description><![CDATA[　　项目使用Gradle作为依赖管理工具。
 
 添加项目依赖
 
@@ -176,7 +171,8 @@ group &#39;cn.yerl&#39;
 version &#39;1.0-SNAPSHOT&#39;
 
 apply plugin: &#39;java&#39;
-apply plugin: &...]]></description>
+apply plugin: &#39;war&#39;
+...]]></description>
 </item>
 
 <item>
