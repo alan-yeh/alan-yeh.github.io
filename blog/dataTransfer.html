@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>利用Travis CI生成网页，支持Tags/Categorys</title>
+    <title>JS中的dataTransfer对象</title>
     <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -107,20 +107,12 @@
 			
 		
 			
-		
-			
-		
-			
-		
-			
-		
-			
 				
 				
 	
 
 
-<header class="main-header post-head " style="background-image: url(/assets/images/cover6.jpg) ">
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
     <nav class="main-nav  clearfix">
         <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
         <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
@@ -132,16 +124,16 @@
     <article class="post tag-fiction">
 
         <header class="post-header">
-            <h1 class="post-title">利用Travis CI生成网页，支持Tags/Categorys</h1>
+            <h1 class="post-title">JS中的dataTransfer对象</h1>
             <section class="post-meta">
             <!-- <a href='/'>Alan Yeh</a> -->
-            <time class="post-date" datetime="2016-01-24">24 Jan 2016</time>
+            <time class="post-date" datetime="2017-05-07">07 May 2017</time>
                 <!-- [[tags prefix=" on "]] -->
                  
                 on 
                 
                     
-                       <a href='/tag/Jekyll'>Jekyll</a>
+                       <a href='/tag/FrontEnd'>FrontEnd</a>
                        
                 
                 
@@ -150,40 +142,21 @@
 
         <section class="post-content">
             
-            <p>　　现在大多使用Jekyll，并且支持Tags/Categorys的博客，都是将所有博客标题链接放到同一个页面中。博客量少的时候，弊端并不明显；但是博客量大的时候，同一个页面下的博客标题太多，就会给人一种目不暇接的感觉。大多数人第一时间想到就是利用分页。</p>
+            <p>　　在进行拖放操作的时候，dataTransfer对象可以用来保存被拖动的数据。它可以保存一项或多项数据、一种或多数数据类型。通谷一点讲，就是可以通过它来传输被拖动的数据，以便在拖拽结束的时候，对数据进行其他的操作。</p>
 
-<p>　　想要将Tags/Categorys生成分页功能，有几个思路。由于jekyll在运行时，将所有博客生成静态页面，利用query param来分页显示博客，虽然可行，但不可取（因为虽然可以利用javascript动态隐藏一些标题，但实际上还是将所有标题放在同一个页面了）。利用自定义插件生成额外的静态页面，以支持Tags/Categorys的真正分页效果，是比较好的方案，而且Jekyll也支持<a href="http://jekyllrb.com/docs/plugins/">使用自定义插件</a>，但很可惜，GitHub Pages却不支持。</p>
-
-<p>　　<a href="https://pages.github.com/">GitHub Pages</a>是由<a href="https://github.com/jekyll/jekyll">Jekyll</a>提供技术支持的，但考虑到安全因素，所有的Jekyll自定义插件都被禁用了(禁用所有存放在_plugins目录下的插件，但pages是支持部分使用gem加载的插件的)。Jekyll官方提供的解决方案是先在本地生成静态页面，然后将生成好的页面Commit到GitHub上。但是这样做的体验并不好，所以Jekyll的<a href="https://github.com/jekyll/jekyll/issues">GitHub Issues</a>下有很多discussion关于要求Jekyll提供官方支持Tags、Category的插件，以支持更好体验的博客系统。但是2年过去了，官方仍然没有提供相关插件。于是，有的网友就利用一些『奇技淫巧』来实现自动生成分页的功能。</p>
-
-<p>　　<a href="https://travis-ci.org/">Travis CI</a>，是一个在线的、分布式的持续集成服务，用来构建及测试在GitHub托管的代码。Travis CI会在你每次提交代码的时候，自动运行一些脚本。利用这个特性，我们可以在Travis CI上，利用脚本将托管在GitHub的博客生成静态页面，然后再提交到另一个代码仓库中（也就是USERNAME.github.io）上，这样就可以自动完成布署了。</p>
-
-<h2>步骤</h2>
-
-<h3>.travis.yml文件</h3>
-
-<p>　　在根目录添加.travis.yml。.travis.yml用于配置项目，告诉Travis CI项目语言是什么，需要的环境，执行的脚本等等。在这个文件中，还可以添加一些其它的环境变量。利用Travis CI生成网页之后，我们需要将生成好的文件提交到你的GitHub下的USERNAME.github.io仓库，这样就可以完成动态生成了。提交代码需要权限，这里使用了<a href="https://github.com/settings/tokens">GitHub Token</a>。明文放置GitHub Token是不安全的，所以需要将它加密一下。</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># 进入你项目所在目录</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="no">YOUR_BLOG_DIR</span>
-
-<span class="c1"># 生成Travis CI密文，其中USERNAME是你的GitHub的用户名，GIT_EMAIL是你的GitHub所用的邮箱，YOUR_TOKEN是在上面生成的用户凭证</span>
-<span class="err">$</span> <span class="n">travis</span> <span class="n">encrypt</span> <span class="err">‘</span><span class="no">GIT_NAME</span><span class="o">=</span><span class="s2">&quot;USERNAME&quot;</span> <span class="no">GIT_EMAIL</span><span class="o">=</span><span class="s2">&quot;YOUR_EMAIL&quot;</span> <span class="no">GH_TOKEN</span><span class="o">=</span><span class="no">YOUR_TOKEN</span><span class="err">’</span>
+<p>　　在项目拖动的开始事件(<code>ondragstart</code>)的时候，可以对dataTransfer进行设值操作(<code>setData</code>)。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">).</span><span class="nx">ondragstart</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="s1">&#39;some-key&#39;</span><span class="p">,</span> <span class="s1">&#39;some-value&#39;</span><span class="p">);</span>
+<span class="p">};</span>
 </code></pre></div>
-<p>　　以上具体.travis.yml配置可以参考<a href="https://github.com/Poi-Son/jasper/blob/master/.travis.yml">源代码</a>。</p>
-
-<h3>Rakefile</h3>
-
-<p>　　在.travis中，执行Rake脚本下的的site:deploy，所以在Rakefile，需要实现相关的生成网站逻辑。</p>
-
-<p>　　具体思路大概是这样的。首先，Travis CI会clone一份代码仓库出来，同时根据.travis.yml文件为我们将环境搭建好。接着我们利用在.travis.yml中配置的Token，clone一份YOURUSERNAME.github.io的代码到项目生成的路径。然后执行<code>jekyll build</code>命令，生成静态html文件到YOURUSERNAME.github.io中，然后<code>git commit</code>到你的代码仓库，完成整个过程。</p>
-
-<p>　　以上代码可以参考<a href="https://github.com/Poi-Son/jasper/blob/master/Rakefile">源代码</a></p>
-
-<h2>总结</h2>
-
-<p>　　利用Travis CI，现在仅需要将你的代码提交到GitHub上，然后稍等几份钟之后，你就可以看到USERNAME.github.io的代码已经更新了，自然你的博客也就更新了。</p>
-
-<p>　　GitHub上的<a href="https://github.com/Poi-Son/jasper">jasper</a>项目是通过改造原作者<a href="https://github.com/biomadeira">Fábio Madeira</a>的<a href="https://github.com/biomadeira/jasper">jasper</a>项目而来，感谢作者。</p>
+<p>　　在项目拖动结束的时候，可以获取dataTransfer对象里的值。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">).</span><span class="nx">ondrop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// 拖动的默认处理方式是在新窗口打开，所以阻止其执行</span>
+    <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">dataTransfer</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="s1">&#39;some-key&#39;</span><span class="p">);</span>
+    <span class="c1">// some-value</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>　　在其它的事件(如<code>ondragover</code>、<code>ondragleave</code>等），是无法获取dataTransfer里面的值了。这是由于W3C要求对dataTransfer里的值进行保护[<a href="https://www.w3.org/TR/html51/editing.html#drag-and-drop">参考</a>]。因此，如果需要在这些事件里获取数据，只能通过一个全局变量等其它方式来实现了。</p>
 
 
         </section>
@@ -222,8 +195,8 @@
 <div id="disqus_thread"></div>
 <script>
 	var disqus_config = function () {
-		this.page.url = 'http://yerl.cn/blog/use-travis-ci-generate-sites'; // Replace PAGE_URL with your page's canonical URL variable
-		this.page.identifier = '/blog/use-travis-ci-generate-sites'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		this.page.url = 'http://yerl.cn/blog/dataTransfer'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/dataTransfer'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 	};
 
 	(function() { // DON'T EDIT BELOW THIS LINE
@@ -246,48 +219,10 @@
 <aside class="read-next">
     
     
-    	
-			
-				
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-						
-						
-			
-		
-
-    <!-- [[! next_post ]] -->
-    <a class="read-next-story " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/ubuntu-setup-input-method">
-        <section class="post">
-            <h2>Ubuntu安装中文输入法</h2>
-            <p>　　最近准备折腾Gitlab，需要安装一个Linux环境。大学的时候，装过Ubunut，感觉还不错。刚好[Ubuntu 16.04 LTS](http://www.ubuntu.com/download/desktop)发布了，同一时间，[Ubuntu Kylin](http://www.ub...</p>
-        </section>
-    </a>
-        
-    <!-- [[! /next_post ]] -->
-    
     
     	
 			
 				
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
 				
 					
 				
@@ -298,18 +233,28 @@
 		
 		
     <!-- [[! prev_post ]] -->
-    <a class="read-next-story prev " style="background-image: url(/assets/images/cover6.jpg)" href="/blog/use-jekyll-build-your-blog">
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/https-cert">
         <section class="post">
-            <h2>使用jekyll布署个人博客</h2>
-            <p>　　这篇blog主要用于记录怎么在Mac下使用pages.github.com和jekyll布署个人博客。
+            <h2>申请并使用HTTPS</h2>
+            <p>Https证书申请
 
-步骤
+　　阿里云提供免费的证书申请服务，过程比较简单，记录一下。
 
-　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
+　　打开阿里云首页。首先注册并登录。
 
-关闭Rootless
+　　打开产品-&gt;安全-&gt;CA证书服务。
 
-　　Mac 10.11之后，苹果为系统加入了一个叫做Rootless的权限工具，用于...</p>
+
+　　点击立即购买。
+
+
+　　选择免费型DV SSL，然后立即购买。
+
+
+　　支付成功后，进入证书控制台
+
+
+　　打...</p>
         </section>
     </a>
     <!-- [[! /prev_post ]] -->

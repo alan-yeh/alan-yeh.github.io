@@ -17,6 +17,19 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[JS中的dataTransfer对象]]></title>
+    <link>http://yerl.cn/blog/dataTransfer</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Sun, 07 May 2017 00:00:00 +0000</pubDate>
+    <dc:date>2017-05-07T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/dataTransfer]]></guid>
+    <description><![CDATA[　　在进行拖放操作的时候，dataTransfer对象可以用来保存被拖动的数据。它可以保存一项或多项数据、一种或多数数据类型。通谷一点讲，就是可以通过它来传输被拖动的数据，以便在拖拽结束的时候，对数据进行其他的操作。
+
+　　在项目拖动的开始事件(ondragstart)的时候，可以对dataTransfer进行设值操作(setData)。
+document.getElementById(&#...]]></description>
+</item>
+
+<item>
     <title><![CDATA[申请并使用HTTPS]]></title>
     <link>http://yerl.cn/blog/https-cert</link>
     <author><![CDATA[Alan Yeh]]></author>
