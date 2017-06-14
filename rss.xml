@@ -17,6 +17,21 @@
         <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
         
 <item>
+    <title><![CDATA[encodeURI和encodeURIComponent的区别]]></title>
+    <link>http://yerl.cn/blog/encodeuri-and-encodeuripomponent</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+    <dc:date>2017-06-14T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/encodeuri-and-encodeuripomponent]]></guid>
+    <description><![CDATA[　　转一个图片，用于解释encodeURI、encodeURIComponent、decodeURI、decodeURIComponent的区别。
+
+
+
+原地址。
+]]></description>
+</item>
+
+<item>
     <title><![CDATA[JS中的dataTransfer对象]]></title>
     <link>http://yerl.cn/blog/dataTransfer</link>
     <author><![CDATA[Alan Yeh]]></author>
