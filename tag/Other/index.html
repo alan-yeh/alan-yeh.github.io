@@ -57,7 +57,7 @@
     
     
 </head>
-<body class="home-template nav-closed">
+<body class="tag-template nav-closed">
 
     
 <div class="nav">
@@ -91,23 +91,28 @@
     <div class="site-wrapper">
 
         <!-- [[! Everything else gets inserted here ]] -->
-        <!-- < default -->
+        <!-- < dynamically overriding backgrounds for tags as well as descriptions -->
+
+
+<!-- < default}} -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header  -->
-<header class="main-header "
-        style="background-image: url(/assets/images/cover1.jpg) ">
+<!-- If we have a tag cover, display that - else blog cover - else nothing -->
+<header class="main-header tag-head " style="background-image: url(/assets/images/cover6.jpg) ">
     <nav class="main-nav overlay clearfix">
-        <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
-        <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+	    <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
+	    <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Alan Yeh</h1>
-            <h2 class="page-description">写写代码，想想东西，程序员的世界可以就这么简单。</h2>
+            <h1 class="page-title">Other</h1>
+            <h2 class="page-description">
+            
+                Other
+            
+            </h2>
         </div>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
 <!-- The main content area on the homepage -->
@@ -119,9 +124,7 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 6 </span>
-     
-        <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 1 of 1 </span>
      
 </nav>
         
@@ -161,165 +164,17 @@ openssl
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/encodeuri-and-encodeuripomponent">encodeURI和encodeURIComponent的区别</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　转一个图片，用于解释encodeURI、encodeURIComponent、decodeURI、decodeURIComponent的区别。
-
-
-
-原地址。
- <a class="read-more" href="/blog/encodeuri-and-encodeuripomponent">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/FrontEnd'>FrontEnd</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-06-14">14 Jun 2017</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/dataTransfer">JS中的dataTransfer对象</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　在进行拖放操作的时候，dataTransfer对象可以用来保存被拖动的数据。它可以保存一项或多项数据、一种或多数数据类型。通谷一点讲，就是可以通过它来传输被拖动的数据，以便在拖拽结束的时候，对数据进行其他的操作。
-
-　　在项目拖动的开始事件(ondragstart)的时候，可以对dataTransfer进行设值操作(setData)。
-document.getElementById(&#... <a class="read-more" href="/blog/dataTransfer">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/FrontEnd'>FrontEnd</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-05-07">07 May 2017</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/https-cert">申请并使用HTTPS</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Https证书申请
-
-　　阿里云提供免费的证书申请服务，过程比较简单，记录一下。
-
-　　打开阿里云首页。首先注册并登录。
-
-　　打开产品-&gt;安全-&gt;CA证书服务。
-
-
-　　点击立即购买。
-
-
-　　选择免费型DV SSL，然后立即购买。
-
-
-　　支付成功后，进入证书控制台
-
-
-　　打开红框标注的证书服务
-
-
-　　点击补全
-
-
-　　在框框中填写你要申请的域名地址，然后下一步。
-
-
-　... <a class="read-more" href="/blog/https-cert">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-01-13">13 Jan 2017</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/imme-for-ipa-apk">apk和ipa文件的MIME类型</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>MIME 类型
-
-　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。
-
-　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。
-
-
-以上摘抄自W3School
-
-
-问题
-
-　　公司有一个app管理平台，用于管理应用的下载、升级等等。
-
-　　但是公司的E人E本的原生浏览器下载apk总是提示【无法打开... <a class="read-more" href="/blog/imme-for-ipa-apk">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-01-10">10 Jan 2017</time>
-        </footer>
-    </article>
-    
     <!-- Previous/next page links - displayed on every page -->
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 6 </span>
-     
-        <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 1 of 1 </span>
      
 </nav>
     
 
 
 </main>
-
 
         <footer class="site-footer clearfix">
           <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2017</section>

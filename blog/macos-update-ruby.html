@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>encodeURI和encodeURIComponent的区别</title>
+    <title>MacOS更新Ruby环境</title>
     <meta name="description" content="Alan Yeh - 写写代码，想想东西，程序员的世界可以就这么简单。" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -107,12 +107,22 @@
 			
 		
 			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
 				
 				
 	
 
 
-<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+<header class="main-header post-head " style="background-image: url(/assets/images/cover6.jpg) ">
     <nav class="main-nav  clearfix">
         <a class="blog-logo" href="/"><img src="/assets/images/logo.png" alt="Blog Logo" /></a>
         <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
@@ -124,16 +134,16 @@
     <article class="post tag-fiction">
 
         <header class="post-header">
-            <h1 class="post-title">encodeURI和encodeURIComponent的区别</h1>
+            <h1 class="post-title">MacOS更新Ruby环境</h1>
             <section class="post-meta">
             <!-- <a href='/'>Alan Yeh</a> -->
-            <time class="post-date" datetime="2017-06-14">14 Jun 2017</time>
+            <time class="post-date" datetime="2017-08-23">23 Aug 2017</time>
                 <!-- [[tags prefix=" on "]] -->
                  
                 on 
                 
                     
-                       <a href='/tag/FrontEnd'>FrontEnd</a>
+                       <a href='/tag/Other'>Other</a>
                        
                 
                 
@@ -142,12 +152,34 @@
 
         <section class="post-content">
             
-            <p>　　转一个图片，用于解释encodeURI、encodeURIComponent、decodeURI、decodeURIComponent的区别。</p>
+            <p>　　MacOS安装后，自带的ruby环境是2.0.0，有点过时了，有的ruby包需要更高版本的ruby环境。在更新ruby环境的时候，踩了一些坑，记录一下。</p>
 
-<p><img src="/assets/blog/2017-06-14-encodeuri-and-decodeuricomponent.png" alt="encodeuri-and-decodeuricomponent"></p>
+<h2>安装方式</h2>
 
-<p><a href="http://www.cnblogs.com/shuiyi/p/5277233.html">原地址</a>。</p>
+<p>　　我是采用源代码编译方式升级ruby的，升级到最新的稳定版2.4.1。直接在<a href="http://www.ruby-lang.org/en/downloads/">官网</a>下载即可。下载下来是一个压缩包ruby-2.4.1.tar.gz。解压。</p>
 
+<h2>openssl</h2>
+
+<p>　　ruby里面很多组件会用到openssl，MacOS后面会有很多坑，甚至要重新安装ruby才行。因此要求MacOS安装openssl。最简单的安装方式是使用brew。来到<a href="https://brew.sh">brew官网</a>，使用官方提供的脚本进行安装。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">/usr/bin/ruby -e <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
+</code></pre></div>
+<p>　　安装完后，使用brew安装openssl</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">brew install openssl
+</code></pre></div>
+<h2>配置ruby</h2>
+
+<p>　　打开终端(Terminal)，进入刚才下载解压后的ruby源码目录(ruby-2.4.1)。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">./configure --with-openssl-dir<span class="o">=</span><span class="s2">&quot;$(brew --prefix openssl)&quot;</span>
+</code></pre></div>
+<h2>安装ruby</h2>
+
+<p>　　配置完毕后，使用以下命令安装ruby</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo make <span class="p">&amp;</span> sudo make install
+</code></pre></div>
+<p>　　查看当前ruby版本，升级成功。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ruby -v
+ruby 2.4.1p111 <span class="o">(</span>2017-03-22 revision 58053<span class="o">)</span> <span class="o">[</span>x86_64-darwin16<span class="o">]</span>
+</code></pre></div>
 
         </section>
 
@@ -185,8 +217,8 @@
 <div id="disqus_thread"></div>
 <script>
 	var disqus_config = function () {
-		this.page.url = 'http://yerl.cn/blog/encodeuri-and-encodeuripomponent'; // Replace PAGE_URL with your page's canonical URL variable
-		this.page.identifier = '/blog/encodeuri-and-encodeuripomponent'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		this.page.url = 'http://yerl.cn/blog/macos-update-ruby'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '/blog/macos-update-ruby'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 	};
 
 	(function() { // DON'T EDIT BELOW THIS LINE
@@ -209,43 +241,6 @@
 <aside class="read-next">
     
     
-    	
-			
-				
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-						
-						
-			
-		
-
-    <!-- [[! next_post ]] -->
-    <a class="read-next-story " style="background-image: url(/assets/images/cover6.jpg)" href="/blog/macos-update-ruby">
-        <section class="post">
-            <h2>MacOS更新Ruby环境</h2>
-            <p>　　MacOS安装后，自带的ruby环境是2.0.0，有点过时了，有的ruby包需要更高版本的ruby环境。在更新ruby环境的时候，踩了一些坑，记录一下。
-
-## 安装方式
-　　我是采用源代码编译方式升级ruby的，升级到最新的稳定版2.4.1。直接在[官网](http://www.ruby...</p>
-        </section>
-    </a>
-        
-    <!-- [[! /next_post ]] -->
-    
     
     	
 			
@@ -262,12 +257,15 @@
 		
 		
     <!-- [[! prev_post ]] -->
-    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/dataTransfer">
+    <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/blog/encodeuri-and-encodeuripomponent">
         <section class="post">
-            <h2>JS中的dataTransfer对象</h2>
-            <p>　　在进行拖放操作的时候，dataTransfer对象可以用来保存被拖动的数据。它可以保存一项或多项数据、一种或多数数据类型。通谷一点讲，就是可以通过它来传输被拖动的数据，以便在拖拽结束的时候，对数据进行其他的操作。
+            <h2>encodeURI和encodeURIComponent的区别</h2>
+            <p>　　转一个图片，用于解释encodeURI、encodeURIComponent、decodeURI、decodeURIComponent的区别。
 
-　　在项目拖动的开始事件(ondragstart)的时候，可以对dataT...</p>
+
+
+原地址。
+</p>
         </section>
     </a>
     <!-- [[! /prev_post ]] -->

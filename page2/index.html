@@ -123,7 +123,7 @@
             <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
         
     
-    <span class="page-number"> Page 2 of 5 </span>
+    <span class="page-number"> Page 2 of 6 </span>
      
         <a class="older-posts" href="/page3/" title="Next Page">Older Posts &raquo;</a>
      
@@ -132,6 +132,38 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/profile-in-web">Java Web多现场配置</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>简介
+
+　　Java Web项目和移动App一样，需要一个程序面对多个现场。以前，项目采用一条主线，多条分支的方式来管理。但是每当现场需要升级的时候、需求与另一个现场重合的时候，往往弄得开发人员手忙脚乱。时间久了之后，项目甚至会出现代码丢失、无法维护等情况。
+
+　　为了解决这个问题，我开发了一个gradle插件，来解决这个问题。
+
+插件引用
+repositories {
+    mavenL... <a class="read-more" href="/blog/profile-in-web">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/about'>Alan Yeh</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/tag/Java-Web'>Java-Web</a>
+                       
+                
+            
+            <time class="post-date" datetime="2016-12-28">28 Dec 2016</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -269,44 +301,6 @@ apply plugin: &#39;war&#39;
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/manage-nexus-repository-oss">管理Nexus Repository OSS</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>目录
-
-
-支持域名访问
-
-
-支持域名访问
-
-　　Nexus默认使用8081端口，总是输入IP+端口，略麻烦。因此折腾一下，使用域名来访问Nexus。
-
-修改Nexus配置
-
-　　Nexus默认Context Path是/nexus。如果继续使用这个路径的话，使用域名访问会没办法登录。因此需要先修改Nexus的配置。
-
-/opt/nexus/nexus-2.13.0-01/conf/nexus... <a class="read-more" href="/blog/manage-nexus-repository-oss">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2016-07-17">17 Jul 2016</time>
-        </footer>
-    </article>
-    
     <!-- Previous/next page links - displayed on every page -->
     
         <nav class="pagination" role="pagination">
@@ -315,7 +309,7 @@ apply plugin: &#39;war&#39;
             <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
         
     
-    <span class="page-number"> Page 2 of 5 </span>
+    <span class="page-number"> Page 2 of 6 </span>
      
         <a class="older-posts" href="/page3/" title="Next Page">Older Posts &raquo;</a>
      

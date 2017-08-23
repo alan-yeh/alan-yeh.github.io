@@ -57,7 +57,7 @@
     
     
 </head>
-<body class="home-template nav-closed">
+<body class="paged archive-template nav-closed">
 
     
 <div class="nav">
@@ -119,9 +119,11 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 6 </span>
-     
-        <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
+        
+            <a class="newer-posts" href="/page5/" title="Previous Page">&laquo; Newer Posts</a>
+      
+    
+    <span class="page-number"> Page 6 of 6 </span>
      
 </nav>
         
@@ -131,18 +133,18 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/macos-update-ruby">MacOS更新Ruby环境</a></h2>
+            <h2 class="post-title"><a href="/blog/use-jekyll-build-your-blog">使用jekyll布署个人博客</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>　　MacOS安装后，自带的ruby环境是2.0.0，有点过时了，有的ruby包需要更高版本的ruby环境。在更新ruby环境的时候，踩了一些坑，记录一下。
+            <p>　　这篇blog主要用于记录怎么在Mac下使用pages.github.com和jekyll布署个人博客。
 
-安装方式
+步骤
 
-　　我是采用源代码编译方式升级ruby的，升级到最新的稳定版2.4.1。直接在官网下载即可。下载下来是一个压缩包ruby-2.4.1.tar.gz。解压。
+　　首先，我们先在本地布署一个博客，调试完毕之后再上传到服务器。
 
-openssl
+关闭Rootless
 
-　　ruby里面很多组件会用到openssl，... <a class="read-more" href="/blog/macos-update-ruby">&raquo;</a></p>
+　　Mac 10.11之后，苹果为系统加入了一个叫做Rootless的权限工具，用于保护系统的目录不被修改、写入。ruby和jekyll的部份插件需要一些权限，所以需要临时关闭这个功能... <a class="read-more" href="/blog/use-jekyll-build-your-blog">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
@@ -153,156 +155,11 @@ openssl
                 on 
                 
                     
-                       <a href='/tag/Other'>Other</a>
+                       <a href='/tag/Jekyll'>Jekyll</a>
                        
                 
             
-            <time class="post-date" datetime="2017-08-23">23 Aug 2017</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/encodeuri-and-encodeuripomponent">encodeURI和encodeURIComponent的区别</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　转一个图片，用于解释encodeURI、encodeURIComponent、decodeURI、decodeURIComponent的区别。
-
-
-
-原地址。
- <a class="read-more" href="/blog/encodeuri-and-encodeuripomponent">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/FrontEnd'>FrontEnd</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-06-14">14 Jun 2017</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/dataTransfer">JS中的dataTransfer对象</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>　　在进行拖放操作的时候，dataTransfer对象可以用来保存被拖动的数据。它可以保存一项或多项数据、一种或多数数据类型。通谷一点讲，就是可以通过它来传输被拖动的数据，以便在拖拽结束的时候，对数据进行其他的操作。
-
-　　在项目拖动的开始事件(ondragstart)的时候，可以对dataTransfer进行设值操作(setData)。
-document.getElementById(&#... <a class="read-more" href="/blog/dataTransfer">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/FrontEnd'>FrontEnd</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-05-07">07 May 2017</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/https-cert">申请并使用HTTPS</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Https证书申请
-
-　　阿里云提供免费的证书申请服务，过程比较简单，记录一下。
-
-　　打开阿里云首页。首先注册并登录。
-
-　　打开产品-&gt;安全-&gt;CA证书服务。
-
-
-　　点击立即购买。
-
-
-　　选择免费型DV SSL，然后立即购买。
-
-
-　　支付成功后，进入证书控制台
-
-
-　　打开红框标注的证书服务
-
-
-　　点击补全
-
-
-　　在框框中填写你要申请的域名地址，然后下一步。
-
-
-　... <a class="read-more" href="/blog/https-cert">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-01-13">13 Jan 2017</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/imme-for-ipa-apk">apk和ipa文件的MIME类型</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>MIME 类型
-
-　　MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的因特网标准。
-
-　　MIME 消息能包含文本、图像、音频、视频以及其他应用程序专用的数据。
-
-
-以上摘抄自W3School
-
-
-问题
-
-　　公司有一个app管理平台，用于管理应用的下载、升级等等。
-
-　　但是公司的E人E本的原生浏览器下载apk总是提示【无法打开... <a class="read-more" href="/blog/imme-for-ipa-apk">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/assets/images/avatar.jpg" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/about'>Alan Yeh</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/tag/Java-Web'>Java-Web</a>
-                       
-                
-            
-            <time class="post-date" datetime="2017-01-10">10 Jan 2017</time>
+            <time class="post-date" datetime="2016-01-20">20 Jan 2016</time>
         </footer>
     </article>
     
@@ -310,9 +167,11 @@ document.getElementById(&#... <a class="read-more" href="/blog/dataTransfer">&ra
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 6 </span>
-     
-        <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
+        
+            <a class="newer-posts" href="/page5/" title="Previous Page">&laquo; Newer Posts</a>
+      
+    
+    <span class="page-number"> Page 6 of 6 </span>
      
 </nav>
     

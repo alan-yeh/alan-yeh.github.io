@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <channel>
+        <atom:link href="rss" rel="self" type="application/rss+xml" />
+        
+        <title><![CDATA[Alan Yeh - Other]]></title>
+        <link>http://yerl.cn/tag/Other</link>
+<!--        需要修复-->
+        <description><![CDATA[]]></description>
+        
+        
+        <language>zh-cn</language>
+        <managingEditor><![CDATA[Alan Yeh]]></managingEditor>
+        
+<item>
+    <title><![CDATA[MacOS更新Ruby环境]]></title>
+    <link>http://yerl.cn/blog/macos-update-ruby</link>
+    <author><![CDATA[Alan Yeh]]></author>
+    <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
+    <dc:date>2017-08-23T00:00:00+00:00</dc:date>
+    <guid><![CDATA[/blog/macos-update-ruby]]></guid>
+    <description><![CDATA[　　MacOS安装后，自带的ruby环境是2.0.0，有点过时了，有的ruby包需要更高版本的ruby环境。在更新ruby环境的时候，踩了一些坑，记录一下。
+
+安装方式
+
+　　我是采用源代码编译方式升级ruby的，升级到最新的稳定版2.4.1。直接在官网下载即可。下载下来是一个压缩包ruby-2.4.1.tar.gz。解压。
+
+openssl
+
+　　ruby里面很多组件会用到openssl，...]]></description>
+</item>
+
+
+    </channel>
+</rss>

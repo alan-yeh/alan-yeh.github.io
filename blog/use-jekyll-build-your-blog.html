@@ -170,13 +170,13 @@
 <p>　　我使用的是Mac 10.11，系统自带了ruby等工具，所以可以跳过安装ruby、gem这些步骤(Mac果然是程序员的利器)。</p>
 
 <p>　　将gem的sources替换成国内镜像，以提升速度。在终端中输入：</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">--</span><span class="n">add</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">ruby</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">org</span><span class="o">/</span> <span class="o">--</span><span class="n">remove</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">rubygems</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gem sources --add https://gems.ruby-china.org --remove https://rubygems.org/
 
-<span class="err">$</span> <span class="n">gem</span> <span class="n">sources</span> <span class="o">-</span><span class="n">l</span>
-<span class="o">***</span> <span class="no">CURRENT</span> <span class="no">SOURCES</span> <span class="o">***</span>
+<span class="nv">$ </span>gem sources -l
+*** CURRENT SOURCES ***
 
-<span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">ruby</span><span class="o">.</span><span class="n">taobao</span><span class="o">.</span><span class="n">org</span>
-<span class="c1">#确保只有ruby.taobao.org</span>
+https://gems.ruby-china.org
+<span class="c">#确保只有https://gems.ruby-china.org</span>
 </code></pre></div>
 <h3>安装Jekyll</h3>
 
