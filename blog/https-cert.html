@@ -198,7 +198,14 @@
 <p><img src="/assets/blog/2017-01-13-nginx-certs.png" alt="2017-01-13-nginx-certs"></p>
 
 <p>　　将这两个证书文件拷贝到nginx目录下的<code>conf</code>目录下。然后编辑<code>nginx.conf</code></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">    server{
+<div class="highlight"><pre><code class="language-text" data-lang="text">    # 强制使用https
+    server{
+        listen 80;
+        server_name ssl.yerl.cn;
+        rewrite ^(.*)$  https://$host$1 permanent;
+    }
+    # SSL配置
+    server{
         listen 443;
         server_name ssl.yerl.cn;
         ssl on;
