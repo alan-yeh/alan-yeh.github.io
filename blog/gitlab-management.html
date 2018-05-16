@@ -163,7 +163,7 @@
 <p>　　GitLab在使用的过程中，在很多地方都需要使用邮箱来发送通知，比如注册通知、权限变更通知、合并通知等等，因此需要为GitLab准备一个邮箱，用于发送这些通知。</p>
 
 <p>　　以下演示了如何配置QQ企业邮作为GitLab的发送邮箱。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /etc/gitlab/gitlab.rb
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo nano /etc/gitlab/gitlab.rb
 </code></pre></div>
 <p>　　修改以下内容。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">gitlab_rails<span class="o">[</span><span class="s1">&#39;time_zone&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;UTC&#39;</span>
@@ -202,7 +202,7 @@ gitlab_rails<span class="o">[</span><span class="s1">&#39;smtp_tls&#39;</span><s
 <h2><a id="support-domain"></a>支持域名访问</h2>
 
 <p>　　使用域名作为访问地址，除了个性化、容易记之外，还有其它优点。在更换服务器的时候，只需要在域名提供商那边修改一下域名所指向的地址就可以了，所有的仓库都不需要改动。域名不仅仅可以指向外网地址，还可以指向内网地址（比如192.168.1.2），同样也是有效的。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /etc/gitlab/gitlab.rb
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo nano /etc/gitlab/gitlab.rb
 </code></pre></div>
 <p>　　修改以下内容。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">## Url on which GitLab will be reachable.</span>
@@ -227,7 +227,7 @@ external_url <span class="s1">&#39;http://xxxx.com&#39;</span>
 <h2><a id="auto-backup"></a>自动备份</h2>
 
 <p>　　GitLab作为源代码管理器，需要好好保护源代码的安全。因此，一个自动、定期备份GitLab是需要的。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo gedit /etc/gitlab/gitlab.rb
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo nano /etc/gitlab/gitlab.rb
 </code></pre></div>
 <p>　　修改以下内容。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># 自定义管理路径</span>
@@ -257,6 +257,43 @@ gitlab_rails<span class="o">[</span><span class="s1">&#39;backup_archive_permiss
 
 <p>　　OK，这样子，GitLab每天都会去备份一次源代码，并且，会自动删除3天前的备份。</p>
 
+<h2><a id="update"></a>升级</h2>
+
+<p>　　GitLab官方会不定期升级程序，用于提供更多的功能或者修复漏洞。如果管理员在 Help 面页的版本号旁边，发现有一个红色的 <code>update snsp</code> 字样，说明系统当前有严重漏洞，容易受到黑客的攻击。管理员发现后，应该尽快升级系统。</p>
+
+<p>　　GitLab的升级包可以从<a href="https://packages.gitlab.com/gitlab/gitlab-ce">GitLab发包系统</a>中获取。管理员根据操作系统选择合适的安装包。下面是一些常用Linux的对照。</p>
+
+<ul>
+<li><code>el/6</code>: CentOS 6</li>
+<li><code>el/7</code>: CentOS 7</li>
+<li><code>ubuntu/trusty</code>: Ubuntu 14.04 LTS</li>
+<li><code>ubuntu/bionic</code>: Ubuntu 18.04 LTS</li>
+</ul>
+
+<p>　　管理员下载了安装包后，将安装包复制到服务器上，通过以下命令即可快速升级系统。</p>
+
+<p><strong>CentOS</strong></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># 停止GitLab相关服务</span>
+<span class="nv">$ </span>sudo gitlab-ctl stop unicorn
+<span class="nv">$ </span>sudo gitlab-ctl stop sidekiq
+
+<span class="c"># 升级GitLab</span>
+<span class="nv">$ </span>sudo rpm -U  gitlab-ce-xx.xx.xx-ce.0.el7.x86_64.rpm
+
+<span class="c"># 启动Gitlab</span>
+<span class="nv">$ </span>sudo gitlab-ctl restart
+</code></pre></div>
+<p><strong>Ubuntu</strong></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># 停止GitLab相关服务</span>
+<span class="nv">$ </span>sudo gitlab-ctl stop unicorn
+<span class="nv">$ </span>sudo gitlab-ctl stop sidekiq
+
+<span class="c"># 升级GitLab</span>
+<span class="nv">$ </span>sudo dpkg -i  gitlab-ce_xx.xx.xx-ce.0_amd64.deb
+
+<span class="c"># 启动Gitlab</span>
+<span class="nv">$ </span>sudo gitlab-ctl restart
+</code></pre></div>
 <h2><a id="restore-backup"></a>备份恢复</h2>
 
 <p>　　上面讲到了，如何定期备份。备份有几种用途，第一个，可以保障源代码的安全，第二个，当我迁移服务器的时候，我可以将备份恢复到新的服务器上，这样，新的服务器就可以正常工作了。那么，这个备份应该如何使用呢？</p>
@@ -268,7 +305,7 @@ gitlab_rails<span class="o">[</span><span class="s1">&#39;backup_archive_permiss
 <span class="nv">$ </span>gitlab-rake gitlab:backup:restore <span class="nv">BACKUP</span><span class="o">=</span>1459920857
 
 <span class="c"># 启动Gitlab</span>
-<span class="nv">$ </span>sudo gitlab-ctl start
+<span class="nv">$ </span>sudo gitlab-ctl restart
 </code></pre></div>
 <blockquote>
 <p>注意：GitLab的备份和恢复都需要在同一版本内进行，不同版本间的备份文件不通用。</p>
@@ -398,7 +435,7 @@ gitlab_rails<span class="o">[</span><span class="s1">&#39;backup_archive_permiss
 
 
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2017</section>
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2018</section>
           <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
         </footer>
     </div>

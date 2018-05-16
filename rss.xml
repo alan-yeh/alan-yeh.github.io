@@ -458,9 +458,9 @@ $ npm install ejs-mate --save
 　　GitLab在使用的过程中，在很多地方都需要使用邮箱来发送通知，比如注册通知、权限变更通知、合并通知等等，因此需要为GitLab准备一个邮箱，用于发送这些通知。
 
 　　以下演示了如何配置QQ企业邮作为GitLab的发送邮箱。
-$ sudo gedit /etc/gitlab/gitlab.rb
+$ sudo nano /etc/gitlab/gitlab.rb
 
-　　...]]></description>
+　　修...]]></description>
 </item>
 
 <item>

@@ -156,8 +156,12 @@
 
 <h3>安装Git</h3>
 
-<p>　　GitLab并没有安装Git，所以第一步，应该把Git安装到系统中。安装Git非常简单，命令行用apt-get安装即可。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install git
+<p>　　GitLab并没有安装Git，所以第一步，应该把Git安装到系统中。安装Git非常简单，命令行用<code>yum / apt-get</code>安装即可。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># CentOS:</span>
+<span class="nv">$ </span>sudo yum install git
+
+<span class="c"># Ubuntu:</span>
+<span class="nv">$ </span>sudo apt-get install git
 </code></pre></div>
 <p>　　安装完毕后验证一下。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git --version
@@ -165,19 +169,24 @@
 </code></pre></div>
 <h3>安装Ruby</h3>
 
-<p>　　GitLab是使用Ruby编辑的Git管理中心，依赖Ruby2.0以上。在<a href="http://www.ruby-lang.org/en/">Ruby</a>官网下载最新版<a href="https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.gz">Ruby 2.3.0</a>，将tar.gz解压到桌面。依次输入以下命令，Ruby就安装好了。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/Desktop/ruby-2.3.0/
-./configure
-sudo make <span class="o">&amp;&amp;</span> sudo make install
+<p>　　GitLab是使用Ruby编辑的Git管理中心，依赖Ruby2.0以上。在<a href="http://www.ruby-lang.org/en/">Ruby</a>官网下载最新版<a href="https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz">Ruby 2.5.1</a>，将tar.gz解压到桌面。依次输入以下命令，Ruby就安装好了。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> ~/Desktop/ruby-2.5.1/
+<span class="nv">$ </span>./configure
+<span class="nv">$ </span>sudo make <span class="o">&amp;&amp;</span> sudo make install
 </code></pre></div>
 <p>　　同样安装完毕后验证一下。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ruby --version
-<span class="c"># ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby --version
+
+ruby 2.3.0p0 <span class="o">(</span>2015-12-25 revision 53290<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
 </code></pre></div>
 <h3>安装GitLab依赖</h3>
 
 <p>　　接下来就按着官网的<a href="https://about.gitlab.com/downloads/#ubuntu1604">安装说明</a>，先安装GitLab需要的依赖。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install curl openssh-server ca-certificates postfix
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># CentOS:</span>
+<span class="nv">$ </span>sudo yum install curl openssh-server ca-certificates postfix
+
+<span class="c"># Ubuntu: </span>
+<span class="nv">$ </span>sudo apt-get install curl openssh-server ca-certificates postfix
 </code></pre></div>
 <blockquote>
 <p>这里需要补充说明一下，安装postfix的时候，会弹出GUI，让你选择<code>General type of mail configuration</code>，这里选择默认的<code>Internet Site</code>。<code>System mail name</code>随意填。</p>
@@ -185,12 +194,17 @@ sudo make <span class="o">&amp;&amp;</span> sudo make install
 
 <h3>下载GitLab安装包</h3>
 
-<p>　　官方文档是使用<code>curl</code>来下载安装包的，但是国内网络速度太慢了，万一网络中断一下，就悲剧了，所以还是自己手动用工具下载更稳当。去<a href="https://packages.gitlab.com/gitlab/gitlab-ce">官方下载地址</a>里选择最新版的GitLab。GitLab更新速度非常快，堪称版本帝，平均2至3天升级一次。选择<code>ubuntu/xenial</code>版本下载。</p>
+<p>　　官方文档是使用<code>curl</code>来下载安装包的，但是国内网络速度太慢了，万一网络中断一下，就悲剧了，所以还是自己手动用工具下载更稳当。去<a href="https://packages.gitlab.com/gitlab/gitlab-ce">官方下载地址</a>里选择最新版的GitLab。GitLab更新速度非常快，堪称版本帝，平均2至3天升级一次。选择 <code>el7</code> 或 <code>ubuntu/xenial</code>版本下载。</p>
 
 <h3>安装GitLab</h3>
 
-<p>　　将刚才下载的<code>gitlab-ce_x.x.x-ce.0_amd64.deb</code>移动到桌面，然后安装。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo dpkg -i ~/Desktop/gitlab-ce_x.x.x-ce.0_amd64.deb
+<p>　　将刚才下载的安装包移动到桌面，然后安装。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># CentOS</span>
+<span class="nv">$ </span>sudo rpm -i ~/Desktop/gitlab-ce-x.x.x-ce.0.el7.x86_64.rpm
+
+
+<span class="c"># Ubuntu</span>
+<span class="nv">$ </span>sudo dpkg -i ~/Desktop/gitlab-ce_x.x.x-ce.0_amd64.deb
 </code></pre></div>
 <h3>应用GitLab</h3>
 
@@ -343,7 +357,7 @@ sudo make <span class="o">&amp;&amp;</span> sudo make install
 
 
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2017</section>
+          <section class="copyright"><a href="/">Alan Yeh</a> &copy; 2018</section>
           <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/Poi-Son/Pasper">Pasper</a></section>
         </footer>
     </div>
